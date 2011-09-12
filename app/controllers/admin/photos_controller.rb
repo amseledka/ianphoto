@@ -3,7 +3,7 @@ class Admin::PhotosController < ApplicationController
     @photo = Photo.new
     @category_id = params[:category_id]
     if @category_id
-      @category = Category.find(@category_id)
+      @category = current_user.categories.find(@category_id)
     end
   end
 
@@ -39,13 +39,13 @@ class Admin::PhotosController < ApplicationController
   end
   
   def bulk_edit
-    @category = Category.find(params[:category_id])
+    @category = current_user.categories.find(params[:category_id])
     @destroy_category = params.fetch(:to_destroy, false)
-    @other_categories = Category.all - [@category]
+    @other_categories = current_user.categories.all - [@category]
   end
 
   def bulk_update
-    @category = Category.find(params[:category_id])
+    @category = current_user.categories.find(params[:category_id])
     case
       when params[:move_to] && @destination_category_id = params[:move_to].fetch(:category_id, false)
         @category.photos.update_all(:category_id => @destination_category_id)

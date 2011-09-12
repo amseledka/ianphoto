@@ -1,6 +1,8 @@
 class Category < ActiveRecord::Base
   validates_presence_of :name
+  belongs_to :user
   has_many :photos
+
 
   default_scope :order => "categories.position ASC"
 

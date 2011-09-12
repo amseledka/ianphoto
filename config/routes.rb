@@ -1,7 +1,8 @@
 Ianphoto::Application.routes.draw do
   resources :photos
   resources :categories
-  resources :users, :user_sessions
+  resources :users
+  resources :user_sessions
 
   match '/:slug.html' => 'static_pages#show', :as => :static_page
   match 'login' => "user_sessions#new", :as => :login

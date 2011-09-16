@@ -5,6 +5,8 @@ gem 'jquery-rails', '>=1.0.3'
 gem 'haml'
 gem 'paperclip'
 gem 'RedCloth'
+gem 'authlogic'
+gem "rails3-generators"
 group :production do
   gem 'pg'
 	gem 'rack-google_analytics', :require => "rack/google_analytics"

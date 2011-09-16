@@ -28,13 +28,12 @@
     - if current_user
       = current_user.email
     - else
-      guest
-    - end "!"
-    #user_nav- if current_user
+      guest!
+    #user_nav 
+    - if current_user
       = link_to "Edit Profile", edit_current_user_path(:current)
       = link_to "Logout", :logout
     - else
       = link_to "Register", new_user_path
       = link_to "Login", :login
-    - end
     %p#notice= notice

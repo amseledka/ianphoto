@@ -5,7 +5,7 @@
   -unless category_id
     %p
       =f.label :category_id
-      =f.collection_select :category_id, Category.all, :id, :name
+      =f.collection_select :category_id, current_user.categories.all, :id, :name
   -else
     =f.hidden_field :category_id, :value => category_id
   %p

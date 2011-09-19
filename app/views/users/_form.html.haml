@@ -8,6 +8,18 @@
         - @user.errors.full_messages.each do |msg|  
           %li= msg
   .field
+    = f.label :username
+    %br/
+    = f.text_field :username
+  .field
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+  .field
     = f.label :email
     %br/
     = f.text_field :email
@@ -19,4 +31,8 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
+    %br/
+  .field
+    = f.label :avatar
+    = f.file_field :avatar
   .action= f.submit "Save"

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
-  before_filter :load_static_pages, :require_authentication_for_admin
+#  before_filter :load_static_pages, :require_authentication_for_admin
   helper_method :current_user_session, :current_user
 
   private
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     def load_static_pages
       @static_pages = StaticPage.all
     end
-
+=begin
     def require_authentication_for_admin
       if self.class.name.split("::").first.eql?("Admin")
         authenticate_or_request_with_http_basic do |username, password|
@@ -36,4 +36,5 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+=end
 end

@@ -1,4 +1,4 @@
-= form_for(@user) do |f|
+= form_for(@user, :url => user_path, :html => { :multipart => true }) do |f|
   - if @user.errors.any?
     #error_explanation
       %h2
@@ -7,10 +7,11 @@
       %ul
         - @user.errors.full_messages.each do |msg|  
           %li= msg
+  = image_tag current_user.avatar.url(:medium)
   .field
-    = f.label :username
+    = f.label :avatar
     %br/
-    = f.text_field :username
+    = f.file_field :avatar
   .field
     = f.label :first_name
     %br/
@@ -20,19 +21,7 @@
     %br/
     = f.text_field :last_name
   .field
-    = f.label :email
+    = f.label :about
     %br/
-    = f.text_field :email
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-    %br/
-  .field
-    = f.label :avatar
-    = f.file_field :avatar
+    = f.text_area :about
   .action= f.submit "Save"

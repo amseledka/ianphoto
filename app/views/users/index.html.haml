@@ -1,1 +1,7 @@
-= link_to :username, user_path
+%ul.users
+  - @users.each do |user|
+    %li
+      = image_tag user.avatar.url(:thumb)
+      = user.first_name
+      = user.last_name
+      = link_to "View full profile", user_path(user.id)

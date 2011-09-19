@@ -1,3 +1,10 @@
-- if user.avatar.exists? then
-  = image_tag user.avatar.url(:medium)
-- end
+%h2
+  = @user.first_name
+  = @user.last_name
+= image_tag @user.avatar.url(:medium)
+%p
+  = @user.about
+#contact_info
+  %p
+    Email me:
+    = @user.email

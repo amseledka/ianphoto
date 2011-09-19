@@ -7,6 +7,13 @@ Ianphoto::Application.routes.draw do
   match '/:slug.html' => 'static_pages#show', :as => :static_page
   match 'login' => "user_sessions#new", :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
+  
+  resources :users do
+    resources :categories do
+      resources :photos
+    end
+  end
+  
   namespace :admin do
     resources :photos do
       collection do

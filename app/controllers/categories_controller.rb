@@ -7,4 +7,8 @@ class CategoriesController < ApplicationController
       redirect_to :root
     end
   end
+  def index
+    @user = User.find(params[:user_id])
+    @categories = @user.categories.all
+  end
 end

@@ -7,7 +7,7 @@
       %ul
         - @user.errors.full_messages.each do |msg|  
           %li= msg
-  = image_tag current_user.avatar.url(:medium)
+  = image_tag current_user.avatar.url(:small)
   .field
     = f.label :avatar
     %br/

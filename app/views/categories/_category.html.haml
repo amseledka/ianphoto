@@ -1,2 +1,4 @@
 %li
+  -  if category.photos.present?
+    = image_tag category.photos.first.picture.url(:small)
   = link_to category.name, user_category_path(@user.id, category.id)

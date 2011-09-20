@@ -11,4 +11,7 @@
   %p
     Email:
     = @user.email
-=link_to "My albums", user_categories_path(@user, @categories)
+/ =link_to "Albums", user_categories_path(@user, @categories)
+%h3 Albums:
+%ul.albums
+  = render @user.categories

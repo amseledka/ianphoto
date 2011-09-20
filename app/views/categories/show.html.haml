@@ -1,0 +1,5 @@
+%h2
+  = @category.name
+%ul
+  = render @category.photos
+= link_to "Back to profile", user_path(@user.id)

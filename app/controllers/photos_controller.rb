@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   def index
-    redirect_to :root
+    @photos = @category.photos.all
+    @category = Category.find(params[:id])
   end
 
   def show

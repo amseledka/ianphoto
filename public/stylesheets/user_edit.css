@@ -1,12 +1,56 @@
-.edit_form {
+.edit_profile {
 	margin-top: 64px;
   padding-top: 10px;
   position: relative;
   width: 900px;
   left: 20%;
   display: block;
+}
 
+
+.edit_profile h2 {
+	margin-bottom: 0;
 }
-.edit_form .field { 
+
+.edit_profile .field.wide img {
+	height: 120px;
+	margin-top: 0;
+}
+
+.edit_profile .field { 
 	margin-bottom: 10px;
+	width: 400px;
+	float: left;
+	padding: 20px;
 }
+
+.edit_profile .field textarea {
+	width: 70%;
+	height: 120px;
+}
+
+.edit_profile .field.wide {
+	width: 860px;
+	height: auto;
+}
+
+.field small {
+	padding: 10px 0;
+	color: #777;
+	display: block;
+	font-size: 12px;
+} 
+
+.edit_profile .field label {
+	display: block;
+	font-size: 14px;
+	margin: 10px 0;
+}
+
+.edit_profile .action {
+	width: 100%;
+	clear: both;
+	text-align: left;
+	padding: 20px;
+}
+

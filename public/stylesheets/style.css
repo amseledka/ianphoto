@@ -79,6 +79,14 @@ body {
   color: #aaa;
 }
 
+#user_nav {
+  color: #000;
+  font-family: Georgia;
+  position: absolute;
+  top: 74px;
+  left: 10px;
+}
+
 .photographers_filter .breadcrumb {
   position: absolute;
   left: 10px;

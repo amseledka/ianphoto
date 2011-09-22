@@ -59,7 +59,7 @@
         Добро пожаловать,
         = link_to current_user.email, user_path(current_user)
         = link_to "Редактировать профайл", edit_user_path(current_user)
-        = link_to "галлерею", admin_categories_path
+        = link_to "галерею", admin_categories_path
         = link_to "Выйти", :logout
       - else
         = link_to "Регистрация", new_user_path

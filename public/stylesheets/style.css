@@ -389,3 +389,9 @@ ul.photographers_list h3 span.price {
 	position: relative;
 	left: 15px;
 }
+
+#registration input {
+	width: 250px;
+}
+#registration .action input {
+	width: 50%;

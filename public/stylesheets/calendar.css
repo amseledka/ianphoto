@@ -1,0 +1,43 @@
+table.calendar {
+  border-collapse: none;
+  border-spacing: 10px;
+}
+
+table.calendar thead th {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+table.calendar thead tr.dayName th {
+  font-size: 12px;
+  padding: 10px 0 0 0;
+}
+
+table.calendar td {
+  background: #f1eee5;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+table.calendar td.otherMonth {
+  background: #fff;
+  color: #aaa;
+}
+
+table.calendar td.weekendDay {
+  color: #cc0000;
+}
+
+table.calendar td.free {
+  box-shadow: 0 0 2px #ccc;
+}
+
+table.calendar td.busy {
+  background: #ddd;
+  border-color: #ddd;
+  color: #aaa;
+}

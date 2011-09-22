@@ -34,5 +34,6 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def calendar
+  end
 end

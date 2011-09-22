@@ -1,17 +1,80 @@
+- content_for :css do
+  = stylesheet_link_tag "photographer_profile"
+  = stylesheet_link_tag "calendar"
 
-%h2
-  = image_tag @user.avatar.url(:small)
-  = @user.first_name
-  = @user.last_name
-%p
-  %h3
-    About me:
-  = @user.about
-#contact_info
-  %p
-    Email:
-    = @user.email
-/ =link_to "Albums", user_categories_path(@user, @categories)
-%h3 Albums:
-%ul.albums
-  = render @user.categories
+- content_for :js do
+  = javascript_include_tag "photographer_profile"
+
+.photographer_profile
+  %h2
+    = @user.first_name
+    = @user.last_name
+
+  %ul.menu
+    %li#photos.current= link_to "Фотографии", "#"
+    %li#info= link_to "Контактная информация", "#"
+    %li#calendar= link_to "Календарь", "#"
+
+  .tab_content#photos_tab
+    %ul.galleries
+      = render @user.categories
+
+  .tab_content#info_tab.hidden
+    .info
+      %ul
+        %li 
+          %span Цена: 
+          от $1500 за день съемки
+        %li 
+          %span Город: 
+          Киев
+          %small (готов работать в любом городе Украины)
+        %li
+          %span Ближайшая дата:
+          11 сентября
+          %small=link_to "календарь", "#", :id => "show_calendar_tab"
+        %li &nbsp;
+        %li 
+          %span Телефон: 
+          (067) 123-45-67
+        %li
+          %span Skype:
+          =image_tag "http://mystatus.skype.com/smallicon/can0nb0y"
+          can0nk1d
+      .description
+        %h3 О себе
+        = @user.about
+    .userpic= image_tag @user.avatar.url(:small)
+
+  .tab_content#calendar_tab.hidden
+    %ul.months
+      %li= link_to "Январь", "#"
+      %li= link_to "Февраль", "#"
+      %li= link_to "Март", "#"
+      %li= link_to "Апрель", "#"
+      %li= link_to "Май", "#"
+      %li= link_to "Июнь", "#"
+      %li= link_to "Июль", "#"
+      %li= link_to "Август", "#"
+      %li.current= link_to "Сентябрь", "#"
+      %li= link_to "Октябрь", "#"
+      %li= link_to "Ноябрь", "#"
+      %li= link_to "Декабрь", "#"
+    %ul.legend
+      %li
+        .busy_day 12
+        &mdash; день занят
+      %li
+        .free_day 16
+        &mdash; день свободен
+      %li
+        %small Уточнить информацию и сделать заказ можно по телефону
+        (067) 123-45-67
+        %br/
+        %small= link_to "Контактная информация", "#", :id => "show_info_tab"
+
+    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => "Сентябрь") do |d|
+      - if(rand(10) > 7)
+        - [d.mday, {:class => "free"}]
+      -else
+        - [d.mday, {:class => "busy"}]

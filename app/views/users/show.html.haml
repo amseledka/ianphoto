@@ -4,6 +4,7 @@
 
 - content_for :js do
   = javascript_include_tag "photographer_profile"
+  = javascript_include_tag "skypeCheck"
 
 .photographer_profile
   %h2
@@ -24,11 +25,13 @@
       %ul
         %li 
           %span Цена: 
-          от $1500 за день съемки
+          от 
+          = @user.price
+          за день съемки
         %li 
           %span Город: 
-          Киев
-          %small (готов работать в любом городе Украины)
+          = @user.city
+          %small (готов(а) работать в любом городе Украины)
         %li
           %span Ближайшая дата:
           11 сентября
@@ -36,11 +39,11 @@
         %li &nbsp;
         %li 
           %span Телефон: 
-          (067) 123-45-67
+          = @user.phone
         %li
           %span Skype:
-          =image_tag "http://mystatus.skype.com/smallicon/can0nb0y"
-          can0nk1d
+          = image_tag "http://mystatus.skype.com/smallicon/#{@user.skype}", :style => "border: none;", :width => "16"
+          = @user.skype
       .description
         %h3 О себе
         = @user.about
@@ -69,7 +72,7 @@
         &mdash; день свободен
       %li
         %small Уточнить информацию и сделать заказ можно по телефону
-        (067) 123-45-67
+        = @user.phone
         %br/
         %small= link_to "Контактная информация", "#", :id => "show_info_tab"
 

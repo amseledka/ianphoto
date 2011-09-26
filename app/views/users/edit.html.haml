@@ -1,5 +1,8 @@
-%h2 Edit your info
-= render "form"
-
-%h3 Change email or password
-= render "signup_form"
+- content_for :css do
+  = stylesheet_link_tag "user_edit"
+.edit_form
+  %h2 Edit your info
+  = render "form"
+  
+  %h2 Change email or password
+  = render "signup_form"

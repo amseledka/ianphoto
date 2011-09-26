@@ -7,37 +7,30 @@
       %ul
         - @user.errors.full_messages.each do |msg|  
           %li= msg
-  = image_tag current_user.avatar.url(:small)
+  .avatar
+    = image_tag current_user.avatar.url(:small)
   .field
     = f.label :avatar
-    %br/
     = f.file_field :avatar
   .field
     = f.label :first_name
-    %br/
     = f.text_field :first_name
   .field
     = f.label :last_name
-    %br/
     = f.text_field :last_name
   .field
     = f.label "Цена за день съемки от ($):"
-    %br/
     = f.text_field :price
   .field
     = f.label :city
-    %br/
     = f.text_field :city
   .field
     = f.label :phone
-    %br/
     = f.text_field :phone
   .field
     = f.label :skype
-    %br/
     = f.text_field :skype
   .field
     = f.label :about
-    %br/
     = f.text_area :about
   .action= f.submit "Save"

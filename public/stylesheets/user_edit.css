@@ -1,0 +1,12 @@
+.edit_form {
+	margin-top: 64px;
+  padding-top: 10px;
+  position: relative;
+  width: 900px;
+  left: 20%;
+  display: block;
+
+}
+.edit_form .field { 
+	margin-bottom: 10px;
+}

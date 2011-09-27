@@ -2,6 +2,7 @@
 	position: absolute;
 	top: 84px;
 	left: 5%;
+	width: 980px;
 }
 
 #albums .albums_list ul.categories {
@@ -12,17 +13,16 @@
 #albums .albums_list ul.categories li {
 	display: inline-block;
   position: relative;
-  width: 300px;
+  width: 200px;
+  margin: 10px;
+  height: 200px;
   margin: 10px;
 }
 
-#albums .albums_list ul.categories li a {
-  text-decoration: none;
-}
-
-#albums .albums_list ul.categories li a img {
-  width: 300px;
+#albums .albums_list ul.categories li img {
   position: absolute;
+  height: 200px;
+  width: 200px;
   left: 0;
   top: 0;
   z-index: 3;
@@ -30,18 +30,23 @@
   border: 3px solid #eee;
 }
 
-#albums .albums_list ul.categories li a img.second {
+#albums .albums_list ul.categories li img.second {
+  height: 200px;
+  width: 200px;
   z-index: 2;
   opacity: 0.7;
 }
 
-#albums .albums_list ul.categories li a img.third {
+#albums .albums_list ul.categories li img.third {
+  height: 200px;
   z-index: 1;
+  width: 200px;
   opacity: 0.5;
 }
 
-#albums .new_album {
+#albums .albums_list ul.categories li .caption {
 	position: absolute;
+	top: 210px;
 }
 
 .edit_album {

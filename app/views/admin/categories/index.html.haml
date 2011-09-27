@@ -13,6 +13,9 @@
 
 - @page_title = "Моя галлерея"
 #albums
+  .new_album
+    %h2 Добавить альбом
+    =render "form"
   .albums_list
     -if @categories.blank?
       %h2 Альбомов нет. 
@@ -31,8 +34,5 @@
                     = image_tag other_photo.picture.url(:small), :class => cycle(:second, :third), :style => "-webkit-transform:rotate(#{rand(12)-6}deg); -moz-transform:rotate(#{rand(12)-6}deg); -o-transform:rotate(#{rand(12)-6}deg);", :width => "400", :height => "320"
               .caption
                 =link_to category, admin_category_path(category)
-                (#{link_to "Редактировать", edit_admin_category_path(category), :class => :edit} | #{link_to "Удалить", admin_category_path(category), :method => :delete, :confirm => "Вы уверены?"})
-  
-  .new_album
-    %h2 Добавить альбом
-    =render "form"
+                %br/
+                #{link_to "Редактировать", edit_admin_category_path(category), :class => :edit} | #{link_to "Удалить", admin_category_path(category), :method => :delete, :confirm => "Вы уверены?"}

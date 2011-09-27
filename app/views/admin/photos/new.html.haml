@@ -1,5 +1,11 @@
-%h2
-  Uploading new photo
-  -if @category
-    %small (or back to #{link_to @category, admin_category_path(@category)})
-=render "form"
+- content_for :css do
+  = stylesheet_link_tag "admin"
+
+- @page_title = "Загрузка фотографии" 
+
+.photo_form
+  %h2
+    Загрузить фотографию
+    -if @category
+      %small (или вернуться в #{link_to @category, admin_category_path(@category)})
+  =render "form"

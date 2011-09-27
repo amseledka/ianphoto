@@ -1,5 +1,10 @@
-%h2 
-  Editing photos
-  -if @category
-    %small (or back to #{link_to @category, admin_category_path(@category)})
-=render "form"
+- content_for :css do
+  = stylesheet_link_tag "admin"
+
+- @page_title = "Редактирование фотографии"
+.photo_form
+  %h2 
+    Редактирование фотографии
+    -if @category
+      %small (или вернуться в #{link_to @category, admin_category_path(@category)})
+  =render "form"

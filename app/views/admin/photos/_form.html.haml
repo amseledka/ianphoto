@@ -3,25 +3,21 @@
 -form_for [:admin, photo], :html => {:multipart => true} do |f|
   =error_messages_for photo
   -unless category_id
-    %p
-      =f.label :category_id
+    .field
+      =f.label "Альбом"
       =f.collection_select :category_id, current_user.categories.all, :id, :name
   -else
     =f.hidden_field :category_id, :value => category_id
-  %p
-    =f.label :name
-    %br/
+  .field
+    =f.label "Название"
     =f.text_field :name
-  %p
-    =f.label :description
-    %br/
+  .field
+    =f.label "Описание"
     =f.text_area :description, :size => "60x5"
-  %p
-    =f.label :picture, "Picture #{"(only if you want to upload new)" unless f.object.new_record?}"
-    %br/
+  .field
+    =f.label :picture, "Фото #{"(только если хотите загрузить новое)" unless f.object.new_record?}"
     =f.file_field :picture
-  %p
-    =f.check_box :promote_to_front_page
-    =f.label :promote_to_front_page
-  %p
-    =f.submit
+  .action
+    = f.submit "Сохранить"
+/    =f.check_box :promote_to_front_page
+/    =f.label :promote_to_front_page

@@ -36,25 +36,23 @@
   -if @category.photos.blank?
     %h3 Этот альбом пустой
   -else
-    %p Фото будут отображаться в этой последовательности. Перетащите фотографии чтобы изменить последовательность. Первая фотография будет использоваться как абложка альбома. 
+    %p Фотографии будут отображаться в этой последовательности. Перетащите фотографии чтобы изменить последовательность. Первая фотография будет использоваться как абложка альбома. 
   
   -form_for [:admin, @category], :url => admin_category_path(:format => :js), :html => {:method => :put, :id => "sorting_form"} do |f|
     %ul.photos.inline-blocks
       -@category.photos.each do |photo|
         %li.bordered
           =hidden_field_tag "category[photo_ids][]", photo.id
-          %h4=truncate photo.name
-          %br/
           =image_tag photo.picture(:small)
-          %br/
-          %br/
-          =link_to "просмотр", photo_path(photo)
-          |
-          =link_to "обрезать", admin_photo_path(photo)
-          |
-          =link_to "редактировать", edit_admin_photo_path(photo)
-          |
-          =link_to "удалить", admin_photo_path(photo), :method => :delete, :confirm => "Вы уверены?"
-          %br/
+          .caption
+            =truncate photo.name
+            %br/
+            =link_to "просмотр", photo_path(photo)
+            |
+            =link_to "обрезать", admin_photo_path(photo)
+            |
+            =link_to "редактировать", edit_admin_photo_path(photo)
+            |
+            =link_to "удалить", admin_photo_path(photo), :method => :delete, :confirm => "Вы уверены?"
 /          =check_box_tag :promote_to_front_page, 1, photo.promote_to_front_page, :id => "promote_to_front_page_#{photo.id}", :class => "promote_to_front_page", :"data-submit-to" => admin_photo_path(photo, :format => :js)
 /          =label_tag :promote_to_front_page, "front page", :for => "promote_to_front_page_#{photo.id}"

@@ -1,8 +1,10 @@
 - content_for :css do
   = stylesheet_link_tag "user_edit"
+  
+- @page_title = "Настройки"
 .edit_profile
-  %h2 Edit your info
+  %h2 Основное
   = render "form"
   %hr
-  %h2 Change email or password
+  %h2 Изменить адрес электронной почты или пароль
   = render "signup_form"

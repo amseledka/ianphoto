@@ -14,44 +14,47 @@
     });
   });
 
-%h2
-  Managing photos in
-  %em=@category
-%p
-  =link_to "&larr; Back to categories index".html_safe, admin_categories_path
-  |
-  %strong=link_to "Upload new photo", new_admin_photo_path(:category_id => @category.id)
-  |
-  =link_to "Edit category", edit_admin_category_path(@category)
-  |
-  =link_to "Move or destroy all photos", bulk_edit_admin_photos_path(:category_id => @category.id)
-  |
-  =link_to "Delete this category", admin_category_path(@category), :method => :delete, :confirm => "Are you sure?"
-
-%br/
-
--if @category.photos.blank?
-  %h3 This category is empty
--else
-  %h3 Photos will appear in this exact order. Drag them to rearrange. Photos on front page appear in random order. First photo will be used as album cover 
-
--form_for [:admin, @category], :url => admin_category_path(:format => :js), :html => {:method => :put, :id => "sorting_form"} do |f|
-  %ul.photos.inline-blocks
-    -@category.photos.each do |photo|
-      %li.bordered
-        =hidden_field_tag "category[photo_ids][]", photo.id
-        %h4=truncate photo.name
-        %br/
-        =image_tag photo.picture(:small)
-        %br/
-        %br/
-        =link_to "show", photo_path(photo)
-        |
-        =link_to "crop", admin_photo_path(photo)
-        |
-        =link_to "edit", edit_admin_photo_path(photo)
-        |
-        =link_to "delete", admin_photo_path(photo), :method => :delete, :confirm => "Are you sure?"
-        %br/
-        =check_box_tag :promote_to_front_page, 1, photo.promote_to_front_page, :id => "promote_to_front_page_#{photo.id}", :class => "promote_to_front_page", :"data-submit-to" => admin_photo_path(photo, :format => :js)
-        =label_tag :promote_to_front_page, "front page", :for => "promote_to_front_page_#{photo.id}"
+- content_for :css do
+  = stylesheet_link_tag "admin"
+#album
+  %h2
+    Управление фотографиями альбома
+    %em=@category
+  %p
+    =link_to "&larr; Назад к списку альбомов".html_safe, admin_categories_path
+    |
+    %strong=link_to "Загрузить новое фото", new_admin_photo_path(:category_id => @category.id)
+    |
+    =link_to "Редактировать альбом", edit_admin_category_path(@category)
+    |
+    =link_to "Переместить или удалить все фото", bulk_edit_admin_photos_path(:category_id => @category.id)
+    |
+    =link_to "Удалить альбом", admin_category_path(@category), :method => :delete, :confirm => "Вы уверены?"
+  
+  %br/
+  
+  -if @category.photos.blank?
+    %h3 Этот альбом пустой
+  -else
+    %p Фото будут отображаться в этой последовательности. Перетащите фотографии чтобы изменить последовательность. Первая фотография будет использоваться как абложка альбома. 
+  
+  -form_for [:admin, @category], :url => admin_category_path(:format => :js), :html => {:method => :put, :id => "sorting_form"} do |f|
+    %ul.photos.inline-blocks
+      -@category.photos.each do |photo|
+        %li.bordered
+          =hidden_field_tag "category[photo_ids][]", photo.id
+          %h4=truncate photo.name
+          %br/
+          =image_tag photo.picture(:small)
+          %br/
+          %br/
+          =link_to "просмотр", photo_path(photo)
+          |
+          =link_to "обрезать", admin_photo_path(photo)
+          |
+          =link_to "редактировать", edit_admin_photo_path(photo)
+          |
+          =link_to "удалить", admin_photo_path(photo), :method => :delete, :confirm => "Вы уверены?"
+          %br/
+/          =check_box_tag :promote_to_front_page, 1, photo.promote_to_front_page, :id => "promote_to_front_page_#{photo.id}", :class => "promote_to_front_page", :"data-submit-to" => admin_photo_path(photo, :format => :js)
+/          =label_tag :promote_to_front_page, "front page", :for => "promote_to_front_page_#{photo.id}"

@@ -6,6 +6,8 @@
   = javascript_include_tag "photographer_profile"
   = javascript_include_tag "skypeCheck"
 
+- @page_title = [@user.first_name, " ", @user.last_name].join
+
 .photographer_profile
   %h2
     = @user.first_name

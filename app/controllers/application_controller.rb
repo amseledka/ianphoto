@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
     def load_static_pages
       @static_pages = StaticPage.all
     end
+    
 =begin
     def require_authentication_for_admin
       if self.class.name.split("::").first.eql?("Admin")

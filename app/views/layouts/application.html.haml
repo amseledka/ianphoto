@@ -1,6 +1,6 @@
 !!!
 %html.no-js
-  %title Wpja
+  %title= @page_title or "АСФ"
   %head
     :plain
       <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
@@ -56,14 +56,14 @@
                 и свадебной фотографии
     #user_nav
       - if current_user
-        Logged in as:
+        Добро пожаловать,
         = link_to current_user.email, user_path(current_user)
-        = link_to "Edit Profile", edit_user_path(current_user)
-        = link_to "Manage albums", admin_categories_path
-        = link_to "Logout", :logout
+        = link_to "Редактировать профайл", edit_user_path(current_user)
+        = link_to "галлерею", admin_categories_path
+        = link_to "Выйти", :logout
       - else
-        = link_to "Register", new_user_path
-        = link_to "Login", :login
+        = link_to "Регистрация", new_user_path
+        = link_to "Войти", :login
     %p#notice
       = notice
     =yield

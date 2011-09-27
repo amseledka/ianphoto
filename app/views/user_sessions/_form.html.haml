@@ -1,10 +1,10 @@
 = form_for(@user_session) do |f|
   .field
-    = f.label :email
+    = f.label "Электронная почта"
     %br/
     = f.text_field :email
   .field
-    = f.label :password
+    = f.label "Пароль"
     %br/
     = f.password_field :password
-  =f.submit "Login"
+  =f.submit "Войти"

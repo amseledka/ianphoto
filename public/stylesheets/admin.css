@@ -1,0 +1,57 @@
+#albums {
+	position: absolute;
+	top: 84px;
+	left: 5%;
+}
+
+#albums .albums_list ul.categories {
+	list-style: none;
+	padding: 0;
+}
+
+#albums .albums_list ul.categories li {
+	display: inline-block;
+  position: relative;
+  width: 300px;
+  margin: 10px;
+}
+
+#albums .albums_list ul.categories li a {
+  text-decoration: none;
+}
+
+#albums .albums_list ul.categories li a img {
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  border-radius: 3px;
+  border: 3px solid #eee;
+}
+
+#albums .albums_list ul.categories li a img.second {
+  z-index: 2;
+  opacity: 0.7;
+}
+
+#albums .albums_list ul.categories li a img.third {
+  z-index: 1;
+  opacity: 0.5;
+}
+
+#albums .new_album {
+	position: absolute;
+}
+
+.edit_album {
+	position: absolute;
+	top: 84px;
+	left: 5%;
+}
+
+#album {
+	position: absolute;
+	top: 84px;
+	left: 5%;
+}

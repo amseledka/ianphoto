@@ -1,6 +1,6 @@
 -category ||= @category
 -form_for [:admin, category] do |f|
   =error_messages_for category
-  %label{:for => :name} Category name:
+  %label{:for => :name} Название альбома:
   =f.text_field :name
-  =f.submit "Save"
+  =f.submit "Сохранить"

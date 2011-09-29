@@ -2,7 +2,8 @@
 .bottom_menu.super_elevated
   %ul.categories_menu
     -current_user.categories.all.each do |category|
-      %li=link_to category, category
+      - if category.photos.present?
+        %li=link_to category, category
   .cl
   %ul.static_pages_menu
     -static_pages.each do |static_page|

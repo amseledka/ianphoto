@@ -1,6 +1,6 @@
-%li
-  =link_to category do
-    -  if category.photos.present?
+- if category.photos.present?
+  %li
+    =link_to category do
       = image_tag category.photos.first.picture.url(:thumb)
       - if (other_photos = category.photos.slice(1..2)).present?
         - other_photos.each do |other_photo|

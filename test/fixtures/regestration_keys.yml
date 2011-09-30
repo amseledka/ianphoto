@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  registration_key: MyString
+  used: false
+  user: 
+
+two:
+  registration_key: MyString
+  used: false
+  user: 

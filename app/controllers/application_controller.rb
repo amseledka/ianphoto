@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   layout "application"
-
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
 #  before_filter :load_static_pages, :require_authentication_for_admin
+  before_filter :set_locale
   helper_method :current_user_session, :current_user
 
   private
@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
     def load_static_pages
       @static_pages = StaticPage.all
     end
+
+    def set_locale
+      I18n.locale = params[:locale] # || I18n.default_locale
+    end
+    
     
 =begin
     def require_authentication_for_admin

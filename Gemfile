@@ -7,6 +7,7 @@ gem 'paperclip'
 gem 'RedCloth'
 gem 'authlogic'
 gem "rails3-generators"
+gem 'rails-i18n'
 group :production do
   gem 'pg'
 	gem 'rack-google_analytics', :require => "rack/google_analytics"

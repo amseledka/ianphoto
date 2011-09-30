@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922161146) do
+ActiveRecord::Schema.define(:version => 20110929220916) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(:version => 20110922161146) do
     t.datetime "picture_updated_at"
     t.boolean  "promote_to_front_page", :default => true
     t.string   "vertical_alignment"
+  end
+
+  create_table "regestration_keys", :force => true do |t|
+    t.string   "registration_key"
+    t.boolean  "used",             :default => false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "static_pages", :force => true do |t|
@@ -61,6 +69,8 @@ ActiveRecord::Schema.define(:version => 20110922161146) do
     t.string   "city"
     t.string   "phone"
     t.string   "skype"
+    t.string   "registration_key"
+    t.integer  "registration_key_id"
   end
 
 end

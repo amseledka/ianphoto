@@ -8,11 +8,12 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Ianphoto
   class Application < Rails::Application
+    config.i18n.default_locale = :ru
+
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
 
     SHADOW = YAML.load_file("#{Rails.root}/config/shadow.yml")
     if Rails.env == "production"

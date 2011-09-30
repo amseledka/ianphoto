@@ -9,11 +9,17 @@
           %li= msg
   .field.wide
     = f.label "Электронная почта"
-    = f.text_field :email
+    = f.email_field :email
   .field
     = f.label "Пароль"
     = f.password_field :password
   .field
     = f.label "Повторите пароль"
     = f.password_field :password_confirmation
-  .action= f.submit "Сохранить"
+  - if @user.new_record?
+    .field
+      = f.label "Секретный ключ"
+      = f.text_field :registration_key
+    .field
+      = f.hidden_field :registration_key, :used => true
+  .action= f.submit "#{t :submit}"

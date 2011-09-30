@@ -364,14 +364,18 @@ ul.photographers_list h3 span.price {
 }
 
 #login form {
-	position: relative;
+	position: absolute;
 	left: 15px;
+}
+
+#user_session_submit {
+	margin-top: 10px;
 }
 
 /* registration styles */
 #registration {
 	width: 300px;
-	height: 250px;
+	height: 300px;
 	position: absolute;
 	background-color: #CCCCCC;
 	border: solid 1px #999;
@@ -394,4 +398,7 @@ ul.photographers_list h3 span.price {
 	width: 250px;
 }
 #registration .action input {
-	width: 50%;
+	width: 40%;
+	margin-top: 10px;
+}
+	

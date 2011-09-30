@@ -15,10 +15,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      redirect_to(:root, :notice => 'Успешная регистрация.')
+    invite_code = params[:invite_code]
+    @invite = Invite.find_redeemable(invite_code)
+
+    if invite_code && @invite
+      if @user.save
+        @invite.redeemed!
+        redirect_to(:root, :notice => 'Успешная регистрация.')
+      else
+        render :action => "new"
+      end
     else
-      render :action => 'new'
+      render(:action => "new", :notice => "Sorry, that code is not redeemable")
     end
   end
 

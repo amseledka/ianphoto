@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930101330) do
+ActiveRecord::Schema.define(:version => 20110930155435) do
 
   create_table "calendar_records", :force => true do |t|
     t.datetime "date"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(:version => 20110930101330) do
     t.integer  "position"
     t.integer  "user_id"
   end
+
+  create_table "invites", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "email"
+    t.string   "invite_code", :limit => 40
+    t.datetime "invited_at"
+    t.datetime "redeemed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invites", ["id", "email"], :name => "index_invites_on_id_and_email"
+  add_index "invites", ["id", "invite_code"], :name => "index_invites_on_id_and_invite_code"
 
   create_table "photos", :force => true do |t|
     t.string   "name"

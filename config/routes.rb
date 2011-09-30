@@ -1,26 +1,16 @@
 Ianphoto::Application.routes.draw do
-  get "calendar_records/index"
-
-  get "calendar_records/show"
-
-  get "calendar_records/destroy"
-
-  get "calendar_records/new"
-
-  get "calendar_records/create"
-
-  get "calendar_records/edit"
-
-  get "calendar_records/update"
-
+  resources :invites
   resources :photos
   resources :categories
   resources :users
   resources :user_sessions
-
+  resources :calendar_records
+  
   match '/:slug.html' => 'static_pages#show', :as => :static_page
   match 'login' => "user_sessions#new", :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
+  match '/send_invitation/:id' => 'invites#send_invitation', :as => 'send_invitation'
+  match '/signup/:invite_code' => 'users#new', :as => 'redeem_invitation'
   
   resources :users do
     resources :categories do

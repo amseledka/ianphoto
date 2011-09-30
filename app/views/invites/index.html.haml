@@ -1,0 +1,21 @@
+%h1Listing invites
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+
+- @invites.each do |invite|
+  %tr
+    $td= link_to 'Show', invite
+    %td= link_to 'Edit', edit_invite_path(invite)
+    %td= link_to 'Destroy', invite, :confirm => 'Are you sure?', :method => :delete
+    %td
+		  - if invite.invited?
+		    Invited
+		  - else
+		    = link_to 'Invite', send_invitation_path(invite), :confirm => 'Send invitation? ', :method => :post
+
+= link_to 'New Invite', new_invite_path

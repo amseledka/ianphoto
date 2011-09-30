@@ -20,6 +20,7 @@
     .field
       = f.label "Секретный ключ"
       = f.text_field :registration_key
-    .field
-      = f.hidden_field :registration_key, :used => true
+    -#commented
+      .field
+        = f.hidden_field :registration_key, :used => true
   .action= f.submit "#{t :submit}"

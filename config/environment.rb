@@ -3,4 +3,3 @@ require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
 Ianphoto::Application.initialize!
-  config.i18n.default_locale = 'ru'

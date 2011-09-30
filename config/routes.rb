@@ -1,4 +1,18 @@
 Ianphoto::Application.routes.draw do
+  get "calendar_records/index"
+
+  get "calendar_records/show"
+
+  get "calendar_records/destroy"
+
+  get "calendar_records/new"
+
+  get "calendar_records/create"
+
+  get "calendar_records/edit"
+
+  get "calendar_records/update"
+
   resources :photos
   resources :categories
   resources :users

@@ -2,12 +2,11 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
      c.login_field = :email
     c.validate_login_field = false
-      
   end
 
   has_many :categories
   has_many :photos, :through => :categories
-  has_many :registration_keys
+  has_many :calendar_records
   has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "300x300>" }, :default_url => '/images/no_avatar.png'
 
   attr_accessible :email, :password, :password_confirmation

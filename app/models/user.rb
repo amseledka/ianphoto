@@ -7,14 +7,14 @@ class User < ActiveRecord::Base
 
   has_many :categories
   has_many :photos, :through => :categories
-  has_one :registration_key
+  has_many :registration_keys
   has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "300x300>" }, :default_url => '/images/no_avatar.png'
 
-  attr_accessible :email, :password, :password_confirmation, :registration_key  
+  attr_accessible :email, :password, :password_confirmation
 
   validates :password, :presence => true, :confirmation => true, :length => { :within => 4..40 }
   validates :password_confirmation, :presence => true
-  validates :email, :registration_key, :presence => true, :on => :create
+  validates :email, :presence => true, :on => :create
   
 =begin
 # validate exclude reg key that has used field value = true
@@ -22,13 +22,14 @@ class User < ActiveRecord::Base
 
 private
   def self.free_registration_key?
-    user.registration_key.regestration_key.where(:registration_key => :registration_key, :used => :false).first
+    #user.registration_key.regestration_key.where(:registration_key => :registration_key, :used => :false).first
+    RegistrationKey.not_used.where(:registration_key => registration_key).exists?
   end
 
   after_create do |registration_key|
     userd_id => user_id
     used => true
   end
-=end  
+=end
 end
 

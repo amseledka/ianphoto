@@ -1,5 +1,6 @@
 - content_for :css do
   = stylesheet_link_tag "user_edit"
+  = stylesheet_link_tag "calendar"
   
 - @page_title = "Настройки"
 .edit_profile
@@ -8,3 +9,31 @@
   %hr
   %h2 Изменить адрес электронной почты или пароль
   = render "signup_form"
+  %hr
+  %h2 Календарь
+  .calendar
+    %ul.months
+      %li= link_to "Январь", "#"
+      %li= link_to "Февраль", "#"
+      %li= link_to "Март", "#"
+      %li= link_to "Апрель", "#"
+      %li= link_to "Май", "#"
+      %li= link_to "Июнь", "#"
+      %li= link_to "Июль", "#"
+      %li= link_to "Август", "#"
+      %li.current= link_to "Сентябрь", "#"
+      %li= link_to "Октябрь", "#"
+      %li= link_to "Ноябрь", "#"
+      %li= link_to "Декабрь", "#"
+    %ul.legend
+      %li
+        .busy_day 12
+        &mdash; день занят
+      %li
+        .free_day 16
+        &mdash; день свободен
+    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => Time.now.month) do |d|
+      - if(rand(10) > 7)
+        - [d.mday, {:class => "free"}]
+      - else
+        - [d.mday, {:class => "busy"}]

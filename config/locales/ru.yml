@@ -269,9 +269,9 @@ ru:
 
     # Default translation keys for submit FormHelper
     submit:
-      create: 'Создать %{model}'
-      update: 'Сохранить %{model}'
-      submit: 'Сохранить %{model}'
+      create: 'Создать'
+      update: 'Сохранить'
+      submit: 'Сохранить'
 
   # In rails 3 errors is top-level namespace
   errors:

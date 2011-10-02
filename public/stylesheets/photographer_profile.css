@@ -12,7 +12,7 @@ body.galleries a:visited {
   margin-top: 64px;
   padding-top: 10px;
   position: relative;
-  width: 900px;
+  width: 920px;
   left: 50%;
   margin-left: -450px; 
 }
@@ -249,36 +249,45 @@ body.galleries a:visited {
   vertical-align: middle;
 }
 
-.photographer_profile ul.galleries li a img {
+.photographer_profile ul.galleries li a .image {
   position: absolute;
+  width: 400px;
+  height: 400px;
   left: 0;
   top: 0;
-  z-index: 3;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.photographer_profile ul.galleries li a .image img {
+	z-index: 3;
   border-radius: 3px;
   border: 3px solid #eee;
 }
 
-.photographer_profile ul.galleries li a img.second {
+.photographer_profile ul.galleries li a .image.second img {
   z-index: 2;
   opacity: 0.7;
 }
 
-.photographer_profile ul.galleries li a img.third {
+.photographer_profile ul.galleries li a .image.third img {
   z-index: 1;
   opacity: 0.5;
 }
 
-.photographer_profile ul.galleries li .caption {
+.photographer_profile ul.galleries li a .caption {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
   font-size: 18px;
-  line-height: 28px;
-  height: 28px;
+  line-height: 30px;
+  height: 30px;
   margin: 10px 0;
   color: #000;
+  clear: both;
 }
 
 .photographer_profile #photo_slides ul.photos {

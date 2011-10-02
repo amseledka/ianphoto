@@ -10,6 +10,7 @@
 
 .edit_profile h2 {
 	margin-bottom: 0;
+	margin-top: 40px;
 }
 
 .edit_profile hr {
@@ -19,7 +20,7 @@
 }
 
 .edit_profile .field.wide img {
-	height: 120px;
+	height: 200px;
 	margin-top: 0;
 }
 

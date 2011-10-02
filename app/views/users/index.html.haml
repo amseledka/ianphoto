@@ -4,8 +4,6 @@
   
 .photographers_filter
   %h2 
-    Фотографы в
-    =link_to "Кременчуге #{image_tag("arrow_down.png")}".html_safe, "#", :class => :locaton_select
   .view_options
     =link_to "#{image_tag("view_grid.png")} С фото".html_safe, "#", :title => "С фото", :"data-set-class-to" => "grid", :class => :active
     &nbsp;
@@ -23,12 +21,3 @@
           $
       .description
         = user.about
-
-.cities_list{:style => "display: none"}
-  .search
-    %label Поиск города:
-    %input{:type => :search, :placeholder => "Введите первые буквы названия города..."}
-  %ul.cities
-    
-  .closing_button
-    =link_to "Закрыть", "#"

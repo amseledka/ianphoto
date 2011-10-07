@@ -16,11 +16,4 @@
   .field
     = f.label "Повторите пароль"
     = f.password_field :password_confirmation
-  - if @user.new_record?
-    .field
-      = f.label "Секретный ключ"
-      = f.text_field :registration_key
-    -#commented
-      .field
-        = f.hidden_field :registration_key, :used => true
   .action= f.submit t("helpers.submit")

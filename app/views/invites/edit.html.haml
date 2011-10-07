@@ -1,0 +1,8 @@
+.invites
+  %h2 Editing invite to 
+    - @invite.email
+  
+  = render 'form'
+  
+  = link_to 'Show', @invite 
+  = link_to 'Back', invites_path 

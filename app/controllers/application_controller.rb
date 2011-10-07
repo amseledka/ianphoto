@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
 #  before_filter :load_static_pages, :require_authentication_for_admin
   before_filter :set_locale
   helper_method :current_user_session, :current_user
-
+ before_filter :mailer_set_url_options
+ 
   private
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
@@ -33,7 +34,10 @@ class ApplicationController < ActionController::Base
       I18n.locale = params[:locale] # || I18n.default_locale
     end
     
-    
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
+
 =begin
     def require_authentication_for_admin
       if self.class.name.split("::").first.eql?("Admin")

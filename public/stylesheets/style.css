@@ -5,8 +5,11 @@ body {
 }
 
 p#notice {
-	top: 84px;
-	font-size: 12px;
+	top: 104px;
+	left: 10px;
+	font-size: 14px;
+	position: absolute;
+	font-family: Georgia;
 }
 
 .hidden {
@@ -360,8 +363,8 @@ ul.photographers_list h3 span.price {
 	background-color: #CCCCCC;
 	border: solid 1px #999;
 	border-radius: 8px;
-	left: 5%;
-	top: 40%;
+	left: 10px;
+	top: 104px;
 }
 #login h2 {
 	position: relative;
@@ -373,20 +376,25 @@ ul.photographers_list h3 span.price {
 	left: 15px;
 }
 
-#user_session_submit {
+#login input {
+	width: 250px;
+}
+
+#login input#user_session_submit {
 	margin-top: 10px;
+	width: 40%;
 }
 
 /* registration styles */
 #registration {
 	width: 300px;
-	height: 300px;
+	height: 250px;
 	position: absolute;
 	background-color: #CCCCCC;
 	border: solid 1px #999;
 	border-radius: 8px;
-	left: 5%;
-	top: 40%;
+	left: 10px;
+	top: 104px;
 }
 
 #registration h2 {
@@ -407,3 +415,9 @@ ul.photographers_list h3 span.price {
 	margin-top: 10px;
 }
 	
+/* invites styles */
+.invites {
+  position: absolute;
+  left: 10px;
+  top: 104px;
+}

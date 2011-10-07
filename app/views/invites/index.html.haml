@@ -1,21 +1,14 @@
-%h1Listing invites
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-
-- @invites.each do |invite|
-  %tr
-    $td= link_to 'Show', invite
-    %td= link_to 'Edit', edit_invite_path(invite)
-    %td= link_to 'Destroy', invite, :confirm => 'Are you sure?', :method => :delete
-    %td
-		  - if invite.invited?
-		    Invited
-		  - else
-		    = link_to 'Invite', send_invitation_path(invite), :confirm => 'Send invitation? ', :method => :post
-
-= link_to 'New Invite', new_invite_path
+.invites
+  %h2 Список электронных адресов для приглашения
+  %ul
+    - @invites.each do |invite|
+      %li
+        = link_to invite.email, invite
+        = link_to 'Edit', edit_invite_path(invite)
+        = link_to 'Destroy', invite, :confirm => 'Вы уверены?', :method => :delete
+        - if invite.invited?
+          Invited
+        - else
+          = link_to 'Послать приглашение', send_invitation_path(invite), :confirm => 'Послать приглашение? ', :method => :post
+  
+  = link_to 'Добавить электронный адрес для приглашения', new_invite_path

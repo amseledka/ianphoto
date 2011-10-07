@@ -1,0 +1,7 @@
+.invites
+  %p#notice
+    = notice
+  .invite
+    = @invite.email
+    = link_to 'Edit', edit_invite_path(@invite) | 
+    = link_to 'Back', invites_path

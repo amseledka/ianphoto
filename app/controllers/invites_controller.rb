@@ -25,7 +25,7 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new(params[:invite])
     if @invite.save
-      redirect_to(@invites, :notice => 'Invite was successfully created.')
+      redirect_to(invites_path, :notice => 'Invite was successfully created.')
     else
       render :action => "new"
     end

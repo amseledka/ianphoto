@@ -1,6 +1,6 @@
 = form_for(@invite) do |f|
   - if @invite.errors.any?
-    #error_explanation
+    #error_explanation.message
       %h2
         = pluralize(@invite.errors.count, "error")
         prohibited this user from being saved:

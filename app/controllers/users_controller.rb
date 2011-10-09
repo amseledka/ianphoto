@@ -15,18 +15,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    invite_code = params[:invite_code]
-    @invite = Invite.find_redeemable(invite_code)
-
-    if invite_code && @invite
-      if @user.save
-        @invite.redeemed!
-        redirect_to(:root, :notice => 'Успешная регистрация.')
+    @invite = Invite.find_redeemable(params[:invite_code])
+      if @invite
+      @user.save
+          @invite.redeemed!
+          redirect_to(:root, :notice => 'Успешная регистрация.')
+        else
+          render(:action => "new", :notice => "Вы не прошли регистрацию, убедитесь что вы регестрируетесь на тот же электронный адрес, на который пришло приглашение")
+        end
       else
-        render :action => "new"
+        render(:action => "new", :notice => "Sorry, that code is not redeemable")
       end
     else
-      render(:action => "new", :notice => "Sorry, that code is not redeemable")
+      render(:action => "new", :notice => "К сожалению регистрация закрыта в данный момент, вы можете зарегестрироваться только по приглашению")
     end
   end
 

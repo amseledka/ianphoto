@@ -1,6 +1,6 @@
 = form_for(@user, :url => user_path, :html => { :multipart => true }) do |f|
   - if @user.errors.any?
-    #error_explanation
+    #error_explanation.message
       %h2
         = pluralize(@user.errors.count, "error")
         prohibited this user from being saved:

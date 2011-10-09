@@ -13,22 +13,6 @@ class User < ActiveRecord::Base
 
   validates :password, :presence => true, :confirmation => true, :length => { :within => 4..40 }
   validates :password_confirmation, :presence => true
-  validates :email, :presence => true, :on => :create
+  validates :email, :uniqueness => true, :presence => true, :on => :create
   
-=begin
-# validate exclude reg key that has used field value = true
-  validates :registration_key, :if => :free_registration_key?, :message => "Registration key %{value} has already been used."
-
-private
-  def self.free_registration_key?
-    #user.registration_key.regestration_key.where(:registration_key => :registration_key, :used => :false).first
-    RegistrationKey.not_used.where(:registration_key => registration_key).exists?
-  end
-
-  after_create do |registration_key|
-    userd_id => user_id
-    used => true
-  end
-=end
 end
-

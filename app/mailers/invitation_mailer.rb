@@ -10,7 +10,7 @@ class InvitationMailer < ActionMailer::Base
     @invite = invitation
     mail :from => 'DO_NOT_REPLY',
          :to => invitation.email,
-         :subject => "Welcome to WPJA"
+         :subject => "Добро пожаловать на сайт АСФ"
   end
 
 end

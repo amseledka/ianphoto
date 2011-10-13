@@ -28,4 +28,8 @@ class Admin::CalendarRecordsController < ApplicationController
     @calendar_record.destroy
   end
   
+  def switch
+    @current_user.calendar_records.toggle!(parrams)
+  end
+  
 end

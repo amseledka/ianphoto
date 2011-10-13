@@ -32,11 +32,9 @@
       %li
         .free_day 16
         &mdash; день свободен
-      - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => Time.now.month) do |d|
-        - if current_user.calendar_records.exists?(d)
-          - [d.mday, {:class => "busy"}]
-        - else
-          - [d.mday, {:class => "free"}]
+      
+      = calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => Time.now.month) do |calendar_record|
+        = render "admin/calendar_records/calendar_record"
   %hr
   %h2 Изменить адрес электронной почты или пароль
   = render "signup_form"

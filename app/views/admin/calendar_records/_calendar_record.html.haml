@@ -1,0 +1,9 @@
+-calendar_record ||= @calendar_record
+-form_for [:admin, :calendar_record] do |f|
+  =f.hidden_field :user_id
+  =f.hidden_field :date
+  =link_to switch_calendar_record_url(calendar_record)
+    - if current_user.calendar_records.exists?(calendar_record)
+      - [calendar_record.mday, {:class => "busy"}]
+    - else
+      - [calendar_record.mday, {:class => "free"}]

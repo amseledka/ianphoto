@@ -2,13 +2,13 @@
   = stylesheet_link_tag "user_edit"
   = stylesheet_link_tag "calendar"
   
+- content_for :js do
+  = javascript_include_tag "calendar_date"
+  
 - @page_title = "Настройки"
 .edit_profile
   %h2 Основное
   = render "form"
-  %hr
-  %h2 Изменить адрес электронной почты или пароль
-  = render "signup_form"
   %hr
   %h2 Календарь
   .calendar
@@ -32,8 +32,11 @@
       %li
         .free_day 16
         &mdash; день свободен
-    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => Time.now.month) do |d|
-      - if(rand(10) > 7)
-        - [d.mday, {:class => "free"}]
-      - else
-        - [d.mday, {:class => "busy"}]
+      - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => Time.now.month) do |d|
+        - if current_user.calendar_records.exists?(d)
+          - [d.mday, {:class => "busy"}]
+        - else
+          - [d.mday, {:class => "free"}]
+  %hr
+  %h2 Изменить адрес электронной почты или пароль
+  = render "signup_form"

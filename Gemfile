@@ -8,6 +8,7 @@ gem 'RedCloth'
 gem 'authlogic'
 gem "rails3-generators"
 gem 'rails-i18n'
+gem 'russian'
 group :production do
   gem 'pg'
 	gem 'rack-google_analytics', :require => "rack/google_analytics"

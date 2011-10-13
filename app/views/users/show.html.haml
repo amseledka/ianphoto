@@ -5,6 +5,7 @@
 - content_for :js do
   = javascript_include_tag "photographer_profile"
   = javascript_include_tag "skypeCheck"
+  = javascript_include_tag "calendar_date"
 
 - @page_title = [@user.first_name, " ", @user.last_name].join
 
@@ -33,10 +34,9 @@
         %li 
           %span Город: 
           = @user.city
-          / %small (готов(а) работать в любом городе Украины)
         %li
           %span Ближайшая дата:
-          11 сентября
+          11.02
           %small=link_to "календарь", "#", :id => "show_calendar_tab"
         %li &nbsp;
         %li 
@@ -78,8 +78,8 @@
         %br/
         %small= link_to "Контактная информация", "#", :id => "show_info_tab"
 
-    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => "Сентябрь") do |d|
-      - if(rand(10) > 7)
-        - [d.mday, {:class => "free"}]
-      -else
+    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => Time.now.month) do |d|
+      - if @user.calendar_records.exists?(d)
         - [d.mday, {:class => "busy"}]
+      -else
+        - [d.mday, {:class => "free"}]

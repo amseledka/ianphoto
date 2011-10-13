@@ -35,6 +35,7 @@ Ianphoto::Application.routes.draw do
         put :arrange
       end
     end
+    resources :calendar_records
     root :to => 'main#index'
   end
 

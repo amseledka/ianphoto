@@ -11,5 +11,9 @@ class CalendarRecord < ActiveRecord::Base
         @calendar_record.create(options)
       end
   end
+  
+  def self.by_date(date)
+    CalendarRecord.find_or_initialize_by_date(date)
+  end
 
 end

@@ -36,7 +36,9 @@ Ianphoto::Application.routes.draw do
       end
     end
     resources :calendar_records do
-      member :switch, :only => :post
+      member do
+        post :switch
+      end
     end
     root :to => 'main#index'
   end

@@ -42,7 +42,7 @@ ru:
       - Пт
       - Сб
 
-    month_names:
+    standalone_month_names:
       - ~
       - января
       - февраля
@@ -57,7 +57,7 @@ ru:
       - ноября
       - декабря
     # see russian gem for info on "standalone" day names
-    standalone_month_names:
+    month_names:
       - ~
       - Январь
       - Февраль

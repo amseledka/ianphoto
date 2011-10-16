@@ -78,7 +78,7 @@
         %br/
         %small= link_to "Контактная информация", "#", :id => "show_info_tab"
 
-    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :calendar_title => Time.now.month) do |d|
+    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :month_header => true) do |d|
       - if @user.calendar_records.exists?(d)
         - [d.mday, {:class => "busy"}]
       -else

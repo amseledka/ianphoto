@@ -10,21 +10,13 @@
   %h2 Основное
   = render "form"
   %hr
+  %h2 Изменить адрес электронной почты или пароль
+  = render "signup_form"
+  %hr
   %h2 Календарь
   .calendar
-    %ul.months
-      %li= link_to "Январь", "#"
-      %li= link_to "Февраль", "#"
-      %li= link_to "Март", "#"
-      %li= link_to "Апрель", "#"
-      %li= link_to "Май", "#"
-      %li= link_to "Июнь", "#"
-      %li= link_to "Июль", "#"
-      %li= link_to "Август", "#"
-      %li.current= link_to "Сентябрь", "#"
-      %li= link_to "Октябрь", "#"
-      %li= link_to "Ноябрь", "#"
-      %li= link_to "Декабрь", "#"
+    -calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :month_header => true) do |date|
+      -render "admin/calendar_records/calendar_record", :date => date
     %ul.legend
       %li
         .busy_day 12
@@ -32,8 +24,3 @@
       %li
         .free_day 16
         &mdash; день свободен
-      -calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :month_header => true) do |date|
-        -render "admin/calendar_records/calendar_record", :date => date
-  %hr
-  %h2 Изменить адрес электронной почты или пароль
-  = render "signup_form"

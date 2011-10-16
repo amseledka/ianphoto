@@ -61,3 +61,31 @@
 	padding: 20px;
 }
 
+.calendar {
+  float: left;
+}
+.calendar ul.legend {
+  list-style-type: none;
+  float: left;
+}
+
+.calendar ul.legend li {
+  margin: 20px 0;
+}
+
+.calendar ul.legend li .busy_day,
+.calendar ul.legend li .free_day {
+  background: #ddd;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px;
+  color: #bbb;
+}
+
+.calendar ul.legend li .free_day {
+  background: #f1eee5;
+  color: #000;
+  border-color: #f1eee5;
+}
+

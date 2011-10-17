@@ -4,11 +4,11 @@ class CalendarRecord < ActiveRecord::Base
   validates_uniqueness_of :date, :scope => :user_id
 
   def self.toggle!(options)
-    @calendar_record = CalendarRecord.where(options)
-      if @calendar_records.exists?
+    @calendar_record = CalendarRecord.where(options).first
+      if @calendar_records.present?
         @calendar_record.destroy
       else
-        @calendar_record.create(options)
+        CalendarRecord.create(options)
       end
   end
   

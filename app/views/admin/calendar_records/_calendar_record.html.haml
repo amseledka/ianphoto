@@ -1,9 +1,8 @@
 -calendar_record ||= CalendarRecord.by_date(date)
 -form_for [:admin, calendar_record] do |f|
-  =f.hidden_field :user_id
   =f.hidden_field :date
   - if calendar_record.new_record?
-    - [date.mday, {:class => "busy"}]
-  - else
     - [date.mday, {:class => "free"}]
+  - else
+    - [date.mday, {:class => "busy"}]
   =date.day

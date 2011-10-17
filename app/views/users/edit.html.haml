@@ -7,7 +7,7 @@
   
 - @page_title = "Настройки"
 .edit_profile
-  %h2 Основное
+  %h2 Основная информация
   = render "form"
   %hr
   %h2 Изменить адрес электронной почты или пароль
@@ -16,7 +16,7 @@
   %h2 Календарь
   .calendar
     -calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :month_header => true) do |date|
-      -render "admin/calendar_records/calendar_record", :date => date
+      -render "admin/calendar_records/calendar_record", :date => date.midnight
     %ul.legend
       %li
         .busy_day 12

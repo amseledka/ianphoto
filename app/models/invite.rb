@@ -5,7 +5,7 @@ class Invite < ActiveRecord::Base
   validates_presence_of :email, :on => :save, :message => "can't be blank"
   validates_uniqueness_of :email, :on => :save, :message => "is already registered"
 
-  after_create :generate_code!
+  after_create :generate_code!, :deliver_invite
 
   scope :unsent, where(:invite_code => nil)
   scope :not_redeemed, where(:redeemed_at => nil)
@@ -35,5 +35,13 @@ class Invite < ActiveRecord::Base
     def generate_code!
       self.invite_code = Digest::SHA1.hexdigest("--#{Time.now.utc.to_s}--#{self.email}--")
       save!
+    end
+    
+    def send_invitation
+      @invite = Invite.find(params[:id])
+      @invite.invite!
+      mail = InvitationMailer.invite(@invite)
+      mail.deliver
+      redirect_to(invites_url, :notice => "Invite sent to #{@invite.email}")
     end
 end

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    @user.invite = Invite.find_redeemable(session[:invite_code])
+    @user.invite = Invite.find_redeemable(session.delete(:invite_code))
     if @user.save
       redirect_to(:root, :notice => 'Успешная регистрация.')
     else

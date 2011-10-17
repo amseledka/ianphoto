@@ -6,19 +6,9 @@ class InvitesController < ApplicationController
     @invites = Invite.all
   end
 
-  # GET /invites/1
-  def show
-    @invite = Invite.find(params[:id])
-  end
-
   # GET /invites/new
   def new
     @invite = Invite.new
-  end
-
-  # GET /invites/1/edit
-  def edit
-    @invite = Invite.find(params[:id])
   end
 
   # POST /invites
@@ -28,16 +18,6 @@ class InvitesController < ApplicationController
       redirect_to(invites_path, :notice => 'Invite was successfully created.')
     else
       render :action => "new"
-    end
-  end
-
-  # PUT /invites/1
-  def update
-    @invite = Invite.find(params[:id])
-    if @invite.update_attributes(params[:invite])
-      redirect_to(@invite, :notice => 'Invite was successfully updated.')
-    else
-      render :action => "edit"
     end
   end
 

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  belongs_to :invite
+
   acts_as_authentic do |c|
      c.login_field = :email
     c.validate_login_field = false
@@ -14,5 +16,14 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, :confirmation => true, :length => { :within => 4..40 }
   validates :password_confirmation, :presence => true
   validates :email, :uniqueness => true, :presence => true, :on => :create
+  validates_presence_of :invite_id
+  validates_associated :invite
+
+  after_create :redeem_invite
+
+  protected
+    def redeem_invite
+      invite.redeem!
+    end
   
 end

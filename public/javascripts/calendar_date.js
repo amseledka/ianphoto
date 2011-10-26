@@ -1,10 +1,8 @@
 jQuery(function($) {
-  $(document).ready(function() {
-    $("form.aform").ajaxForm();
-    $("table.calendar td").click(function() {
-     $(this).toggleClass("free");
-     $(this).toggleClass("busy");
-     $(this).parent().submit();
-    });
+  $("form.new_calendar_record").ajaxForm();
+  $("table.calendar td").click(function() {
+   $(this).toggleClass("free");
+   $(this).toggleClass("busy");
+   $(this).find("form.new_calendar_record:first").submit();
   });
 });

@@ -11,20 +11,16 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    session[:invite_code] = params.delete(:invite_code) #invite code is passed here, not in create
   end
 
   def create
     @user = User.new(params[:user])
-    @invite = Invite.find_redeemable(params[:invite_code])
-      if @invite
-        @user.save
-          if @invite.redeemed!
-          redirect_to(:root, :notice => 'Успешная регистрация.')
-          else
-            render(:action => "new", :notice => "Зарегестироваться можно только если вас пригласили")
-          end
+    @user.invite = Invite.find_redeemable(session[:invite_code])
+    if @user.save
+      redirect_to(:root, :notice => 'Успешная регистрация.')
     else
-      render(:action => "new", :notice => "Зарегестироваться можно только если вас пригласили")
+      render(:action => "new", :notice => "Зарегистироваться можно только если вас пригласили")
     end
   end
 

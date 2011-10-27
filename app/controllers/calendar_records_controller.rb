@@ -4,4 +4,9 @@ class CalendarRecordsController < ApplicationController
     @calendar_records = @user.calendar_records.all
   end
 
+  def create
+  end
+
+  def destroy
+  end
 end

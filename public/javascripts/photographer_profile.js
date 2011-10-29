@@ -26,4 +26,5 @@ jQuery(function($) {
     $("ul.menu li#calendar a:first").click();
     return false;
   });
+
 });

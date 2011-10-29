@@ -87,13 +87,14 @@ body {
   color: #aaa;
 }
 
+#footer {
+  padding: 40px 0;
+  text-align: center;
+}
+
 #user_nav {
   color: #000;
-  font-family: Georgia;
-  font-size: 14px;
-  position: absolute;
-  top: 74px;
-  left: 10px;
+  font-size: 12px;
   z-index: 2;
 }
 

@@ -25,7 +25,7 @@ body.galleries a:visited {
 .photographer_profile ul.menu {
   position: absolute;
   right: 0;
-  top: 20px;
+  top: 0px;
   margin-right: -10px;
 }
 
@@ -40,6 +40,11 @@ body.galleries a:visited {
 
 .photographer_profile ul.menu li.current {
   border-bottom: 2px solid #777;
+}
+
+.photographer_profile .tab_content {
+  margin-top: 40px;
+  padding: 20px 0;
 }
 
 .photographer_profile ul.photos {
@@ -215,6 +220,12 @@ body.galleries a:visited {
   background: #f1eee5;
   color: #000;
   border-color: #f1eee5;
+}
+
+#calendar_tab ul.calendar_months {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 #calendar_tab .calendar {

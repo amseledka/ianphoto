@@ -182,53 +182,7 @@ body.galleries a:visited {
   text-align: right;
 }
 
-#calendar_tab ul.months li.current a {
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-}
 
-#calendar_tab ul.legend {
-  position: absolute;
-  right: 0;
-  width: 200px;
-  list-style-type: none;
-  margin: -10px 0 0 0;
-  padding: 0;
-}
-
-#calendar_tab ul.legend li {
-  margin: 20px 0;
-}
-
-#calendar_tab ul.legend li .busy_day,
-#calendar_tab ul.legend li .free_day {
-  background: #ddd;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  display: inline-block;
-  padding: 10px;
-  color: #bbb;
-}
-
-#calendar_tab ul.legend li .free_day {
-  background: #f1eee5;
-  color: #000;
-  border-color: #f1eee5;
-}
-
-#calendar_tab ul.calendar_months {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#calendar_tab .calendar {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 2px #ccc;
-  padding: 10px;
-}
 
 .photographer_profile ul.galleries {
   padding: 0;

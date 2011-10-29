@@ -15,10 +15,12 @@
   = render "signup_form"
   %hr
   %h2 Календарь
+  %br/
   %ul.calendar_months
     = full_year_calendar do |desired_date|
       - calendar_record ||= current_user.calendar_records.by_date(desired_date)
       - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record), {:class => calendar_record.new_record? ? "free" : "busy"}]
+  .cl
   %ul.legend
     %li
       .busy_day 12
@@ -26,3 +28,5 @@
     %li
       .free_day 16
       &mdash; день свободен
+    %li
+      Клик по дате изменит ее состояние

@@ -65,10 +65,12 @@
   float: left;
 }
 
-.calendar td {
+.calendar td.free,
+.calendar td.busy {
   cursor: pointer;
 }
 
-.calendar td:hover {
+.calendar td.free:hover,
+.calendar td.busy:hover {
   box-shadow: 0 0 5px blue !important;
 }

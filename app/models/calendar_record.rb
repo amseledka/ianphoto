@@ -5,7 +5,7 @@ class CalendarRecord < ActiveRecord::Base
 
   def self.toggle!(options)
     @calendar_record = CalendarRecord.where(options).first
-      if @calendar_records.present?
+      if @calendar_record.present?
         @calendar_record.destroy
       else
         CalendarRecord.create(options)
@@ -13,7 +13,7 @@ class CalendarRecord < ActiveRecord::Base
   end
   
   def self.by_date(date)
-    CalendarRecord.find_or_initialize_by_date(date)
+    CalendarRecord.find_or_initialize_by_date(date.midnight)
   end
 
 end

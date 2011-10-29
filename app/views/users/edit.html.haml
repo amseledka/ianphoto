@@ -16,7 +16,8 @@
   %h2 Календарь
   .calendar
     -calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :month_header => true) do |date|
-      -render "admin/calendar_records/calendar_record", :date => date.midnight
+      - calendar_record ||= CalendarRecord.by_date(date)
+      - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record, :date => date), {:class => calendar_record.new_record? ? "free" : "busy"}]
     %ul.legend
       %li
         .busy_day 12

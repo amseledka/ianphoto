@@ -1,8 +1,3 @@
--calendar_record ||= CalendarRecord.by_date(date)
--form_for [:admin, calendar_record] do |f|
+=form_for [:admin, calendar_record], :html => {:class => :toggle_calendar_record} do |f|
   =f.hidden_field :date
-  - if calendar_record.new_record?
-    - [date.mday, {:class => "free"}]
-  - else
-    - [date.mday, {:class => "busy"}]
   =date.day

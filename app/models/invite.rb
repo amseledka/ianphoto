@@ -5,7 +5,7 @@ class Invite < ActiveRecord::Base
   validates_presence_of :email, :on => :save, :message => "can't be blank"
   validates_uniqueness_of :email, :on => :save, :message => "is already registered"
 
-  after_create :generate_code!, :deliver_invite
+  after_create :generate_code!, :send_invitation
 
   scope :unsent, where(:invite_code => nil)
   scope :not_redeemed, where(:redeemed_at => nil)
@@ -38,10 +38,7 @@ class Invite < ActiveRecord::Base
     end
     
     def send_invitation
-      @invite = Invite.find(params[:id])
-      @invite.invite!
-      mail = InvitationMailer.invite(@invite)
+      mail = InvitationMailer.invite(self)
       mail.deliver
-      redirect_to(invites_url, :notice => "Invite sent to #{@invite.email}")
     end
 end

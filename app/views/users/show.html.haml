@@ -64,12 +64,4 @@
         %br/
         %small= link_to "Контактная информация", "#", :id => "show_info_tab"
 
-    %ul.calendar_months
-      - (-5..6).each do |month_number|
-        -desired_date = month_number.months.since
-        %li{:id => month_anchor(desired_date, :include_anchor => false)}
-          - calendar(:year => desired_date.year, :month => desired_date.month, :first_day_of_week => 1, :month_header => true, :next_month_text => next_month_link(desired_date), :previous_month_text => previous_month_link(desired_date), :calendar_title => month_header(desired_date)) do |date|
-            - if @user.calendar_records.exists?(:date => date.midnight)
-              - [date.mday, {:class => "busy"}]
-            -else
-              - [date.mday, {:class => "free"}]
+    %ul.calendar_months= full_year_calendar

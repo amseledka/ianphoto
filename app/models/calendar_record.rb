@@ -13,7 +13,7 @@ class CalendarRecord < ActiveRecord::Base
   end
   
   def self.by_date(date)
-    CalendarRecord.find_or_initialize_by_date(date.midnight)
+    CalendarRecord.scoped({}).find_or_initialize_by_date(date.midnight)
   end
 
 end

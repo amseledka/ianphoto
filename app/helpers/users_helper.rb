@@ -21,4 +21,14 @@ module UsersHelper
     date ||= Time.now
     "#{I18n.t("date.month_names")[date.month]} #{date.year}"
   end
+
+  def full_year_calendar(&block)
+    calendars = (-5..6).map do |month_number|
+      desired_date = month_number.months.since
+      content_tag(:li, :id => month_anchor(desired_date, :include_anchor => false)) {
+        render("users/month_calendar", :desired_date => desired_date, :custom_day_content => block_given? ? block : nil).html_safe
+      }.html_safe
+    end
+    calendars.join.html_safe
+  end
 end

@@ -10,7 +10,6 @@ class InvitationMailer < ActionMailer::Base
     @invite = invitation
     mail :from => 'DO_NOT_REPLY',
          :to => invitation.email,
-         :subject => "Добро пожаловать на сайт АСФ"
+         :subject => "Welcome, you've been invited"
   end
-
 end

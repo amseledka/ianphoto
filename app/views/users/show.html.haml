@@ -11,8 +11,7 @@
 
 .photographer_profile
   %h2
-    = @user.first_name
-    = @user.last_name
+    = "#{@user.first_name}&nbsp;#{@user.last_name}".html_safe
 
   %ul.menu
     %li#photos.current= link_to "Фотографии", "#"

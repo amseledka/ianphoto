@@ -42,11 +42,6 @@ body.galleries a:visited {
   border-bottom: 2px solid #777;
 }
 
-.photographer_profile .tab_content {
-  margin-top: 40px;
-  padding: 20px 0;
-}
-
 .photographer_profile ul.photos {
   list-style-type: none;
   text-align: center;

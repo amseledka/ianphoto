@@ -1,0 +1,10 @@
+-content_for :css do
+  =stylesheet_link_tag "calendar"
+  =stylesheet_link_tag "full_screen_calendar"
+
+-content_for :js do
+  =javascript_include_tag "calendar"
+
+%ul.calendar_months
+  = full_year_calendar do |date|
+    - [render("calendar_records/date", :date => date, :calendar_records => @calendar_records[date.to_time.to_i].presence), {}]

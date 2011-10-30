@@ -1,5 +1,5 @@
 class CalendarRecordsController < ApplicationController
   def index
-    @date = 
+    @calendar_records = CalendarRecord.full_year.grouped_by_timestamp
   end
 end

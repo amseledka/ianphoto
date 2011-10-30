@@ -42,6 +42,7 @@ Ianphoto::Application.routes.draw do
     end
     root :to => 'main#index'
   end
+  resources :calendar_records
 
   root :to => 'main#index'
 end

@@ -1,0 +1,19 @@
+table.calendar td {
+  width: 10%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+table.calendar td ul {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+table.calendar td ul li {
+  display: block;
+  width: 100%;
+}

@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
 
   after_create :redeem_invite
 
+  def to_s
+    email 
+  end
+
   protected
     def redeem_invite
       invite.redeem!

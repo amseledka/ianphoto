@@ -12,8 +12,8 @@
     = f.email_field :email
   .field
     = f.label "Пароль"
-    = f.password_field :password
+    = f.password_field :password, :autocomplete => :off
   .field
     = f.label "Повторите пароль"
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, :autocomplete => :off
   .action= f.submit t("helpers.submit")

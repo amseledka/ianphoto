@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :categories
   has_many :photos, :through => :categories
   has_many :calendar_records
-  has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "300x300>" }, :default_url => '/images/no_avatar.png'
+  has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "300x300>", :icon => "24x24#" }, :default_url => '/images/no_avatar.png'
 
   attr_accessible :email, :password, :password_confirmation
 

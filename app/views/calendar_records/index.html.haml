@@ -5,6 +5,9 @@
 -content_for :js do
   =javascript_include_tag "calendar"
 
-%ul.calendar_months
-  = full_year_calendar do |date|
-    - [render("calendar_records/date", :date => date, :calendar_records => @calendar_records[date.to_time.to_i].presence), {}]
+.calendar_page
+  %h2 Календарь
+  %ul.calendar_months
+    = full_year_calendar do |date|
+      - free_users = @all_users - Array.wrap(@calendar_records[date.midnight.to_i].presence).map(&:user)
+      - [render("calendar_records/date", :date => date, :free_users => free_users), {:class => free_users.present? ? "free" : "busy"}]

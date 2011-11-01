@@ -3,7 +3,7 @@ class CalendarRecord < ActiveRecord::Base
   validates_presence_of :user
   validates_uniqueness_of :date, :scope => :user_id
 
-  scope :full_year, lambda {where("calendar_records.date >= ?", 5.months.ago).where("calendar_records.date <= ?", 6.months.since)}
+  scope :full_year, lambda {where("calendar_records.date >= ?", 1.months.ago).where("calendar_records.date <= ?", 4.months.since)}
 
   def self.toggle!(options)
     @calendar_record = CalendarRecord.where(options).first

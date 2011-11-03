@@ -4,6 +4,7 @@
   
 - content_for :js do
   = javascript_include_tag "calendar_date"
+  = javascript_include_tag "calendar"
   
 - @page_title = "Настройки"
 .edit_profile
@@ -14,14 +15,18 @@
   = render "signup_form"
   %hr
   %h2 Календарь
-  .calendar
-    -calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :month_header => true) do |date|
-      - calendar_record ||= CalendarRecord.by_date(date)
-      - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record, :date => date), {:class => calendar_record.new_record? ? "free" : "busy"}]
-    %ul.legend
-      %li
-        .busy_day 12
-        &mdash; день занят
-      %li
-        .free_day 16
-        &mdash; день свободен
+  %br/
+  %ul.calendar_months
+    = full_year_calendar do |desired_date|
+      - calendar_record ||= current_user.calendar_records.by_date(desired_date)
+      - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record), {:class => calendar_record.new_record? ? "free" : "busy"}]
+  .cl
+  %ul.legend
+    %li
+      .busy_day 12
+      &mdash; день занят
+    %li
+      .free_day 16
+      &mdash; день свободен
+    %li
+      Клик по дате изменит ее состояние

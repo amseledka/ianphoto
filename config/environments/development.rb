@@ -49,4 +49,6 @@ Ianphoto::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  Paperclip.options[:command_path] = '/usr/local/bin'
 end

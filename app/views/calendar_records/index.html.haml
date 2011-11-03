@@ -1,0 +1,13 @@
+-content_for :css do
+  =stylesheet_link_tag "calendar"
+  =stylesheet_link_tag "full_screen_calendar"
+
+-content_for :js do
+  =javascript_include_tag "calendar"
+
+.calendar_page
+  %h2 Календарь
+  %ul.calendar_months
+    = full_year_calendar do |date|
+      - free_users = @all_users - Array.wrap(@calendar_records[date.midnight.to_i].presence).map(&:user)
+      - [render("calendar_records/date", :date => date, :free_users => free_users), {:class => free_users.present? ? "free" : "busy"}]

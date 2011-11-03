@@ -1,0 +1,11 @@
+.container
+  .day
+    =date.mday
+    -if free_users.present?
+      %small cвободны:
+    -else
+      %small День полностью занят
+
+  %ul.free_users
+    - free_users.each do |user|
+      %li= link_to user, user

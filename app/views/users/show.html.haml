@@ -4,14 +4,14 @@
 
 - content_for :js do
   = javascript_include_tag "photographer_profile"
+  = javascript_include_tag "calendar"
   = javascript_include_tag "skypeCheck"
 
 - @page_title = [@user.first_name, " ", @user.last_name].join
 
 .photographer_profile
   %h2
-    = @user.first_name
-    = @user.last_name
+    = "#{@user.first_name}&nbsp;#{@user.last_name}".html_safe
 
   %ul.menu
     %li#photos.current= link_to "Фотографии", "#"
@@ -51,19 +51,6 @@
     .userpic= image_tag @user.avatar.url(:small)
 
   .tab_content#calendar_tab.hidden
-    %ul.months
-      %li= link_to "Январь", "#"
-      %li= link_to "Февраль", "#"
-      %li= link_to "Март", "#"
-      %li= link_to "Апрель", "#"
-      %li= link_to "Май", "#"
-      %li= link_to "Июнь", "#"
-      %li= link_to "Июль", "#"
-      %li= link_to "Август", "#"
-      %li.current= link_to "Сентябрь", "#"
-      %li= link_to "Октябрь", "#"
-      %li= link_to "Ноябрь", "#"
-      %li= link_to "Декабрь", "#"
     %ul.legend
       %li
         .busy_day 12
@@ -77,8 +64,4 @@
         %br/
         %small= link_to "Контактная информация", "#", :id => "show_info_tab"
 
-    - calendar(:year => Time.now.year, :month => Time.now.month, :first_day_of_week => 1, :month_header => true) do |date|
-      - if @user.calendar_records.exists?(:date => date.midnight)
-        - [date.mday, {:class => "busy"}]
-      -else
-        - [date.mday, {:class => "free"}]
+    %ul.calendar_months= full_year_calendar

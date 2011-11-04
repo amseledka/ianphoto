@@ -1,22 +1,9 @@
--content_for :js do
-  =javascript_include_tag "jquery.fullbg"
-  =javascript_include_tag "static_pages"
-  =javascript_include_tag "menu_elevator"
-  :javascript
-    jQuery(function($) {
-      startLoading();
-      $(".fullBg:first").baked(function() {
-        $(this).fullBg();
-        stopLoading();
-      });
-    });
--content_for :title do
-  =@static_page.name
+- @page_title = @static_page.name
 
-
-=link_to image_tag(@photo.picture(:original), :class => "title fullBg", :"data-alignment" => @photo.alignment), @photo, :id => :link_to_photo
-.static_page.solid
-  =render "static_pages/content"
-
-=render "main/static_pages_menu"
-.backup_curtain
+#content
+  .name
+    %strong
+      = @static_page.name
+  .body
+    = @static_page.body
+  =link_to "К списку публикаций", :publications

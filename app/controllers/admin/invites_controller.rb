@@ -1,24 +1,25 @@
+# encoding: utf-8
 class Admin::InvitesController < ApplicationController
 #before_filter :access_for_admin, :except => [:new, :create]
   def index
-    @invites = current_user.invites.all
+    @invites = Invite.not_redeemed
   end
 
   def new
-    @invite = current_user.invites.new
+    @invite = Invite.new
   end
 
   def create
-    @invite = current_user.invites.new(params[:invite])
+    @invite = Invite.new(params[:invite])
     if @invite.save
-      redirect_to(admin_invites_path, :notice => 'Invite was successfully created.')
+      redirect_to(admin_invites_path, :notice => 'Приглашение создано и отправлено.') 
     else
       render :new
     end
   end
 
   def destroy
-    @invite = current_user.invites.find(params[:id])
+    @invite = Invite.find(params[:id])
     @invite.destroy
     redirect_to(admin_invites_url)
   end

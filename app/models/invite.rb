@@ -2,6 +2,8 @@ require 'digest/sha1'
 
 class Invite < ActiveRecord::Base
   
+  has_one :user
+  
   validates_presence_of :email, :on => :save, :message => "can't be blank"
   validates_uniqueness_of :email, :on => :save, :message => "is already registered"
 

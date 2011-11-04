@@ -1,11 +1,11 @@
 #content
-  %h2 Список электронных адресов для приглашения
-  %ul
-    - @invites.each do |invite|
-      %li
-        = invite.email
-        - if invite.invited?
-          Invited
-        = link_to 'Destroy', admin_invite_path(:id), :confirm => 'Вы уверены?', :method => :delete
-
+  %h2 Список приглашенных электронных адресов, которые еще не использовали свои приглашения 
+  - if @invites.any? 
+    %ul
+      - @invites.each do |invite|
+        %li
+          = invite.email
+          = link_to 'Удалить приглашение', admin_invite_path(invite), :confirm => 'Вы уверены?', :method => :delete
+  - else
+    %p Нет приглашенных пользователей
   = link_to 'Добавить электронный адрес для приглашения', new_admin_invite_path

@@ -18,6 +18,7 @@ Ianphoto::Application.routes.draw do
   match '/publications' => 'static_pages#index', :as => :publications
   match '/publications/:id' => 'static_pages#show'
   match '/:slug.html' => 'static_pages#show', :as => :static_page
+  match '/calendar' => 'calendar_records#index', :as => :calendar
   
   resources :users do
     resources :categories do

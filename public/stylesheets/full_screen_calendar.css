@@ -31,7 +31,7 @@ table.calendar td .container {
 }
 
 table.calendar td .day {
-  position: absolute;
+/*  position: absolute; */
   left: 0;
   top: 0;
   padding: 5px;

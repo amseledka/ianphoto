@@ -1,2 +1,10 @@
 .static_pages
-  %h2
+  %h2 Публикации нашей ассоциации
+  .publications_nav
+    - if current_user
+      = link_to "Добавить статью", new_admin_static_page_path
+  %ul
+    - @static_pages.each do |static_page|
+      %li
+        = static_page.title
+        = static_page.body

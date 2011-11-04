@@ -95,6 +95,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 	display: 				none;
 	-moz-border-radius: 	5px;
 	-webkit-border-radius:	5px;
+	top: 64px;
 }
 
 div.jGrowl div.jGrowl-notification {

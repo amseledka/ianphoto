@@ -50,7 +50,6 @@ Ianphoto::Application.routes.draw do
     resources :invites
     root :to => 'main#index'
   end
-  resources :calendar_records
 
   root :to => 'main#index'
 end

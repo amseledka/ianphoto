@@ -2,8 +2,8 @@
   - if @user.errors.any?
     #error_explanation.message
       %h2
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being saved:
+        = @user.errors.count
+        проблемы возникли со следующими полями:
       %ul
         - @user.errors.full_messages.each do |msg|  
           %li= msg
@@ -16,4 +16,5 @@
   .field
     = f.label "Повторите пароль"
     = f.password_field :password_confirmation, :autocomplete => :off
+  = hidden_field_tag(:on, :edit_account)
   .action= f.submit t("helpers.submit")

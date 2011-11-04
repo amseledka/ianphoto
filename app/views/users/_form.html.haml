@@ -2,8 +2,8 @@
   - if @user.errors.any?
     #error_explanation.message
       %h2
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being saved:
+        = @user.errors.count
+        проблемы возникли со следующими полями:
       %ul
         - @user.errors.full_messages.each do |msg|  
           %li= msg
@@ -33,4 +33,5 @@
   .field.wide
     = f.label "О себе"
     = f.text_area :about
+  = hidden_field_tag(:on, :edit)
   .action= f.submit "Сохранить"

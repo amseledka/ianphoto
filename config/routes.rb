@@ -1,7 +1,12 @@
 Ianphoto::Application.routes.draw do
   resources :photos
   resources :categories
-  resources :users
+  resources :users do
+    member do
+      get 'edit_account'
+      get 'edit_calendar'
+    end
+  end
   resources :user_sessions
   resources :calendar_records
   resources :static_pages

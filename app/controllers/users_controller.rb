@@ -27,15 +27,21 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
+  
+  def edit_account
+    @user = current_user
+  end
+  
+  def edit_calendar
+    @user = current_user
+  end
 
   def update
     @user = current_user
-    params[:user].delete(:password) if params[:user][:password].blank?
-    params[:user].delete(:password_confirmation) if params[:user][:password].blank?
     if @user.update_attributes(params[:user])
-      redirect_to(edit_user_path(current_user), :notice => 'Изменения сохранены.')
+      redirect_to(edit_user_path(@user), :notice => 'Изменения сохранены.')
     else
-      render :action => 'edit'
+      render params.fetch(:on, :edit)
     end
   end
   

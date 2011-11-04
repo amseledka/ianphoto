@@ -2,7 +2,6 @@ class Admin::InvitesController < ApplicationController
 #before_filter :access_for_admin, :except => [:new, :create]
   def index
     @invites = current_user.invites.all
-    
   end
 
   def new

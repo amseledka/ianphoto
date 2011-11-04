@@ -8,6 +8,7 @@
       <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     =stylesheet_link_tag "style"
     =stylesheet_link_tag "application_touch", :media => "only screen"
+    =stylesheet_link_tag "jquery.jgrowl"
     = javascript_include_tag :defaults
     = csrf_meta_tag
     =javascript_include_tag "modernizr"
@@ -18,6 +19,7 @@
     =javascript_include_tag "touch_fullscreen"
     -javascript_include_tag "adjust_font"
     =javascript_include_tag "touch"
+    =javascript_include_tag "jquery.jgrowl_minimized"
     =yield :js
     =yield :css
   %body
@@ -46,7 +48,7 @@
                 %br/
                 на нужную вам дату
         %li
-          =link_to "#" do
+          =link_to :publications do
             .button
               Публикации
               %br/
@@ -54,9 +56,6 @@
                 Узнайте о работе ассоциации 
                 %br/
                 и свадебной фотографии
-
-    %p#notice.message
-      = notice
     =yield
     #footer
       #user_nav
@@ -74,3 +73,8 @@
         - else
           = link_to "Регистрация", new_user_path
           = link_to "Войти", :login
+    - unless flash.empty?
+      %script{ :type => "text/javascript" }
+        $(function() {
+        - flash.each do |message|
+          $.jGrowl(#{raw(message[1].to_json)}, {theme: '#{message[0]}'});});

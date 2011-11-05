@@ -1,4 +1,5 @@
 class Admin::StaticPagesController < ApplicationController
+  
   def index
     @static_pages = StaticPage.all
   end

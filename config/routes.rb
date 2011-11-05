@@ -1,7 +1,12 @@
 Ianphoto::Application.routes.draw do
   resources :photos
   resources :categories
-  resources :users
+  resources :users do
+    member do
+      get 'edit_account'
+      get 'edit_calendar'
+    end
+  end
   resources :user_sessions
   resources :calendar_records
   resources :static_pages
@@ -12,6 +17,7 @@ Ianphoto::Application.routes.draw do
   match '/signup/:invite_code' => 'users#new', :as => 'redeem_invitation'
   match '/publications' => 'static_pages#index', :as => :publications
   match '/publications/:id' => 'static_pages#show'
+  match '/:slug.html' => 'static_pages#show', :as => :static_page
   
   resources :users do
     resources :categories do
@@ -42,7 +48,6 @@ Ianphoto::Application.routes.draw do
       end
     end
     resources :invites
-    resources :static_pages
     root :to => 'main#index'
   end
   resources :calendar_records

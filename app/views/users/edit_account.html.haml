@@ -1,17 +1,11 @@
 - content_for :css do
   = stylesheet_link_tag "user_edit"
-  = stylesheet_link_tag "calendar"
-  
-- content_for :js do
-  = javascript_include_tag "calendar_date"
-  = javascript_include_tag "calendar"
-  
-- @page_title = "Настройки"
+
+- @page_title = "Настройки Аккаунта"
 .edit_profile
   .edit_nav
     =link_to_unless_current "Настройки Профайла", edit_user_path(@user)
     =link_to_unless_current "Настройки Аккаунта", edit_account_user_path(@user)
     =link_to_unless_current "Настройки Календаря", edit_calendar_user_path(@user)
-  %h2 Основная информация
-  = render "form"
-
+  %h2 Изменить адрес электронной почты или пароль
+  = render "signup_form"

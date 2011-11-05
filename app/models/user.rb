@@ -10,15 +10,13 @@ class User < ActiveRecord::Base
   has_many :photos, :through => :categories
   has_many :calendar_records
   has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "300x300>", :icon => "24x24#" }, :default_url => '/images/no_avatar.png'
-
-  attr_accessible :email, :password, :password_confirmation
-
-  validates :password, :presence => true, :confirmation => true, :length => { :within => 4..40 }
-  validates :password_confirmation, :presence => true
-  validates :email, :uniqueness => true, :presence => true, :on => :create
-  validates_presence_of :invite_id
-  validates_associated :invite
-
+  
+  validates :password, :presence => true, :confirmation => true, :length => { :within => 4..40 }, :if => lambda {new_record? or password_changed?}
+  validates :password_confirmation, :presence => true, :if => lambda {new_record? or password_changed?}
+  validates :email, :uniqueness => true, :presence => true , :if => lambda {new_record? or email_changed?}
+  
+  validates_presence_of :invite_id, :on => :create
+  validates_associated :invite, :on => :create
   after_create :redeem_invite
 
   def to_s

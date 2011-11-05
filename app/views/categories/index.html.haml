@@ -1,9 +1,0 @@
-%h2 
-  Albums of 
-  = @user.first_name
-  = @user.last_name
-= link_to "Back to photographer profile", user_path(@user)
-%ul
-  - @user.categories.each do |category|
-    %li
-      = link_to category.name, user_category_path(@user.id, category.id)

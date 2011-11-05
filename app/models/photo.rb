@@ -29,7 +29,7 @@ class Photo < ActiveRecord::Base
     current_id = options.fetch(:current, 0).to_i
     current_index = incrementoid = 0
     pure_data = scoped({}).map {|photo|
-      parameters = [:id, :name, :description, [:picture, :processed], [:picture, :small], :alignment].map do |parameter|
+      parameters = [:id, :name, [:picture, :processed], [:picture, :small], :alignment].map do |parameter|
         [Array.wrap(parameter).reverse.join("_"), photo.send(*Array.wrap(parameter))]
       end
       current_index = incrementoid if current_id == photo.id

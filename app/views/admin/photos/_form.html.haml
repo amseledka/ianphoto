@@ -2,21 +2,16 @@
 -category_id ||= @category_id
 -form_for [:admin, photo], :html => {:multipart => true} do |f|
   -unless category_id
-    .field
+    .field_wide
       =f.label "Альбом"
       =f.collection_select :category_id, current_user.categories.all, :id, :name
   -else
     =f.hidden_field :category_id, :value => category_id
+  .field_wide
+    =f.label :picture, "Фото #{"(только если хотите загрузить новое)" unless f.object.new_record?}"
+    =f.file_field :picture
   .field
     =f.label "Название"
     =f.text_field :name
-  .field
-    =f.label "Описание"
-    =f.text_area :description, :size => "60x5"
-  .field
-    =f.label :picture, "Фото #{"(только если хотите загрузить новое)" unless f.object.new_record?}"
-    =f.file_field :picture
   .action
     = f.submit "Сохранить"
-/    =f.check_box :promote_to_front_page
-/    =f.label :promote_to_front_page

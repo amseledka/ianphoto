@@ -1,6 +1,7 @@
 - content_for :css do
   = stylesheet_link_tag "user_edit"
   = stylesheet_link_tag "calendar"
+  = stylesheet_link_tag "photographer_profile"
   
 - content_for :js do
   = javascript_include_tag "calendar_date"
@@ -14,17 +15,17 @@
     =link_to_unless_current "Настройки Календаря", edit_calendar_user_path(@user)
   %h2 Календарь
   %br
-  %ul.calendar_months
-    = full_year_calendar do |desired_date|
-      - calendar_record ||= current_user.calendar_records.by_date(desired_date)
-      - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record), {:class => calendar_record.new_record? ? "free" : "busy"}]
-  .cl
-  %ul.legend
-    %li
-      .busy_day 12
-      &mdash; день занят
-    %li
-      .free_day 16
-      &mdash; день свободен
-    %li
-      Клик по дате изменит ее состояние
+  .calendar_tab
+    %ul.legend
+      %li
+        .busy_day 12
+        &mdash; день занят
+      %li
+        .free_day 16
+        &mdash; день свободен
+      %li
+        Клик по дате изменит ее состояние
+    %ul.calendar_months
+      = full_year_calendar do |desired_date|
+        - calendar_record ||= current_user.calendar_records.by_date(desired_date)
+        - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record), {:class => calendar_record.new_record? ? "free" : "busy"}]

@@ -1,83 +1,55 @@
-#albums {
-	position: absolute;
-	top: 84px;
-	left: 5%;
-	width: 980px;
+#content {
+  padding-bottom: 40px;
 }
-
-#albums .albums_list ul.categories {
+#content.crop_photo {
+  width: 920px;
+}
+#content .albums_list ul.categories {
 	list-style: none;
 	padding: 0;
 }
 
-#albums .albums_list ul.categories li {
+#content .albums_list ul.categories li {
 	display: inline-block;
   position: relative;
   width: 200px;
   margin: 10px;
   height: 200px;
   margin: 10px;
+
 }
 
-#albums .albums_list ul.categories li img {
+#content .albums_list ul.categories li img {
   position: absolute;
-  height: 200px;
-  width: 200px;
   left: 0;
   top: 0;
-  z-index: 3;
-  border-radius: 3px;
-  border: 3px solid #eee;
-}
-
-#albums .albums_list ul.categories li img.second {
-  height: 200px;
   width: 200px;
-  z-index: 2;
-  opacity: 0.7;
-}
-
-#albums .albums_list ul.categories li img.third {
   height: 200px;
-  z-index: 1;
-  width: 200px;
-  opacity: 0.5;
+
 }
 
-#albums .albums_list ul.categories li .caption {
+#content .albums_list ul.categories li .caption {
 	position: absolute;
 	top: 210px;
 }
 
-.edit_album {
-	position: absolute;
-	top: 84px;
-	left: 5%;
-}
-
-#album {
-	position: absolute;
-	top: 84px;
-	left: 5%;
-}
-
-#album ul {
+#content #album ul {
 	list-style: none;
 	padding: 0;
 }
 
-#album ul li {
+#content #album ul li {
 	display: inline-block;
   position: relative;
   width: 300px;
   margin: 10px;
 }
 
-#album ul li a {
+#content #album ul li a {
   text-decoration: none;
 }
 
-#album ul li a img {
+#content #album ul li a img {
   width: 300px;
   position: absolute;
   left: 0;
@@ -87,47 +59,25 @@
   border: 3px solid #eee;
 }
 
-#album ul li a img.second {
-  z-index: 2;
-  opacity: 0.7;
-}
-
-#album ul li a img.third {
-  z-index: 1;
-  opacity: 0.5;
-}
-
-.photo_form {
-	position: absolute;
-	top: 84px;
-	left: 5%;
-}
-
-.photo_form .field {
+#content .photo_form .field {
 	margin-bottom: 10px;
 	width: 400px;
 	float: left;
 }
 
-.photo_form .field label {
+#content .photo_form .field label {
 	display: block;
 	font-size: 14px;
 	margin: 10px 0;
 }
 
-.photo_form .field textarea {
+#content .photo_form .field textarea {
 	width: 260px;
 	height: 120px;
 }
 
-.photo_form .action {
+#content .photo_form .action {
 	width: 100%;
 	clear: both;
 	text-align: left;
-}
-
-.content {
-	position: absolute;
-	top: 84px;
-	left: 5%;
 }

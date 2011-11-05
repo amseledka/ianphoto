@@ -1,8 +1,0 @@
-- content_for :css do
-  = stylesheet_link_tag "admin"
-
-.edit_album
-  %h2
-    Изменить название альбома
-    %small (или вернуться к #{link_to "списку альбомов", admin_categories_path})
-  =render "form"

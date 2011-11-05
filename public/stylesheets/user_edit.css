@@ -1,5 +1,5 @@
 .edit_profile {
-	margin-top: 64px;
+	margin-top: 74px;
   padding-top: 10px;
   position: relative;
   width: 900px;
@@ -10,7 +10,7 @@
 
 .edit_profile h2 {
 	margin-bottom: 0;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .edit_profile hr {
@@ -61,16 +61,25 @@
 	padding: 20px;
 }
 
-.calendar {
-  float: left;
+.edit_profile .edit_nav a {
+  margin: 15px 10px 10px 0;
+}
+#calendar_tab .calendar {
+  margin-left: 140px;
 }
 
-.calendar td.free,
-.calendar td.busy {
-  cursor: pointer;
+#calendar_tab ul.months {
+  position: absolute;
+  width: 120px;
+  left: 0;
+  list-style-type: none;
+  padding: 0 0 0 0;
+  margin: 0;
 }
 
-.calendar td.free:hover,
-.calendar td.busy:hover {
-  box-shadow: 0 0 5px blue !important;
+#calendar_tab ul.months li {
+  font-size: 12px;
+  margin: 10px;
+  text-align: right;
 }
+

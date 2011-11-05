@@ -1,6 +1,7 @@
 # encoding: utf-8
 class Admin::InvitesController < ApplicationController
 #before_filter :access_for_admin, :except => [:new, :create]
+
   def index
     @invites = Invite.not_redeemed
   end

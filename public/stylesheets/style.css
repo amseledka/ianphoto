@@ -92,7 +92,7 @@ body {
   font-size: 12px;
   z-index: 2;
   background: none;
-  width: 100%;
+/*  width: 100%; */
   margin: auto;
   margin-top: 10px;
   text-align: center;
@@ -100,9 +100,9 @@ body {
 }
 
 #content {
-  position: absolute;
+  position: relative;
   left: 40px;
-  top: 104px;
+  margin-top: 104px;
 }
 #content h2 {
   margin-top: 0;
@@ -428,4 +428,3 @@ ul.photographers_list h3 span.price {
 	width: 40%;
 	margin-top: 10px;
 }
-

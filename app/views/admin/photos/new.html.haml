@@ -2,10 +2,10 @@
   = stylesheet_link_tag "admin"
 
 - @page_title = "Загрузка фотографии" 
-
-.photo_form
-  %h2
-    Загрузить фотографию
-    -if @category
-      %small (или вернуться в #{link_to @category, admin_category_path(@category)})
-  =render "form"
+#content
+  .photo_form
+    %h2
+      Загрузить фотографию
+      -if @category
+        %small (или вернуться в #{link_to @category, admin_category_path(@category)})
+    =render "form"

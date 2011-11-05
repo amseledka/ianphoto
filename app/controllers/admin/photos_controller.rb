@@ -13,7 +13,7 @@ class Admin::PhotosController < ApplicationController
       Photo.set_order_on!(@photo.category.photo_ids)
       redirect_to admin_category_path(@photo.category_id)
     else
-      render "new"
+      render :new
     end
   end
 

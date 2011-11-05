@@ -12,7 +12,7 @@
   = stylesheet_link_tag "admin"
 
 - @page_title = "Моя галерея"
-#albums
+#content
   .new_album
     %h2 Добавить альбом
     =render "form"
@@ -29,10 +29,7 @@
               =hidden_field_tag "categories[category_id][]", category.id
               -  if category.photos.present?
                 = image_tag category.photos.first.picture.url(:small)
-                - if (other_photos = category.photos.slice(1..2)).present?
-                  - other_photos.each do |other_photo|
-                    = image_tag other_photo.picture.url(:small), :class => cycle(:second, :third), :style => "-webkit-transform:rotate(#{rand(12)-6}deg); -moz-transform:rotate(#{rand(12)-6}deg); -o-transform:rotate(#{rand(12)-6}deg);", :width => "400", :height => "320"
               .caption
                 =link_to category, admin_category_path(category)
                 %br/
-                #{link_to "Редактировать", edit_admin_category_path(category), :class => :edit} | #{link_to "Удалить", admin_category_path(category), :method => :delete, :confirm => "Вы уверены?"}
+                #{link_to "Редактировать название", edit_admin_category_path(category), :class => :edit} | #{link_to "Удалить", admin_category_path(category), :method => :delete, :confirm => "Вы уверены?"}

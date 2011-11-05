@@ -11,5 +11,6 @@ jQuery(function($) {
       $("ul.calendar_months>li").addClass("hidden");
       $("ul.calendar_months>li"+desired_anchor).removeClass("hidden");
     }
+    return false;
   });
 });

@@ -11,7 +11,7 @@ class Admin::StaticPagesController < ApplicationController
   def create
     @static_page = StaticPage.new(params[:static_page])
     if @static_page.save
-      redirect_to admin_static_pages_path
+      redirect_to :publications
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Admin::StaticPagesController < ApplicationController
   def update
     @static_page = StaticPage.find(params[:id])
     if @static_page.update_attributes(params[:static_page])
-      redirect_to admin_static_pages_path
+      redirect_to :publications
     else
       render :edit
     end
@@ -33,17 +33,7 @@ class Admin::StaticPagesController < ApplicationController
   def destroy
     @static_page = StaticPage.find(params[:id])
     @static_page.destroy
-    redirect_to admin_static_pages_path
+    redirect_to :publications
   end
 
-  def arrange
-    respond_to do |format|
-      if @static_page_ids = params[:static_pages].fetch(:static_page_id, nil)
-        StaticPage.set_order_on!(@static_page_ids)
-        format.js { head :ok }
-      else
-        format.js { render :nothing }
-      end
-    end
-  end
 end

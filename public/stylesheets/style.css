@@ -88,15 +88,23 @@ body {
 }
 
 #footer {
-  padding: 40px 0;
   text-align: center;
   clear: both;
+  position: absolute;
+  bottom: 10px;
+  left: 35%;
 }
 
 #user_nav {
   color: #000;
   font-size: 12px;
   z-index: 2;
+}
+
+#content {
+  position: absolute;
+  left: 10px;
+  top: 104px;
 }
 
 .photographers_filter .breadcrumb {
@@ -415,11 +423,4 @@ ul.photographers_list h3 span.price {
 #registration .action input {
 	width: 40%;
 	margin-top: 10px;
-}
-	
-/* invites styles */
-.invites {
-  position: absolute;
-  left: 10px;
-  top: 104px;
 }

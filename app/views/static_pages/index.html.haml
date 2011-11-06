@@ -1,10 +1,18 @@
-.static_pages
+- @page_title = "Публикации"
+
+#content
   %h2 Публикации нашей ассоциации
-  .publications_nav
+  .new_staic_page
     - if current_user
       = link_to "Добавить статью", new_admin_static_page_path
-  %ul
-    - @static_pages.each do |static_page|
-      %li
-        = static_page.title
-        = static_page.body
+  -if @static_pages.blank?
+    %h3 На данный момент нет публикаций
+  -else
+    %ul.static_pages
+      - @static_pages.each do |static_page|
+        %li.static_page
+          = link_to static_page.name, static_page
+          .admin_nav
+            - if current_user
+              =link_to "Редактировать", edit_admin_static_page_path(static_page)
+              =link_to "Удалить", admin_static_page_path(static_page), :method => :delete, :confirm => "Вы уверены?"

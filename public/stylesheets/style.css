@@ -103,10 +103,12 @@ body {
 
 #content {
   position: absolute;
-  left: 10px;
+  left: 40px;
   top: 104px;
 }
-
+#content h2 {
+  margin-top: 0;
+}
 .photographers_filter .breadcrumb {
   position: absolute;
   left: 10px;

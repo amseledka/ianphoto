@@ -1,12 +1,4 @@
 = form_for [:admin, @invite] do |f|
-  - if @invite.errors.any?
-    #error_explanation.message
-      %h2
-        = pluralize(@invite.errors.count, "error")
-        prohibited this user from being saved:
-      %ul
-        - @invite.errors.full_messages.each do |msg|  
-          %li= msg
   .field
     = f.label "Email"
     = f.email_field :email

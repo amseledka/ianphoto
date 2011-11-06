@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
 #  before_filter :load_static_pages, :require_authentication_for_admin
   before_filter :set_locale
   helper_method :current_user_session, :current_user
- before_filter :mailer_set_url_options
+  before_filter :mailer_set_url_options
+  after_filter :collect_errors
  
   private
   def current_user_session
@@ -34,9 +35,19 @@ class ApplicationController < ActionController::Base
       I18n.locale = params[:locale] # || I18n.default_locale
     end
     
-  def mailer_set_url_options
-    ActionMailer::Base.default_url_options[:host] = request.host_with_port
-  end
+    def mailer_set_url_options
+      ActionMailer::Base.default_url_options[:host] = request.host_with_port
+    end
+  
+    def collect_errors
+      flash[:error] = [@user, @photo, @category, @invite, @static_page].map {|instance|
+        if instance && instance.errors
+          instance.errors.full_messages
+        else
+          nil
+        end
+      }.compact.flatten.join("<br>")
+    end
 
 =begin
     def require_authentication_for_admin

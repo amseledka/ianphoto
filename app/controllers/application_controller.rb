@@ -40,13 +40,17 @@ class ApplicationController < ActionController::Base
     end
   
     def collect_errors
-      flash[:error] = [@user, @photo, @category, @invite, @static_page].map {|instance|
+      @errors = [@user, @photo, @category, @invite, @static_page].map {|instance|
         if instance && instance.errors
           instance.errors.full_messages
         else
           nil
         end
-      }.compact.flatten.join("<br>")
+      }.compact.flatten
+      return if @errors.blank?
+      @errors.map!(&:strip)
+      @errors.reject! {|e| e.blank?}
+      flash[:error] = @errors.join("<br>") if @errors
     end
 
 =begin

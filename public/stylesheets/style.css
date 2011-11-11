@@ -4,6 +4,10 @@ body {
   padding: 0;
 }
 
+.cl {
+  clear: both;
+}
+
 .message {
 	top: 104px;
 	left: 10px;
@@ -178,86 +182,41 @@ ul.photographers_list {
   list-style-type: none;
 }
 
-ul.photographers_list.list {
-  position: relative;
-  width: 800px;
-  left: 50%;
-  margin-left: -400px;
-}
-
-ul.photographers_list.grid {
-  margin-left: 7%;
-  margin-right: 7%;
-}
-
-ul.photographers_list.list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
-}
-
 ul.photographers_list li {
   font-size: 12px;
   text-align: left;
+  margin: 20px 5%;
+  border-bottom: 1px solid #ccc;
 }
 
-ul.photographers_list.grid li {
-  display: inline-block;
-  margin: 20px;
-  background: #777;
-  border-radius: 5px;
+ul.photographers_list li .thumbnail {
+  float: left;
+  margin: 0 20px 20px 0;
 }
 
-ul.photographers_list.grid li img {
-  border-radius: 3px;
+ul.photographers_list li .thumbnail img {
+  width: 300px;
+  border: 1px solid #ccc;
 }
 
-ul.photographers_list.grid li .description {
-  display: none;
+ul.photographers_list li .meta {
+  margin: 10px;
 }
 
 ul.photographers_list.list li .description {
   color: #777;
 }
 
-
-ul.photographers_list.grid li .thumbnail img {
-  height: 200px;
-  width: auto;
-}
-
-ul.photographers_list.list li .thumbnail {
-  display: none;
-}
-
 ul.photographers_list h3 {
-  font-size: 16px;
   font-weight: normal;
   line-height: 36px;
-  margin: 0 10px;
+  margin: 10px;
 }
 
-ul.photographers_list.grid h3 {
-  color: #eee;
-}
-
-ul.photographers_list.list h3 {
-  margin: 10px 0;
-}
-
-ul.photographers_list.list h3 a {
+ul.photographers_list h3 a {
   color: #333;
-  font-size: 18px;
+  font-size: 24px;
   margin: 10px 0;
-}
-
-ul.photographers_list.grid h3 a {
-  text-decoration: none;
-  color: #F1EEE5;
-}
-
-ul.photographers_list h3 span.price {
-  float: right;
-  font-size: 14px;
 }
 
 .cities_list {

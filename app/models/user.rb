@@ -20,7 +20,11 @@ class User < ActiveRecord::Base
   after_create :redeem_invite
 
   def to_s
-    email 
+    full_name.blank? ? email : full_name
+  end
+
+  def full_name
+    [first_name, last_name].join(" ").strip 
   end
 
   def avatar_from_remote_url(url) #for testing purposes

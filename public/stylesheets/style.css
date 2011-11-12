@@ -64,7 +64,6 @@ body {
   text-decoration: none;
   width: 200px;
   text-align: center;
-  line-height: 12px;
 }
 
 .top_bar ul.main_menu li a .button {
@@ -74,20 +73,30 @@ body {
   box-shadow: inset 0 0 3px #000;
   margin: 15px 0 2px 0;
   padding: 5px;
+  height: 22px;
 }
 
 .top_bar ul.main_menu li a small {
   font-size 10px;
   color: #aaa;
-  display: none;
+  opacity: 0;
 }
 
 .top_bar ul.main_menu li a:hover {
   color: #fff;
 }
 
+.top_bar ul.main_menu li a:hover .button {
+  height: 70px;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s; /* Safari and Chrome */
+  -moz-transition: height 0.5s; /* Firefox 4 */
+  -o-transition: height 0.5s; /* Opera */
+}
+
 .top_bar ul.main_menu li a:hover small {
-  display: inline;
+  -webkit-transition: opacity 1s; /* Safari and Chrome */
+  opacity: 1;
   color: #aaa;
 }
 
@@ -105,11 +114,14 @@ body {
 
 #content {
   position: relative;
-  left: 40px;
-  margin-top: 104px;
+  margin-top: 64px;
+  padding: 20px 0;
 }
 #content h2 {
   margin-top: 0;
+  font-size: 32px;
+  font-weight: normal;
+  color: #777;
 }
 
 #content ul {
@@ -174,24 +186,42 @@ body {
   border-bottom: 2px solid #777;
 }
 
+.photographers_page {
+  width: 90%;
+  margin-left: 5%;
+}
+
 ul.photographers_list {
   font-size: 0px;
   padding: 0;
   text-align: center;
-  margin-top: 110px;
   list-style-type: none;
 }
 
 ul.photographers_list li {
   font-size: 12px;
   text-align: left;
-  margin: 20px 5%;
-  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+  background: #eee;
+}
+
+ul.photographers_list li a {
+  text-decoration: none;
+}
+
+ul.photographers_list li:hover {
+  transition: box-shadow 0.5s;
+  -moz-transition: box-shadow 0.5s; /* Firefox 4 */
+  -webkit-transition: box-shadow 0.5s; /* Safari and Chrome */
+  -o-transition: box-shadow 0.5s; /* Opera */
+  box-shadow: 1px 1px 5px #999;
+  background: #f1eee5;
 }
 
 ul.photographers_list li .thumbnail {
   float: left;
-  margin: 0 20px 20px 0;
+  margin: 20px 0px 20px 0;
+  padding: 0 20px;
 }
 
 ul.photographers_list li .thumbnail img {
@@ -200,23 +230,19 @@ ul.photographers_list li .thumbnail img {
 }
 
 ul.photographers_list li .meta {
-  margin: 10px;
 }
 
 ul.photographers_list.list li .description {
   color: #777;
+  margin-right: 20px;
 }
 
 ul.photographers_list h3 {
   font-weight: normal;
-  line-height: 36px;
-  margin: 10px;
-}
-
-ul.photographers_list h3 a {
-  color: #333;
   font-size: 24px;
-  margin: 10px 0;
+  color: #333;
+  padding: 20px 0 10px 0;
+  margin: 0;
 }
 
 .cities_list {

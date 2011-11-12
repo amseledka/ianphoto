@@ -8,4 +8,7 @@
 
   %ul.free_users
     - free_users.each do |user|
-      %li= link_to user, user
+      %li
+        = link_to user do
+          = image_tag(user.avatar.url(:icon), :size => "16x16")
+          %span= user

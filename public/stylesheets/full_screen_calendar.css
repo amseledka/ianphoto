@@ -1,10 +1,5 @@
 .calendar_page {
-  margin-top: 64px;
-  padding-top: 10px;
-  width: 1084px;
   position: relative;
-  left: 50%;
-  margin-left: -542px;
 }
 
 .calendar_page ul.calendar_months li {
@@ -14,16 +9,26 @@
 
 table.calendar {
   border-spacing: 0;
+  width: 100%;
+  border: 0 none;
+  box-shadow: none;
+  padding: 0;
 }
 
 table.calendar td {
   position: relative;
-  width: 140px;
   padding: 5px;
   margin: 0;
-  border-radius: 0;
   text-align: left;
   vertical-align: top;
+  background: #eee;
+  border-radius: 0;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 #fff !important;
+}
+
+table.calendar td.free:hover {
+  background: #f1eee5;
 }
 
 table.calendar td .container {
@@ -49,19 +54,37 @@ table.calendar td:hover .day small {
 
 table.calendar ul.free_users {
   padding: 0;
-  margin: 20px 0 5px 0;
+  margin: 5px 0;
 }
 
 table.calendar ul.free_users li {
   display: block;
   margin: 0;
   padding: 0;
-  width: 100px;
   font-size: 11px;
+  text-align: left;
 }
 
 table.calendar ul.free_users li a {
   display: block;
   margin: 0;
   padding: 5px 0;
+  color: #777;
+  text-decoration: none;
+  white-space: nowrap;
+  display: block;
+}
+
+table.calendar ul.free_users li a img {
+  float: left;
+}
+
+table.calendar ul.free_users li a span {
+  padding: 5px;
+}
+
+table.calendar ul.free_users li a:hover {
+  background: #ffc;
+  color: #cc0000;
+  text-decoration: underline;
 }

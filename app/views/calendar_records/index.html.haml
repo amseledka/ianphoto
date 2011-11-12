@@ -6,7 +6,6 @@
   =javascript_include_tag "calendar"
 
 .calendar_page
-  %h2 Календарь
   %ul.calendar_months
     = full_year_calendar do |date|
       - free_users = @all_users - Array.wrap(@calendar_records[date.midnight.to_i].presence).map(&:user)

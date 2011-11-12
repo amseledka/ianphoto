@@ -1,7 +1,7 @@
 - if category.photos.present?
   - cycle_class = cycle(:left, :right, :name => :leftright)
   %li{ :class => cycle_class }
-    = link_to category do
+    = link_to category.photos.first do
       .image
         = image_tag category.photos.first.picture.url(:thumb)
       - if (other_photos = category.photos.slice(1..2)).present?

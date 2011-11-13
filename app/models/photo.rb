@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   belongs_to :category
-  has_attached_file :picture, :styles => {:small => "200x200>", :thumb => "400x400>", :processed => ""}, :processors => [:cropper]
+  has_attached_file :picture, :styles => {:small => "x200", :thumb => "400x400>", :processed => ""}, :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :crop_x2, :crop_y2, :crop_needed, :reset_cropping
   after_update :reprocess_picture, :if => :cropping_attributes_supplied?
 

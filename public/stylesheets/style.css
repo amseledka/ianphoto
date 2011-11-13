@@ -203,6 +203,7 @@ ul.photographers_list li {
   text-align: left;
   margin: 20px 0;
   background: #eee;
+  border: 1px solid #eee;
 }
 
 ul.photographers_list li a {
@@ -216,6 +217,7 @@ ul.photographers_list li:hover {
   -o-transition: box-shadow 0.5s; /* Opera */
   box-shadow: 1px 1px 5px #999;
   background: #f1eee5;
+  border: 1px solid #ccc;
 }
 
 ul.photographers_list li .thumbnail {

@@ -123,4 +123,23 @@ jQuery(function($) {
     return false;
   });
 
+  $(".info_block a.toggle_contacts_link").click(function() {
+    $(".info_block").toggleClass("high");
+    return false;
+  });
+
+  var hide_info_timer = window.setTimeout(function() {
+    $(".info_block").addClass("hidden");
+  }, 3000);
+
+  $("body").mousemove(function() {
+    if(hide_info_timer) {
+      window.clearTimeout(hide_info_timer);
+    }
+    $(".info_block").removeClass("hidden");
+    hide_info_timer = window.setTimeout(function() {
+      $(".info_block").addClass("hidden");
+    }, 3000);
+  });
+
 });

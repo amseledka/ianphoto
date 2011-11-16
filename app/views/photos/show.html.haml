@@ -20,3 +20,8 @@
   =image_tag("", :id => "prev_thumbnail", :class => "thumbnail")
 .curtain
 .backup_curtain
+.info_block
+  %h3=link_to @user, @user
+  =link_to "Контактная информация", "#", :class => "toggle_contacts_link"
+  .contacts
+    = render "users/contact_info"

@@ -15,14 +15,14 @@ img.fullBg {
   position: absolute;
   margin: 0;
   padding: 10px;
-  background: #000;
-  background: rgba(0,0,0,0.7);
+  background: #eee;
+  background: rgba(238,238,238,0.7);
   z-index: 10;
 }
 
 .next_link a, .prev_link a {
   font-size: 24px;
-  color: #fff;
+  color: #333;
   text-decoration: none;
 }
 
@@ -107,4 +107,76 @@ div.backup_curtain {
   -webkit-box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
   -moz-box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
   box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+}
+
+.info_block {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  width: 200px;
+  height: 60px;
+  background: rgba(238,238,238,0.7);
+  z-index: 199;
+  padding: 10px;
+  text-align: center;
+}
+
+.info_block h3 {
+  font-weight: normal;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.info_block a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px dashed;
+  font-size: 11px;
+}
+
+.info_block h3 a {
+  font-size: 16px;
+  border-bottom: 1px solid;
+}
+
+.info_block a:hover {
+  color: #cc0000;
+}
+
+.info_block.high {
+  height: 200px;
+}
+
+.info_block:hover {
+  display: block !important;
+}
+
+.info_block.high .contacts {
+  display: block;
+}
+
+.info_block .contacts {
+  font-size: 12px;
+  text-align: left;
+  display: none;
+}
+
+.info_block .contacts ul {
+  margin: 0;
+  padding: 10px;
+}
+
+.info_block .contacts a,
+.info_block .contacts img {
+  display: none;
+}
+
+.info_block a.toggle_contacts_link:before {
+  content: "+";
+  color: #555;
+  margin-right: 5px;
+}
+
+.info_block.high a.toggle_contacts_link:before {
+  content: "-";
 }

@@ -50,3 +50,7 @@ avatars = fetch_images("photographer").shuffle
     end
   end
 end
+
+10.times do |i|
+  StaticPage.create(:name => Vydumschik::Lorem.word, :slug => "page#{i}", :body => Vydumschik::Lorem.paragraph)
+end

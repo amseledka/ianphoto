@@ -29,6 +29,10 @@ body {
   background: #333;
 }
 
+.top_bar a.logo_link {
+  text-decoration: none;
+}
+
 .top_bar .logo {
   position: absolute;
   height: 64px;

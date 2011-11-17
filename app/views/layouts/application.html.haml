@@ -24,10 +24,11 @@
     =yield :css
   %body
     .top_bar
-      .logo
-        Ассоциация свадебной фотожурналистики
-        %br/
-        %em имени 93-летия Комсомола
+      =link_to root_path, :class => :logo_link do
+        .logo
+          Ассоциация свадебной фотожурналистики
+          %br/
+          %em имени 93-летия Комсомола
       %ul.main_menu
         %li
           = link_to users_path do

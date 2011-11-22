@@ -1,0 +1,157 @@
+#content {
+  width: 80%;
+  padding: 20px 10%;
+  background: rgb(224,224,224); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 21%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(224,224,224,1)), color-stop(21%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 21%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 21%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 21%); /* IE10+ */
+  background: linear-gradient(top,  rgba(224,224,224,1) 0%,rgba(255,255,255,1) 21%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.top_bar {
+  box-shadow: 0 2px 5px #777;
+}
+
+#showcase {
+  height: 614px;
+}
+
+#showcase #big_photo {
+  float: left;
+  margin-right: 10px;
+}
+
+#showcase #small_photos {
+  height: 614px;
+  overflow: hidden;
+}
+
+#showcase #big_photo img {
+  height: 612px;
+  width: auto;
+  min-width: 200px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 3px #ccc;
+}
+
+#showcase #small_photos img {
+  height: 200px;
+  width: auto;
+  min-width: 60px;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+#showcase .caption {
+  position: absolute;
+  bottom: 5px;
+  left: 1px;
+  right: 1px;
+  padding: 5px 0;
+  background: rgba(238,238,238,0.7);
+}
+
+#showcase .caption h3 {
+  margin: 0 10px;
+  padding: 0;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#showcase a {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+#showcase a:hover {
+  color: #cc0000;
+  text-decoration: underline;
+}
+
+#showcase #small_photos a .caption {
+  display: none;
+}
+
+#showcase #small_photos a:hover .caption {
+  display: block;
+}
+
+#showcase #small_photos a .caption h3 {
+  font-size: 12px;
+}
+
+.article {
+  margin: 10px 0;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+
+.article p {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+ul#latest_publications {
+  margin: 0;
+  padding: 0;
+}
+
+ul#latest_publications li {
+  display: inline-block;
+  width: 30%;
+  margin: 0 3% 0 0;
+}
+
+ul#latest_publications .article h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 10px 0 0 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+
+ul#latest_publications .article a {
+  color: #333;
+}
+
+ul#latest_publications .article h3 a {
+  text-decoration: none;
+}
+
+ul#latest_publications .article h3 a:hover {
+  text-decoration: underline;
+}
+
+ul.photographers_list li{
+  position: relative;
+  border-radius: 5px;
+}
+
+ul.photographers_list li:before {
+  content: "";
+  font-size: 1px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #eee;
+  left: 80px;
+  top: -20px;
+}
+
+ul.photographers_list li:hover:before {
+  border-bottom: 20px solid #f1eee5;
+}

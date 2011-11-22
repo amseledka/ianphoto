@@ -1,10 +1,10 @@
 %li
-  .thumbnail
-    = link_to (image_tag user.avatar.url(:thumb)), user_path(user.id)
-  %h3
-    = link_to user.first_name user, user_path(user.id)
-    = link_to user.last_name, user_path(user.id)
-    %span.price
-      = user.price
-  .description
-    = user.about
+  =link_to user do
+    .thumbnail
+      = image_tag user.avatar.url(:thumb)
+    .meta
+      %h3
+        = user
+      .description
+        = user.about
+    .cl

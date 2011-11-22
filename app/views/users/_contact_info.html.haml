@@ -1,12 +1,13 @@
+-user ||= @user
 %ul
   %li 
     %span Цена: 
     от 
-    = @user.price
+    = user.price
     $ за день съемки
   %li 
     %span Город: 
-    = @user.city
+    = user.city
   %li
     %span Ближайшая дата:
     11.02
@@ -14,8 +15,8 @@
   %li &nbsp;
   %li 
     %span Телефон: 
-    = @user.phone
+    = user.phone
   %li
     %span Skype:
-    = image_tag "http://mystatus.skype.com/smallicon/#{@user.skype}", :style => "border: none;", :width => "16"
-    = @user.skype
+    = image_tag "http://mystatus.skype.com/smallicon/#{user.skype}", :style => "border: none;", :width => "16"
+    = user.skype

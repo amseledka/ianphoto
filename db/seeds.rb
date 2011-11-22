@@ -17,7 +17,7 @@ def fetch_images(query, page = 0)
   end
 end
 
-avatars = fetch_images("photographer").shuffle
+avatars = fetch_images("photographer portrait").shuffle
 7.times do |i|
   invite = Invite.create
   user = User.new(
@@ -38,7 +38,7 @@ avatars = fetch_images("photographer").shuffle
 
   pictures = []
   rand(10).times do |i|
-    pictures = pictures + Array.wrap(fetch_images("wedding", i))
+    pictures = pictures + Array.wrap(fetch_images("best wedding photo", i))
     pictures.shuffle!
     category = user.categories.create(:name => Vydumschik::Lorem.word)
     puts "Added category #{category.name} to user #{user}"

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :categories
   has_many :photos, :through => :categories
   has_many :calendar_records
-  has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "300x300>", :icon => "24x24#" }, :default_url => '/images/no_avatar.png'
+  has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "200x", :icon => "24x24#" }, :default_url => '/images/no_avatar.png'
   
   validates :password, :presence => true, :confirmation => true, :length => { :within => 4..40 }, :if => lambda {new_record? or password_changed?}
   validates :password_confirmation, :presence => true, :if => lambda {new_record? or password_changed?}
@@ -20,7 +20,21 @@ class User < ActiveRecord::Base
   after_create :redeem_invite
 
   def to_s
-    email 
+    full_name.blank? ? email : full_name
+  end
+
+  def full_name
+    [first_name, last_name].join(" ").strip 
+  end
+
+  def avatar_from_remote_url(url) #for testing purposes
+    begin
+      self.avatar = open(URI.parse(url))
+    rescue
+      return nil
+    end
+    picture_extension = self.avatar.content_type.split("/").last
+    self.avatar.instance_write(:file_name, [ActiveSupport::SecureRandom.hex(16), picture_extension].join("."))
   end
 
   protected

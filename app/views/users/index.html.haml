@@ -2,22 +2,7 @@
   =javascript_include_tag "photographers_list"
 - @page_title = "Фотографы"  
   
-.photographers_filter
-  %h2 
-  .view_options
-    =link_to "#{image_tag("view_grid.png")} С фото".html_safe, "#", :title => "С фото", :"data-set-class-to" => "grid", :class => :active
-    &nbsp;
-    =link_to "#{image_tag("view_list.png")} Без фото".html_safe, "#", :title => "Без фото", :"data-set-class-to" => "list"
-
-%ul.photographers_list.grid
-  - @users.each do |user|
-    %li
-      .thumbnail
-        = link_to (image_tag user.avatar.url(:thumb)), user_path(user.id)
-      %h3
-        = link_to [user.first_name,user.last_name].join(" ") , user_path(user.id)
-        %span.price
-          = user.price
-          $
-      .description
-        = user.about
+.photographers_page
+  %h2 Фотографы
+  %ul.photographers_list
+    =render @users

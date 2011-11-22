@@ -1,0 +1,112 @@
+body {
+  overflow-y: scroll;
+}
+
+.top_bar {
+  display: none;
+}
+
+img.fullBg {
+  position: fixed;
+  overflow: hidden;
+}
+
+.next_link, .prev_link, .loading_box {
+  position: absolute;
+  margin: 0;
+  padding: 10px;
+  background: #eee;
+  background: rgba(238,238,238,0.7);
+  z-index: 10;
+}
+
+.next_link a, .prev_link a {
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+}
+
+.prev_link {
+  left: 0;
+  top: 40%;
+  height: 30px;
+  margin-top: -25px;
+}
+
+.next_link {
+  right: 0;
+  top: 40%;
+  height: 30px;
+  margin-top: -25px;
+}
+
+img {
+  background: #000;
+}
+
+img.current, img.title {
+  z-index: 6;
+}
+
+img.next {
+  z-index: 4;
+}
+
+img.previous {
+  z-index: 2;
+}
+
+img.loading {
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  left: 50%;
+  top: 50%;
+  margin-left: -24px;
+  margin-right: -24px;
+}
+
+div.curtain {
+  display: none;
+  z-index: 7;
+  background: #eee;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+div.backup_curtain {
+  z-index: 3;
+  background: #eee;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#next_thumbnail {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  -webkit-box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+}
+
+#prev_thumbnail {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  -webkit-box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+}
+
+

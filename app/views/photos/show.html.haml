@@ -1,18 +1,16 @@
 -content_for :js do
+  :javascript
+    var photos_collection = #{@json_collection};
   =javascript_include_tag "jquery.fullbg"
   =javascript_include_tag "preload_image"
   =javascript_include_tag "photo_page"
-  =javascript_include_tag "static_pages"
-  =javascript_include_tag "menu_elevator"
-  :javascript
-    var photos_collection = #{@json_collection};
 
 - content_for :css do
-  = stylesheet_link_tag "application"
+  = stylesheet_link_tag "photo_page"
+  = stylesheet_link_tag "info_block"
 
 =image_tag "loading.gif", :class => "fullBg current loading"
 
-=link_to "ian image", root_path, :class => :watermark
 .next_link
   =link_to "&rarr;".html_safe, "#", :id => "next_link", :class => "paginate"
   =image_tag("", :id => "next_thumbnail", :class => "thumbnail")
@@ -21,12 +19,8 @@
   =image_tag("", :id => "prev_thumbnail", :class => "thumbnail")
 .curtain
 .backup_curtain
-.static_page.obscure
-  -@static_pages.each do |static_page|
-    =render "static_pages/content", :static_page => static_page
-.description_trigger.hidden info
-.description_container.obscure
-  .subcontainer
-.touch_enforcer
-
-=render "main/static_pages_menu"
+.info_block
+  %h3=link_to @user, @user
+  =link_to "Контактная информация", "#", :class => "toggle_contacts_link"
+  .contacts
+    = render "users/contact_info"

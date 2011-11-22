@@ -8,6 +8,8 @@ class StaticPage < ActiveRecord::Base
 
   default_scope :order => "static_pages.position ASC"
 
+  scope :latest, order("static_pages.created_at DESC")
+
   def self.set_order_on!(ids, options = nil)
     options ||= {}
     starting_with = options.fetch(:staring_with, 1).to_i.pred
@@ -18,6 +20,10 @@ class StaticPage < ActiveRecord::Base
 
   def to_s
     name
+  end
+
+  def teaser
+    body.split("/n").first.truncate(300)
   end
 
   private

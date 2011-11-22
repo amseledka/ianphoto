@@ -3,8 +3,11 @@ class Category < ActiveRecord::Base
   belongs_to :user
   has_many :photos
 
-
   default_scope :order => "categories.position ASC"
+
+  def self.not_empty
+    scoped({}).reject {|c| c.photos.blank?}
+  end
 
   def self.set_order_on!(ids, options = nil)
     options ||= {}

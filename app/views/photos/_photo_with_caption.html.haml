@@ -1,0 +1,8 @@
+-photo ||= photo_with_caption
+-size ||= :small
+-no_caption ||= false
+= link_to photo.user do
+  =image_tag photo.picture.url(size)
+  -unless no_caption == true
+    .caption
+      %h3= photo.user

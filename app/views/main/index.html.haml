@@ -2,25 +2,26 @@
   = stylesheet_link_tag "main_page"
 
 #showcase
-  #big_photo= render "photos/photo_with_caption", :photo => @big_photo, :size => :processed, :no_caption => true
-  #small_photos= render :partial => "photos/photo_with_caption", :collection => @photos
+  .pusher
+    #big_photo= render "photos/photo_with_caption", :photo => @big_photo, :size => :processed, :no_caption => true
+    #small_photos= render :partial => "photos/photo_with_caption", :collection => @photos
+  %ul.photographers_list
+    =render @big_photo.user
 
-%ul.photographers_list
-  =render @big_photo.user
+.bottleneck
+  .article
+    %h2 Здесь можно разместить вступительный текст
+    %p= Vydumschik::Lorem.paragraph
+    %p= Vydumschik::Lorem.paragraph
 
-.article
-  %h2 Здесь можно разместить вступительный текст
-  %p= Vydumschik::Lorem.paragraph
-  %p= Vydumschik::Lorem.paragraph
+  %br/
 
-%br/
-
-%h2 Последние публикации
-%ul#latest_publications
-  - @static_pages.each do |static_page|
-    %li
-      .article
-        %h3= link_to static_page.name, static_page
-        %p= static_page.teaser
-        %p
-          %small= link_to "Читать дальше", static_page
+  %h2 Последние публикации
+  %ul#latest_publications
+    - @static_pages.each do |static_page|
+      %li
+        .article
+          %h3= link_to static_page.name, static_page
+          %p= static_page.teaser
+          %p
+            %small= link_to "Читать дальше", static_page

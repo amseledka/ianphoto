@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :categories
   has_many :photos, :through => :categories
   has_many :calendar_records
-  has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "200x", :icon => "24x24#" }, :default_url => '/images/no_avatar.png'
+  has_attached_file :avatar, :styles => { :small => "600x600>", :thumb => "200x", :vertical_thumb => "x160", :icon => "24x24#" }, :default_url => '/images/no_avatar.png'
   
   validates :password, :presence => true, :confirmation => true, :length => { :within => 4..40 }, :if => lambda {new_record? or password_changed?}
   validates :password_confirmation, :presence => true, :if => lambda {new_record? or password_changed?}
@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   validates_presence_of :invite_id, :on => :create
   validates_associated :invite, :on => :create
   after_create :redeem_invite
+
+  scope :shuffled, order("random()")
 
   def to_s
     full_name.blank? ? email : full_name

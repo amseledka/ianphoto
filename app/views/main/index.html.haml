@@ -14,9 +14,17 @@
     %p= Vydumschik::Lorem.paragraph
     %p= Vydumschik::Lorem.paragraph
 
-  %br/
+  %h2 
+    =link_to "Фотографы ассоциации", users_path
 
-  %h2 Последние публикации
+  #photographers_spotlight
+    - @users.each do |user|
+      =link_to user do
+        =image_tag user.avatar.url(:vertical_thumb), :title => user.to_s
+  =link_to "и другие &rarr;".html_safe, users_path
+
+  %h2 
+    =link_to "Последние публикации", static_pages_path
   %ul#latest_publications
     - @static_pages.each do |static_page|
       %li

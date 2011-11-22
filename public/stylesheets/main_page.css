@@ -10,6 +10,10 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0e0e0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 
+#content a {
+  color: #333;
+}
+
 .top_bar {
 }
 
@@ -85,6 +89,10 @@
 
 #showcase #small_photos a .caption h3 {
   font-size: 12px;
+}
+
+#showcase ul.photographers_list a:hover {
+  text-decoration: none;
 }
 
 .article {
@@ -170,4 +178,20 @@ ul.photographers_list li:hover:before {
 .bottleneck {
   width: 80%;
   margin-left: 10%;
+}
+
+#photographers_spotlight {
+  height: 162px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+#photographers_spotlight a {
+  text-decoration: none;
+  margin: 0 5px 0 0;
+}
+
+#photographers_spotlight img {
+  border: 1px solid #ccc;
+  height: 160px;
 }

@@ -113,6 +113,14 @@
   opacity: 0.5;
 }
 
+#info_tab, #calendar_tab {
+  position: relative;
+  width: 960px;
+  left: 50%;
+  margin-left: -480px;
+  padding: 20px 0;
+}
+
 #info_tab .userpic img {
   width: 400px;
 }

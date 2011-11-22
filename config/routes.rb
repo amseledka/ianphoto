@@ -1,4 +1,6 @@
 Ianphoto::Application.routes.draw do
+  get "main/index"
+
   resources :photos
   resources :categories
   resources :users do

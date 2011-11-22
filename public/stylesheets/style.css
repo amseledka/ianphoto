@@ -4,6 +4,10 @@ body {
   padding: 0;
 }
 
+.cl {
+  clear: both;
+}
+
 .message {
 	top: 104px;
 	left: 10px;
@@ -23,6 +27,10 @@ body {
   width: 100%;
   height: 64px;
   background: #333;
+}
+
+.top_bar a.logo_link {
+  text-decoration: none;
 }
 
 .top_bar .logo {
@@ -60,7 +68,6 @@ body {
   text-decoration: none;
   width: 200px;
   text-align: center;
-  line-height: 12px;
 }
 
 .top_bar ul.main_menu li a .button {
@@ -70,20 +77,30 @@ body {
   box-shadow: inset 0 0 3px #000;
   margin: 15px 0 2px 0;
   padding: 5px;
+  height: 22px;
 }
 
 .top_bar ul.main_menu li a small {
   font-size 10px;
   color: #aaa;
-  display: none;
+  opacity: 0;
 }
 
 .top_bar ul.main_menu li a:hover {
   color: #fff;
 }
 
+.top_bar ul.main_menu li a:hover .button {
+  height: 70px;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s; /* Safari and Chrome */
+  -moz-transition: height 0.5s; /* Firefox 4 */
+  -o-transition: height 0.5s; /* Opera */
+}
+
 .top_bar ul.main_menu li a:hover small {
-  display: inline;
+  -webkit-transition: opacity 1s; /* Safari and Chrome */
+  opacity: 1;
   color: #aaa;
 }
 
@@ -100,12 +117,15 @@ body {
 }
 
 #content {
-  position: relative;
-  left: 40px;
-  margin-top: 104px;
+  margin-top: 64px;
+  padding: 20px 0;
 }
+
 #content h2 {
   margin-top: 0;
+  font-size: 32px;
+  font-weight: normal;
+  color: #777;
 }
 
 #content ul {
@@ -170,94 +190,65 @@ body {
   border-bottom: 2px solid #777;
 }
 
+.photographers_page {
+  width: 90%;
+  margin-left: 5%;
+}
+
 ul.photographers_list {
   font-size: 0px;
   padding: 0;
   text-align: center;
-  margin-top: 110px;
   list-style-type: none;
-}
-
-ul.photographers_list.list {
-  position: relative;
-  width: 800px;
-  left: 50%;
-  margin-left: -400px;
-}
-
-ul.photographers_list.grid {
-  margin-left: 7%;
-  margin-right: 7%;
-}
-
-ul.photographers_list.list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
 }
 
 ul.photographers_list li {
   font-size: 12px;
   text-align: left;
+  margin: 20px 0;
+  background: #eee;
+  border: 1px solid #eee;
 }
 
-ul.photographers_list.grid li {
-  display: inline-block;
-  margin: 20px;
-  background: #777;
-  border-radius: 5px;
+ul.photographers_list li a {
+  text-decoration: none;
 }
 
-ul.photographers_list.grid li img {
-  border-radius: 3px;
+ul.photographers_list li:hover {
+  transition: box-shadow 0.5s;
+  -moz-transition: box-shadow 0.5s; /* Firefox 4 */
+  -webkit-transition: box-shadow 0.5s; /* Safari and Chrome */
+  -o-transition: box-shadow 0.5s; /* Opera */
+  box-shadow: 1px 1px 5px #999;
+  background: #f1eee5;
+  border: 1px solid #ccc;
 }
 
-ul.photographers_list.grid li .description {
-  display: none;
+ul.photographers_list li .thumbnail {
+  float: left;
+  margin: 20px 0px 20px 0;
+  padding: 0 20px;
 }
 
-ul.photographers_list.list li .description {
+ul.photographers_list li .thumbnail img {
+  width: 200px;
+  border: 1px solid #ccc;
+}
+
+ul.photographers_list li .meta {
+}
+
+ul.photographers_list li .description {
   color: #777;
-}
-
-
-ul.photographers_list.grid li .thumbnail img {
-  height: 200px;
-  width: auto;
-}
-
-ul.photographers_list.list li .thumbnail {
-  display: none;
+  margin-right: 20px;
 }
 
 ul.photographers_list h3 {
-  font-size: 16px;
   font-weight: normal;
-  line-height: 36px;
-  margin: 0 10px;
-}
-
-ul.photographers_list.grid h3 {
-  color: #eee;
-}
-
-ul.photographers_list.list h3 {
-  margin: 10px 0;
-}
-
-ul.photographers_list.list h3 a {
+  font-size: 24px;
   color: #333;
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-ul.photographers_list.grid h3 a {
-  text-decoration: none;
-  color: #F1EEE5;
-}
-
-ul.photographers_list h3 span.price {
-  float: right;
-  font-size: 14px;
+  padding: 20px 0 10px 0;
+  margin: 0;
 }
 
 .cities_list {
@@ -373,12 +364,6 @@ ul.photographers_list h3 span.price {
 #login {
 	width: 300px;
 	height: 200px;
-	position: absolute;
-	background-color: #CCCCCC;
-	border: solid 1px #999;
-	border-radius: 8px;
-	left: 10px;
-	top: 104px;
 }
 #login h2 {
 	position: relative;
@@ -403,12 +388,6 @@ ul.photographers_list h3 span.price {
 #registration {
 	width: 300px;
 	height: 250px;
-	position: absolute;
-	background-color: #CCCCCC;
-	border: solid 1px #999;
-	border-radius: 8px;
-	left: 10px;
-	top: 104px;
 }
 
 #registration h2 {
@@ -427,4 +406,12 @@ ul.photographers_list h3 span.price {
 #registration .action input {
 	width: 40%;
 	margin-top: 10px;
+}
+
+footer {
+  background: #ccc;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px 0;
+  box-shadow: inset 0 5px 10px #777;
 }

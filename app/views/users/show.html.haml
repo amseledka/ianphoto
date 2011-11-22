@@ -20,31 +20,11 @@
 
   .tab_content#photos_tab
     %ul.galleries
-      = render @user.categories
+      = render @categories
 
   .tab_content#info_tab.hidden
     .info
-      %ul
-        %li 
-          %span Цена: 
-          от 
-          = @user.price
-          $ за день съемки
-        %li 
-          %span Город: 
-          = @user.city
-        %li
-          %span Ближайшая дата:
-          11.02
-          %small=link_to "календарь", "#", :id => "show_calendar_tab"
-        %li &nbsp;
-        %li 
-          %span Телефон: 
-          = @user.phone
-        %li
-          %span Skype:
-          = image_tag "http://mystatus.skype.com/smallicon/#{@user.skype}", :style => "border: none;", :width => "16"
-          = @user.skype
+      = render "users/contact_info"
       .description
         %h3 О себе
         = @user.about

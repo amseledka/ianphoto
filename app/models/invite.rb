@@ -40,6 +40,7 @@ class Invite < ActiveRecord::Base
     end
     
     def send_invitation
+      return if Rails.env.development?
       mail = InvitationMailer.invite(self)
       mail.deliver
     end

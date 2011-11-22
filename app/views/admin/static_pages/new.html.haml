@@ -1,3 +1,8 @@
-#content
+- content_for :css do
+  = stylesheet_link_tag "static_pages"
+
+- @page_title = "Новая статья"
+
+.static_pages_page
   %h2 Новая статья 
   =render "form"

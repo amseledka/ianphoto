@@ -1,4 +1,9 @@
-#content
+- content_for :css do
+  = stylesheet_link_tag "static_pages"
+
+- @page_title = @static_page.name
+
+.static_pages_page
   %h2 Редактирование публикации 
   
   =render "form"

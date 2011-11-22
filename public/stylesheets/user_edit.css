@@ -83,3 +83,14 @@
   text-align: right;
 }
 
+.calendar td {
+  cursor: pointer;
+}
+
+.calendar td:hover {
+  box-shadow: 0 0 5px #1560bd !important;
+  transition: box-shadow 1s;
+  -moz-transition: box-shadow 1s; /* Firefox 4 */
+  -webkit-transition: box-shadow 1s; /* Safari and Chrome */
+  -o-transition: box-shadow 1s; /* Opera */
+}

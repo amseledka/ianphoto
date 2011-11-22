@@ -1,10 +1,9 @@
 class Photo < ActiveRecord::Base
   belongs_to :category
-  has_attached_file :picture, :styles => {:small => "200x200>", :thumb => "400x400>", :processed => ""}, :processors => [:cropper]
+  has_attached_file :picture, :styles => {:small => "x200", :thumb => "400x400>", :processed => ""}, :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :crop_x2, :crop_y2, :crop_needed, :reset_cropping
   after_update :reprocess_picture, :if => :cropping_attributes_supplied?
 
-  validates_presence_of :name
   validates_presence_of :category_id
   validates_attachment_presence :picture
   validates_attachment_content_type :picture, :content_type => ['image/jpeg', 'image/png', 'image/gif']
@@ -22,6 +21,10 @@ class Photo < ActiveRecord::Base
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  def user
+    category.user
   end
 
   def self.to_json_collection(options = nil, &block)
@@ -58,6 +61,16 @@ class Photo < ActiveRecord::Base
 
   def alignment
     vertical_alignment.blank? ? "center" : vertical_alignment.to_s
+  end
+
+  def picture_from_remote_url(url) #for testing purposes
+    begin
+      self.picture = open(URI.parse(url))
+    rescue
+      return nil
+    end
+    picture_extension = self.picture.content_type.split("/").last
+    self.picture.instance_write(:file_name, [ActiveSupport::SecureRandom.hex(16), picture_extension].join("."))
   end
 
   private

@@ -36,11 +36,11 @@ jQuery(function($) {
   }
 
   function rotateTo(desired_position, rotation_callback) {
-    $curtain.fadeIn("slow", function() {
+    $curtain.fadeIn("fast", function() {
       $.preloadImage(photos_collection, desired_position, function() {
         $(current_photo).replaceWith($(this).addClass("current fullBg"));
         $(current_photo).fullBg(function() {
-          $curtain.fadeOut("slow");
+          $curtain.fadeOut("fast");
           if(typeof rotation_callback == "function") rotation_callback();
         });
       });
@@ -70,27 +70,16 @@ jQuery(function($) {
     }
     $(".paginate").removeClass("waiting");
 
-    if(data.current_photo.description.length) {
-      $(".description_container .subcontainer").text(data.current_photo.description);
-      $(".description_trigger").show();
-    } else {
-      $(".description_trigger").hide();
-      if($(".description_trigger").hasClass("pushed_down")) {
-        $(".description_trigger").removeClass("pushed_down");
-        $(".description_container").addClass("obscure");
-      }
-    }
-
     $.preloadImage(photos_collection, next_position);
     $.preloadImage(photos_collection, previous_position);
   }
 
   if(!Modernizr.touch) {
     $next_link.bind("mouseenter", function() {
-      $("#next_thumbnail").fadeIn();
+      $("#next_thumbnail").fadeIn("fast");
     });
     $prev_link.bind("mouseenter", function() {
-      $("#prev_thumbnail").fadeIn();
+      $("#prev_thumbnail").fadeIn("fast");
     });
     $(".current:first").live("mousemove", function() {
       $(".thumbnail").hide();
@@ -132,6 +121,25 @@ jQuery(function($) {
       afterRotation("backward");
     });
     return false;
+  });
+
+  $(".info_block a.toggle_contacts_link").click(function() {
+    $(".info_block").toggleClass("high");
+    return false;
+  });
+
+  var hide_info_timer = window.setTimeout(function() {
+    $(".info_block").addClass("hidden");
+  }, 3000);
+
+  $("body").mousemove(function() {
+    if(hide_info_timer) {
+      window.clearTimeout(hide_info_timer);
+    }
+    $(".info_block").removeClass("hidden");
+    hide_info_timer = window.setTimeout(function() {
+      $(".info_block").addClass("hidden");
+    }, 3000);
   });
 
 });

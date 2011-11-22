@@ -1,9 +1,10 @@
+- content_for :css do
+  = stylesheet_link_tag "static_pages"
+
 - @page_title = @static_page.name
 
-#content
-  .name
-    %strong
-      = @static_page.name
+.static_pages_page
+  %h2= @static_page.name
   .body
     = @static_page.body
-  =link_to "К списку публикаций", :publications
+  %p= link_to "К списку публикаций", :publications

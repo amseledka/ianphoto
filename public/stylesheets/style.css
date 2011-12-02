@@ -420,3 +420,10 @@ footer {
   box-shadow: inset 0 5px 10px #777;
   color: #777;
 }
+
+footer.sticky {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+}

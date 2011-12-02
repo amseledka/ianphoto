@@ -13,6 +13,7 @@ jQuery(function($) {
     $(".tab_content#"+$(this).parent().attr("id")+"_tab").removeClass("hidden");
     $("ul.menu li").removeClass("current");
     $(this).parent().addClass("current");
+    stickFooter();
     return false;
   });
   $("body").addClass("galleries");

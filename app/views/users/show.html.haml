@@ -25,8 +25,9 @@
     .info
       = render "users/contact_info"
       .description
-        %h3 О себе
-        = @user.about
+        -unless @user.about.blank?
+          %h3 О себе
+          = @user.about
     .userpic= image_tag @user.avatar.url(:small)
 
   .tab_content#calendar_tab.hidden

@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates_associated :invite, :on => :create
   after_create :redeem_invite
 
-  default_scope where(:hidden.not_eq => true)
+  scope :visible, where(:hidden => false)
   scope :shuffled, order("random()")
 
   def to_s

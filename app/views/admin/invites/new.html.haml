@@ -1,5 +1,8 @@
-#content
-  %h2 Пригласить пользователя
-  
-  = render 'form' 
+- content_for :css do
+  =stylesheet_link_tag "admin"
+
+%h2 Пригласить пользователя
+
+= render 'form' 
+%p
   = link_to 'Назад', admin_invites_path

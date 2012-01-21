@@ -16,6 +16,8 @@
 .albums_list
   -if @categories.blank?
     %h2 Альбомов нет
+    .new_album
+      =render "form"
   -else
     %h2 Мои альбомы
     .new_album

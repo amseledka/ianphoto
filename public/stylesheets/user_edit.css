@@ -1,5 +1,4 @@
 .edit_profile {
-	margin-top: 74px;
   padding-top: 10px;
   position: relative;
   width: 900px;
@@ -61,9 +60,6 @@
 	padding: 20px;
 }
 
-.edit_profile .edit_nav a {
-  margin: 15px 10px 10px 0;
-}
 #calendar_tab .calendar {
   margin-left: 140px;
 }

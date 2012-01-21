@@ -12,24 +12,28 @@
   = stylesheet_link_tag "admin"
 
 - @page_title = "Моя галерея"
-#content
-  .new_album
-    %h2 Добавить альбом
-    =render "form"
-  .albums_list
-    -if @categories.blank?
-      %h2 Альбомов нет. 
-    -else
-      %h2 Редактировать альбомы
-      %p Альбомы будут отображаться в этой последовательности. Чтобы изменить последовательность, перетащите альбомы.
-      - form_tag arrange_admin_categories_path, :id => "arrange_categories_form", :method => :put do
-        %ul.categories
-          -@categories.each do |category|
-            %li.m-10
-              =hidden_field_tag "categories[category_id][]", category.id
-              -  if category.photos.present?
-                = image_tag category.photos.first.picture.url(:small)
-              .caption
-                =link_to category, admin_category_path(category)
-                %br/
-                #{link_to "Редактировать название", edit_admin_category_path(category), :class => :edit} | #{link_to "Удалить", admin_category_path(category), :method => :delete, :confirm => "Вы уверены?"}
+
+.albums_list
+  -if @categories.blank?
+    %h2 Альбомов нет
+  -else
+    %h2 Мои альбомы
+    .new_album
+      =render "form"
+    %p
+      %small Альбомы будут отображаться в этой последовательности. Чтобы изменить последовательность, перетащите альбомы.
+    - form_tag arrange_admin_categories_path, :id => "arrange_categories_form", :method => :put do
+      %ul.categories
+        -@categories.each do |category|
+          %li.m-10
+            =hidden_field_tag "categories[category_id][]", category.id
+            -  if category.photos.present?
+              = link_to image_tag(category.photos.first.picture.url(:small)), admin_category_path(category)
+            .caption
+              =link_to category, admin_category_path(category), :class => :name
+              %br/
+              =link_to "Фотографии", admin_category_path(category), :class => :edit
+              %br/
+              =link_to "Изменить название", edit_admin_category_path(category), :class => :edit
+              %br/
+              =link_to "Удалить", admin_category_path(category), :method => :delete, :confirm => "Вы уверены?"

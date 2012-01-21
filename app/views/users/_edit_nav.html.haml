@@ -1,0 +1,5 @@
+%ul.edit_nav
+  %li=link_to_unless_current "Настройки Профайла", edit_user_path(@user)
+  %li=link_to_unless_current "Настройки Аккаунта", edit_account_user_path(@user)
+  %li=link_to_unless_current "Настройки Календаря", edit_calendar_user_path(@user)
+.cl

@@ -9,8 +9,9 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to(:root, :notice => 'Login successfull.')
+      redirect_to(:root)
     else
+      flash[:error] = 'Электронная почта или пароль неверны'
       render :action => :new
     end
   end

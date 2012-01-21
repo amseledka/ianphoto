@@ -10,6 +10,8 @@ gem "rails3-generators"
 gem 'rails-i18n'
 gem 'russian'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
+gem 'use_tinymce', :git => "git://github.com/mikehoward/use_tinymce.git"
+
 group :production do
   gem 'pg'
 	gem 'rack-google_analytics', :require => "rack/google_analytics"

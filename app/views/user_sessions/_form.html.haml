@@ -1,4 +1,5 @@
 = form_for(@user_session) do |f|
+  %p.error_message= flash[:error]
   .field
     = f.label "Электронная почта"
     %br/

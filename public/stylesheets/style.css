@@ -16,6 +16,11 @@ body {
 	font-family: Georgia;
 }
 
+.error_message {
+  color: #cc0000;
+  font-weight: bold;
+}
+
 .hidden {
   display: none !important;
 }
@@ -426,4 +431,23 @@ footer.sticky {
   bottom: 0;
   width: 100%;
 }
+
+ul.edit_nav {
+  display: block;
+  clear: both;
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+  float: none;
+}
+
+ul.edit_nav li {
+  display: inline-block;
+  padding: 10px;
+  background: #eee;
+  font-weight: bold;
+}
+
+ul.edit_nav li a {
+  font-weight: normal;  
 }

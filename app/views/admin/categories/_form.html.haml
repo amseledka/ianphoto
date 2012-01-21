@@ -1,5 +1,9 @@
 -category ||= @category
 -form_for [:admin, category] do |f|
-  %label{:for => :name} Название альбома:
+  %label{:for => :name} 
+    -if category.new_record?
+      Добавить альбом с названием:
+    -else
+      Изменить название альбома:
   =f.text_field :name
-  =f.submit "Сохранить"
+  =f.submit category.new_record? ? "Добавить" : "Сохранить"

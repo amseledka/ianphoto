@@ -13,4 +13,6 @@ jQuery(function($) {
     }
     return false;
   });
+
+  stickFooter();
 });

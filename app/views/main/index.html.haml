@@ -30,6 +30,6 @@
       %li
         .article
           %h3= link_to static_page.name, static_page
-          %p= static_page.teaser
+          %p= strip_tags static_page.teaser
           %p
             %small= link_to "Читать дальше", static_page

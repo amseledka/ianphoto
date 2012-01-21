@@ -6,7 +6,7 @@ class StaticPage < ActiveRecord::Base
   
   before_save :parameterize_slug
 
-  default_scope :order => "static_pages.position ASC"
+  default_scope :order => "static_pages.created_at DESC"
 
   scope :latest, order("static_pages.created_at DESC")
 

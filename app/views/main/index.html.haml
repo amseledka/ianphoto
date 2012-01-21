@@ -17,22 +17,24 @@
     %p= Vydumschik::Lorem.paragraph
     %p= Vydumschik::Lorem.paragraph
 
+  -if @users.present?
   %h2 
     =link_to "Фотографы ассоциации", users_path
 
-  #photographers_spotlight
-    - @users.each do |user|
-      =link_to user do
-        =image_tag user.avatar.url(:vertical_thumb), :title => user.to_s
-  =link_to "и другие &rarr;".html_safe, users_path
+    #photographers_spotlight
+      - @users.each do |user|
+        =link_to user do
+          =image_tag user.avatar.url(:vertical_thumb), :title => user.to_s
+    =link_to "и другие &rarr;".html_safe, users_path
 
-  %h2 
-    =link_to "Последние публикации", static_pages_path
-  %ul#latest_publications
-    - @static_pages.each do |static_page|
-      %li
-        .article
-          %h3= link_to static_page.name, static_page
-          %p= strip_tags static_page.teaser
-          %p
-            %small= link_to "Читать дальше", static_page
+  -if @static_pages.present?
+    %h2 
+      =link_to "Последние публикации", static_pages_path
+    %ul#latest_publications
+      - @static_pages.each do |static_page|
+        %li
+          .article
+            %h3= link_to static_page.name, static_page
+            %p= strip_tags static_page.teaser
+            %p
+              %small= link_to "Читать дальше", static_page

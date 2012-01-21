@@ -18,14 +18,14 @@
     %p= Vydumschik::Lorem.paragraph
 
   -if @users.present?
-  %h2 
-    =link_to "Фотографы ассоциации", users_path
+    %h2 
+      =link_to "Фотографы ассоциации", users_path
 
-    #photographers_spotlight
-      - @users.each do |user|
-        =link_to user do
-          =image_tag user.avatar.url(:vertical_thumb), :title => user.to_s
-    =link_to "и другие &rarr;".html_safe, users_path
+      #photographers_spotlight
+        - @users.each do |user|
+          =link_to user do
+            =image_tag user.avatar.url(:vertical_thumb), :title => user.to_s
+      =link_to "и другие &rarr;".html_safe, users_path
 
   -if @static_pages.present?
     %h2 

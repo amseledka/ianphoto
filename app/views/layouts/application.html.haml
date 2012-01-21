@@ -70,8 +70,6 @@
           &nbsp; &nbsp;
           = link_to "Выйти", :logout
         - else
-          = link_to "Регистрация", new_user_path
-          &bull;
           = link_to "Войти", :login
     - unless flash.empty?
       %script{ :type => "text/javascript" }

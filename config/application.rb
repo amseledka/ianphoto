@@ -18,5 +18,9 @@ module Ianphoto
     if Rails.env == "production"
       config.middleware.use("Rack::GoogleAnalytics", :web_property_id => SHADOW["ga_code"])
     end
+
+    if Rails.env == "staging"
+      config.action_mailer.default_url_options = { :host => "http://178.79.162.196:8089/" }
+    end
   end
 end

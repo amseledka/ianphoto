@@ -9,6 +9,9 @@ function stickFooter() {
 
 $(document).ready(function() {
   stickFooter();
+  $("img").baked(function() {
+    stickFooter();
+  });
 });
 
 $(window).resize(function() {

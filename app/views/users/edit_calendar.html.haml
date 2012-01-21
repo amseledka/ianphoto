@@ -9,10 +9,7 @@
   
 - @page_title = "Настройки Календаря"
 .edit_profile
-  .edit_nav
-    =link_to_unless_current "Настройки Профайла", edit_user_path(@user)
-    =link_to_unless_current "Настройки Аккаунта", edit_account_user_path(@user)
-    =link_to_unless_current "Настройки Календаря", edit_calendar_user_path(@user)
+  = render "users/edit_nav"
   %h2 Календарь
   %br
   .calendar_tab
@@ -24,7 +21,9 @@
         .free_day 16
         &mdash; день свободен
       %li
-        Клик по дате изменит ее состояние
+        %small 
+          %p Кликните по свободной дате чтобы пометить ее как занятую. 
+          %p Кликните снова чтобы освободить дату.
     %ul.calendar_months
       = full_year_calendar do |desired_date|
         - calendar_record ||= current_user.calendar_records.by_date(desired_date)

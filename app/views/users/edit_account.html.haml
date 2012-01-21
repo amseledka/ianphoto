@@ -3,9 +3,7 @@
 
 - @page_title = "Настройки Аккаунта"
 .edit_profile
-  .edit_nav
-    =link_to_unless_current "Настройки Профайла", edit_user_path(@user)
-    =link_to_unless_current "Настройки Аккаунта", edit_account_user_path(@user)
-    =link_to_unless_current "Настройки Календаря", edit_calendar_user_path(@user)
+  = render "users/edit_nav"
   %h2 Изменить адрес электронной почты или пароль
+  %small Эти данные используются для входа в ваш аккаунт. Оставьте поля ввода пароля пустыми если не хотите менять пароль.
   = render "signup_form"

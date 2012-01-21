@@ -1,4 +1,5 @@
 class Admin::StaticPagesController < ApplicationController
+  use_tinymce :all
 
   def new
     @static_page = StaticPage.new

@@ -8,10 +8,7 @@
   
 - @page_title = "Настройки"
 .edit_profile
-  .edit_nav
-    =link_to_unless_current "Настройки Профайла", edit_user_path(@user)
-    =link_to_unless_current "Настройки Аккаунта", edit_account_user_path(@user)
-    =link_to_unless_current "Настройки Календаря", edit_calendar_user_path(@user)
+  = render "users/edit_nav"
   %h2 Основная информация
   = render "form"
 

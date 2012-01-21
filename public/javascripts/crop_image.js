@@ -6,7 +6,11 @@ jQuery(function($) {
       width: $croppable.width(),
       height: $croppable.height()
     };
-    ratio = 2;
+    if(original_size.width < 1600 && original_size.height < 1600) {
+      ratio = 2;    
+    } else {
+      ratio = 4;
+    }
     smaller_size = {
       width: Math.round(original_size.width/ratio),
       height: Math.round(original_size.height/ratio)

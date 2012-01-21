@@ -46,7 +46,9 @@ class Admin::CategoriesController < ApplicationController
   def arrange
     respond_to do |format|
       if @category_ids = params[:categories].fetch(:category_id, nil)
-        @category_ids = Array.wrap(@category_ids).reject {|c_id| !current_user.category_ids.include?(c_id)}
+        @category_ids = Array.wrap(@category_ids).reject {|c_id| !current_user.category_ids.include?(c_id.to_i)}
+        logger.info "CATEO"
+        logger.info @category_ids
         Category.set_order_on!(@category_ids)
         format.js { head :ok }
       else

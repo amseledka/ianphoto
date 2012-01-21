@@ -74,17 +74,15 @@ jQuery(function($) {
     $.preloadImage(photos_collection, previous_position);
   }
 
-  if(!Modernizr.touch) {
-    $next_link.bind("mouseenter", function() {
-      $("#next_thumbnail").fadeIn("fast");
-    });
-    $prev_link.bind("mouseenter", function() {
-      $("#prev_thumbnail").fadeIn("fast");
-    });
-    $(".current:first").live("mousemove", function() {
-      $(".thumbnail").hide();
-    });
-  }
+  $next_link.bind("mouseenter", function() {
+    $("#next_thumbnail").fadeIn("fast");
+  });
+  $prev_link.bind("mouseenter", function() {
+    $("#prev_thumbnail").fadeIn("fast");
+  });
+  $(".current:first").live("mousemove", function() {
+    $(".thumbnail").hide();
+  });
 
   $(".description_trigger").click(function() {
     $(".description_container").toggleClass("obscure", "fast");

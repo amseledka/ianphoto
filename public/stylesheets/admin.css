@@ -1,9 +1,15 @@
 #content {
+  width: 80%;
   padding-bottom: 40px;
+  margin-left: 10%;
 }
 #content.crop_photo {
-  width: 920px;
 }
+
+#content.crop_photo .croppable {
+  width: 400px;
+}
+
 #content .albums_list ul.categories {
 	list-style: none;
 	padding: 0;
@@ -15,8 +21,8 @@
   width: 200px;
   margin: 10px;
   height: 200px;
-  margin: 10px;
-
+  margin: 10px 10px 100px 10px;
+  background: #eee;
 }
 
 #content .albums_list ul.categories li img {
@@ -25,12 +31,21 @@
   top: 0;
   width: 200px;
   height: 200px;
-
 }
 
 #content .albums_list ul.categories li .caption {
 	position: absolute;
 	top: 210px;
+}
+
+#content .albums_list ul.categories li .caption a.name {
+  color: #444;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#content .albums_list ul.categories li .caption a {
+  font-size: 11px;
 }
 
 #content #album ul {
@@ -43,10 +58,12 @@
   position: relative;
   width: 300px;
   margin: 10px;
+  margin-bottom: 60px;
 }
 
 #content #album ul li a {
   text-decoration: none;
+  font-size: 11px;
 }
 
 #content #album ul li a img {

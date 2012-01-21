@@ -5,8 +5,7 @@
 
 - @page_title = "Обрезать фотографию" 
 
-
-#content.crop_photo
+.crop_photo
   %h2 Обрезать фотографию
   %p Откорректируйте нужный размер и форму рамки, перетащите ее, затем нажмите Обрезать. 
   =image_tag @photo.picture(:original), :class => :croppable
@@ -14,23 +13,23 @@
     -%w(x y w h x2 y2).each do |attr|
       =f.hidden_field "crop_#{attr}", :id => "crop_#{attr}"
     =f.hidden_field :crop_needed, :id => "crop_needed"
-    %p В случае, если вы попали на эту страницу, чтобы снова обрезать фотографию, имейте в виду, что хотя отображается необрезнанная версия фотографии, текущая версия (обрезанная) не изменится, если вы не будете трогать края рамки кадрирования. Мы можете также вернуть полную фотографию выбрав:
+    %p Здесь отображается необрезанная версия фотографии. Текущая версия не измениться если не трогать края рамки кадрирования. Чтобы сбросить настройки кадрирования, выберите этот чекбокс
     %p
       =f.check_box :reset_cropping
       =f.label :reset_cropping, "Вернуть полную фотографию обратно"
     %p в этом случае будет отображаться фотография в том виде, в котором она была после загрузки 
     -# All nested is Comment 
-      %h3 Choose the way this picture should be aligned when browser window is resized
-      %div{:class => "alignment_preview #{@photo.alignment}"}
-        =image_tag @photo.picture(:small)
-        .border
-      -["top", "center", "bottom"].each do |alignment_type|
-        %p
-          =f.radio_button :vertical_alignment, alignment_type, :class => :vertical_alignment, :checked => alignment_type.eql?(@photo.alignment)
-          =f.label :vertical_alignment, alignment_type.humanize, :value => alignment_type
-      .cl
+      / %h3 Choose the way this picture should be aligned when browser window is resized
+      / %div{:class => "alignment_preview #{@photo.alignment}"}
+      /   =image_tag @photo.picture(:small)
+      /   .border
+      / -["top", "center", "bottom"].each do |alignment_type|
+      /   %p
+      /     =f.radio_button :vertical_alignment, alignment_type, :class => :vertical_alignment, :checked => alignment_type.eql?(@photo.alignment)
+      /     =f.label :vertical_alignment, alignment_type.humanize, :value => alignment_type
+      / .cl
     %p
       =f.submit "Обрезать"
       &nbsp;
       =link_to "Отмена", admin_category_path(@photo.category_id)
-    %p Необходимо несколько секунд, чтоб наши кропотливые гномы обрезали фотографию. Если вы не увидите нужного результата - перезагрузите страницу альбома.
+    %p Необходимо несколько секунд, чтоб наши кропотливые гномы обрезали фотографию. Если вы не увидите нужного результата сразу - перезагрузите страницу альбома.

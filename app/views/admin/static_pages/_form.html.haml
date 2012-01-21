@@ -3,13 +3,10 @@
     =f.label "Заголовок"
     =f.text_field :name
   %p
-    =f.label "Название ссылки (на англ.)"
+    =f.label "Название ссылки (на англ.) - http://domain.com/"
     =f.text_field :slug
   %p
     =f.label "Текст"
-    (Используйте
-    =link_to "разметку", "http://warpedvisions.org/projects/textile-cheat-sheet/", :target => :_blank
-    )
   %p
     =f.text_area :body, :size => "100x30"
   %p

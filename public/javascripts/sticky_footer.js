@@ -1,11 +1,16 @@
 function stickFooter() {
-  if($("body").height() < $(window).height()) {
+  if($("footer").offset().top+$("footer").height() < $(window).height()) {
     $("footer").addClass("sticky");
-  } else {
+  } 
+  if($("body").height()+$("footer").height() > $(window).height()) {
     $("footer").removeClass("sticky");      
   }
 }
 
 $(document).ready(function() {
+  stickFooter();
+});
+
+$(window).resize(function() {
   stickFooter();
 });

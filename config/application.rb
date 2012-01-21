@@ -20,7 +20,8 @@ module Ianphoto
     end
 
     if Rails.env == "staging"
-      config.action_mailer.default_url_options = { :host => "http://178.79.162.196:8089/" }
+      config.action_mailer.delivery_method = :sendmail
+      config.action_mailer.default_url_options = { :host => "178.79.162.196:8089" }
     end
   end
 end

@@ -3,10 +3,13 @@
 
 #showcase
   .pusher
-    #big_photo= render "photos/photo_with_caption", :photo => @big_photo, :size => :processed, :no_caption => true
-    #small_photos= render :partial => "photos/photo_with_caption", :collection => @photos
+    -if @big_photo.present?
+      #big_photo= render "photos/photo_with_caption", :photo => @big_photo, :size => :processed, :no_caption => true
+    -if @photos.present?
+      #small_photos= render :partial => "photos/photo_with_caption", :collection => @photos
   %ul.photographers_list
-    =render @big_photo.user
+    -if @big_photo.present?
+      =render @big_photo.user
 
 .bottleneck
   .article

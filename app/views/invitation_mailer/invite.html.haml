@@ -1,2 +1,5 @@
-Вы были приглашены на сайт Украинской Ассоциации Свадебной Фотожурналистики
-= redeem_invitation_url(@invite.invite_code)
+Вы были приглашены на сайт Украинской Ассоциации Свадебной Фотожурналистики.
+= link_to "Зарегистрироваться", redeem_invitation_url(@invite.invite_code)
+%br/
+Или скопируйте эту ссылку в адресную строку браузера: 
+= link_to "Зарегистрироваться", redeem_invitation_url(@invite.invite_code)

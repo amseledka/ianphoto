@@ -207,16 +207,24 @@ body {
 ul.photographers_list {
   font-size: 0px;
   padding: 0;
-  text-align: center;
+  text-align: left;
+  vertical-align: top;
   list-style-type: none;
 }
 
 ul.photographers_list li {
   font-size: 12px;
   text-align: left;
-  margin: 20px 0;
+  width: 45%;
+  height: 200px;
+  overflow: hidden;
+  display: inline-block;
   background: #eee;
   border: 1px solid #eee;
+  vertical-align: top;
+  margin: 10px 20px 10px 0;
+  padding-bottom: 10px;
+  position: relative;
 }
 
 ul.photographers_list li a {
@@ -235,16 +243,20 @@ ul.photographers_list li:hover {
 
 ul.photographers_list li .thumbnail {
   float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
   margin: 20px 0px 20px 0;
   padding: 0 20px;
 }
 
 ul.photographers_list li .thumbnail img {
-  width: 200px;
+  width: 120px;
   border: 1px solid #ccc;
 }
 
 ul.photographers_list li .meta {
+  margin-left: 160px;
 }
 
 ul.photographers_list li .description {
@@ -254,7 +266,7 @@ ul.photographers_list li .description {
 
 ul.photographers_list h3 {
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   color: #333;
   padding: 20px 0 10px 0;
   margin: 0;

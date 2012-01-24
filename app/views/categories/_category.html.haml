@@ -5,4 +5,4 @@
     %ul.category_preview
       - if (preview_photos = category.photos.take(8)).present?
         - preview_photos.each do |photo|
-          %li= image_tag photo.picture.url(:thumb), :height => 200
+          %li= image_tag photo.picture.url(:thumb), :height => 120

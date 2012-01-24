@@ -6,5 +6,5 @@
       %h3
         = user
       .description
-        = user.about
+        = truncate user.about, :length => 400
     .cl

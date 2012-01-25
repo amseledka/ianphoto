@@ -151,6 +151,21 @@ ul.photographers_list {
 ul.photographers_list li{
   position: relative;
   border-radius: 5px;
+  display: block;
+  width: auto;
+  margin-right: 30%;
+  overflow: visible;
+  margin-top: 20px;
+}
+
+ul.photographers_list li h3{
+  font-size: 24px;
+}
+
+ul.photographers_list li .meta .description {
+  color: #555;
+  font-size: 14px;
+  margin-right: 20px;
 }
 
 ul.photographers_list li:before {

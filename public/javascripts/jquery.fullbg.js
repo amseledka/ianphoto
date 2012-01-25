@@ -22,18 +22,15 @@
       width: (win.width / img.width),
       height: (win.height / img.height)
     }
-    var diff = {
-      width: (ratio.height * img.width),
-      height: (ratio.width * img.height)
-    }
-    if((diff.height > win.height) && img_ratio > 1) {
+
+    if((img.width > 900) && img_ratio > 1) {
       bgImg.css({
-        width: win.width + 'px',
+        width: '900px',
         height: 'auto'
       });
-    } else {
+    } else if(img.height > 900 && img_ratio < 1){
       bgImg.css({
-        height: win.height + 'px',
+        height: '900px',
         width: 'auto'
       });		
     }

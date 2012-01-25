@@ -44,12 +44,12 @@ table.calendar td .day {
 
 table.calendar td .day small {
   font-size: 11px;
-  display: none;
+  visibility: hidden;
   color: #777;
 }
 
 table.calendar td:hover .day small {
-  display: inline;
+  visibility: visible;
 }
 
 table.calendar ul.free_users {

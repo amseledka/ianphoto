@@ -80,7 +80,8 @@ jQuery(function($) {
   $prev_link.bind("mouseenter", function() {
     $("#prev_thumbnail").fadeIn("fast");
   });
-  $(".current:first").live("mousemove", function() {
+
+  $(".current:first, .curtain, .backup_curtain").live("mousemove", function() {
     $(".thumbnail").hide();
   });
 
@@ -90,11 +91,14 @@ jQuery(function($) {
     return false;
   });
 
-  $(".current, .curtain, .backup_curtain").live("click", function(event) {
+  $(".current:first, .curtain, .backup_curtain").live("click", function(event) {
     if($(".description_trigger").hasClass("pushed_down")) {
       $(".description_trigger").click();
-      event.preventDefault();
     }
+    else {
+      $next_link.click();
+    }
+    event.preventDefault();
   });
 
   $next_link.click(function() {

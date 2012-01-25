@@ -14,5 +14,14 @@ jQuery(function($) {
     return false;
   });
 
+  $("#date_nav_button").click(function() {
+    month = $("#date_month").val();
+    year = $("#date_year").val();
+    desired_date = year+"-"+month+"-1";
+    current_location = window.location.href.split("?")[0];
+    window.location = current_location+"?month="+desired_date;
+    return false;
+  });
+
   stickFooter();
 });

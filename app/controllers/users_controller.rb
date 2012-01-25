@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end
   
   def edit_calendar
+    @month = params[:month] ? Time.zone.parse(params[:month]).to_date : Date.today.beginning_of_month
     @user = current_user
   end
 

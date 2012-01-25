@@ -15,6 +15,15 @@
   .calendar_tab
     %ul.legend
       %li
+        Перейти к:
+        %br/
+        %small 1-му
+        = select_date @month, :discard_day => true
+        %br/
+        = button_to "Перейти", "", :id => :date_nav_button
+        -if params[:month]
+          %p= link_to "К текущему месяцу", edit_calendar_user_path(current_user)
+      %li
         .busy_day 12
         &mdash; день занят
       %li
@@ -25,6 +34,6 @@
           %p Кликните по свободной дате чтобы пометить ее как занятую. 
           %p Кликните снова чтобы освободить дату.
     %ul.calendar_months
-      = full_year_calendar do |desired_date|
+      = edit_month_calendar(@month) do |desired_date|
         - calendar_record ||= current_user.calendar_records.by_date(desired_date)
         - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record), {:class => calendar_record.new_record? ? "free" : "busy"}]

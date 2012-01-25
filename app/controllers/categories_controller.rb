@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+  def new
+    @category = Category.new
+  end
+
   def index
     @user = User.find(params[:user_id])
     @categories = @user.categories.all

@@ -11,7 +11,6 @@ gem 'rails-i18n'
 gem 'russian'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 gem 'use_tinymce', :git => "git://github.com/mikehoward/use_tinymce.git"
-gem 'jquery-file-upload-rails', :git => "https://github.com/florianguenther/jquery-file-upload-rails.git"
 
 group :production do
   gem 'pg'

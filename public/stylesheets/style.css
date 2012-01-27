@@ -466,3 +466,40 @@ ul.edit_nav li {
 ul.edit_nav li a {
   font-weight: normal;  
 }
+
+.field { 
+  margin-bottom: 10px;
+  width: 400px;
+  float: left;
+  padding: 20px;
+}
+
+.field textarea {
+  width: 70%;
+  height: 120px;
+}
+
+.field.wide {
+  width: 860px;
+  height: auto;
+}
+
+.field small {
+  padding: 10px 0;
+  color: #777;
+  display: block;
+  font-size: 12px;
+} 
+
+.field label {
+  display: block;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.action {
+  width: 100%;
+  clear: both;
+  text-align: left;
+  padding: 20px;
+}

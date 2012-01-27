@@ -1,6 +1,16 @@
 class CategoriesController < ApplicationController
   def new
     @category = Category.new
+    5.times {@category.photos.build}
+  end
+
+  def create
+    @category = Category.new(params[:category])
+    if @category.save
+      redirect_to @category
+    else
+      render :new
+    end
   end
 
   def index

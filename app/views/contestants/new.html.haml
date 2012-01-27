@@ -1,0 +1,23 @@
+.content
+  %h1 Регистрация в конкурсе
+  = form_for @contestant, :html => {:multipart => true} do |f|
+    = @contestant.errors
+    .field
+      = f.label :first_name, "Имя"
+      = f.text_field :first_name
+    .field
+      = f.label :last_name, "Фамилия"
+      = f.text_field :last_name
+    .field.wide    
+      = f.label :email, "Электронная почта"
+      = f.text_field :last_name
+    .field.wide
+      = f.label :city, "Город"
+      = f.text_field :city
+    = f.fields_for :categories do |c|
+      = c.hidden_field :name
+      .field.wide
+        %h3= c.object.name
+        = c.fields_for :photos do |p|
+          = p.file_field :picture
+    .action= f.submit "Подать заявку"

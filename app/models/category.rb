@@ -1,7 +1,10 @@
 class Category < ActiveRecord::Base
   validates_presence_of :name
   belongs_to :user
+  belongs_to :contestant
   has_many :photos
+
+  accepts_nested_attributes_for :photos
 
   default_scope :order => "categories.position ASC"
 

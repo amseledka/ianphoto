@@ -4,7 +4,7 @@ class Photo < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :crop_x2, :crop_y2, :crop_needed, :reset_cropping
   after_update :reprocess_picture, :if => :cropping_attributes_supplied?
 
-  validates_presence_of :category_id
+  validates_associated :category
   validates_attachment_presence :picture
   validates_attachment_content_type :picture, :content_type => ['image/jpeg', 'image/png', 'image/gif']
   validate :only_three_types_of_alignment_shall_stand
@@ -20,11 +20,19 @@ class Photo < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    if name?
+      "#{id}-#{name.parameterize}"
+    else
+      super
+    end
   end
 
   def user
     category.user
+  end
+
+  def contestant
+    category.contestant
   end
 
   def self.to_json_collection(options = nil, &block)

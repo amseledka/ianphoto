@@ -95,7 +95,7 @@ jQuery(function($) {
     if($(".description_trigger").hasClass("pushed_down")) {
       $(".description_trigger").click();
     }
-    else {
+    else if($(".next_link").is(":visible")) {
       $next_link.click();
     }
     event.preventDefault();

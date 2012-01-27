@@ -1,0 +1,6 @@
+- content_for :css do
+  = stylesheet_link_tag "photographer_profile"
+  
+.photographer_profile
+  %ul.galleries
+    = render @contestant.categories

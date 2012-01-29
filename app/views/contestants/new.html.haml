@@ -1,4 +1,7 @@
-.content
+- content_for :css do
+  = stylesheet_link_tag "user_edit"
+
+.edit_profile
   %h1 Регистрация в конкурсе
   = form_for @contestant, :html => {:multipart => true} do |f|
     = @contestant.errors
@@ -14,6 +17,8 @@
     .field.wide
       = f.label :city, "Город"
       = f.text_field :city
+    .field.wide
+      %h3 Загрузите свои работы в одну, несколько или все перечисленные категории:
     = f.fields_for :categories do |c|
       = c.hidden_field :name
       .field.wide

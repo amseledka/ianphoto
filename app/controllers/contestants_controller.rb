@@ -1,4 +1,8 @@
 class ContestantsController < ApplicationController
+  def index
+    @contestants = Contestant.all
+  end
+
   def new 
     @contestant = Contestant.new
     @contestant.build_categories

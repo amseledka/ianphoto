@@ -484,6 +484,12 @@ ul.edit_nav li a {
   height: auto;
 }
 
+.field input {
+  font-size: 14px;
+  padding: 5px;
+  width: 80%;
+}
+
 .field small {
   padding: 10px 0;
   color: #777;

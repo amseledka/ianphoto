@@ -1,0 +1,8 @@
+%li
+  = link_to contestant do
+    .caption
+      %h3= contestant
+    %ul.category_preview
+      - if (preview_photos = contestant.photos.take(8)).present?
+        - preview_photos.each do |photo|
+          %li= image_tag photo.picture.url(:thumb), :height => 120

@@ -4,6 +4,8 @@ class Contestant < ActiveRecord::Base
   has_many :categories
   accepts_nested_attributes_for :categories
 
+  has_many :photos, :through => :categories
+
   def to_s
     [first_name, last_name].compact.join(" ")
   end

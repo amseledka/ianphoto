@@ -2,6 +2,6 @@
   = stylesheet_link_tag "photographer_profile"
   
 .photographer_profile
-  %h2= @contestant
+  %h2 Все участники конкурса
   %ul.galleries
-    = render @contestant.categories
+    = render @contestants

@@ -2,6 +2,7 @@
   = stylesheet_link_tag "photographer_profile"
   
 .photographer_profile
-  %h2 Все участники конкурса
+  %h2 Участники конкурса
+  =link_to "Принять участие в конкурсе", new_contestant_path, :class => :button
   %ul.galleries
     = render @contestants

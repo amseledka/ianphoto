@@ -1,10 +1,14 @@
 - content_for :css do
   = stylesheet_link_tag "user_edit"
 
+- content_for :js do
+  = javascript_include_tag "contest_form"
+
 .edit_profile
   %h1 Регистрация в конкурсе
+  = @contestant.errors
   = form_for @contestant, :html => {:multipart => true} do |f|
-    = @contestant.errors
+    %p.error_msg Пожалуйста, заполните указанные поля
     .field
       = f.label :first_name, "Имя"
       = f.text_field :first_name
@@ -13,7 +17,8 @@
       = f.text_field :last_name
     .field.wide    
       = f.label :email, "Электронная почта"
-      = f.text_field :last_name
+      = f.text_field :email
+      %small Не будет опубликована
     .field.wide
       = f.label :city, "Город"
       = f.text_field :city

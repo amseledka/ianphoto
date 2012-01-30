@@ -10,7 +10,12 @@
   %ul.photographers_list
     -if @big_photo.present?
       =render @big_photo.user
-
+  #contest
+    %h2 Конкурс фотографов!
+    %p= Vydumschik::Lorem.paragraph
+    = link_to "Принять участие", new_contestant_path, :class => :button
+    - if Contestant.count > 0
+      = link_to "Участники конкурса", contestants_path, :class => :contestants_link
 .bottleneck
 
 
@@ -22,7 +27,7 @@
         - @users.each do |user|
           =link_to user do
             =image_tag user.avatar.url(:vertical_thumb), :title => user.to_s
-      =link_to "и другие &rarr;".html_safe, users_path
+      =link_to "и другие &rarr;".html_safe, users_path, :class => :button
 
   -if @static_pages.present?
     %h2 

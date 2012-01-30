@@ -35,21 +35,3 @@ ul.static_pages li .admin_nav a {
   color: #555;
 }
 
-.new_static_page a,
-.edit_static_page a {
-  display: inline-block;
-  padding: 10px;
-  background: #eee;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  text-align: center;
-  box-shadow: 0 0 2px #ccc;
-  color: #333;
-  font-size: 12px;
-  text-decoration: none;
-}
-
-.new_static_page a:hover,
-.edit_static_page a:hover {
-  box-shadow: 0 0 5px #ccc;
-}

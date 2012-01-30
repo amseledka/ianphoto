@@ -7,7 +7,7 @@
   %h2 Публикации нашей ассоциации
   .new_static_page
     - if current_user
-      = link_to "Добавить статью", new_admin_static_page_path
+      = link_to "Добавить статью", new_admin_static_page_path, :class => :button
   -if @static_pages.blank?
     %h3 На данный момент нет публикаций
   -else

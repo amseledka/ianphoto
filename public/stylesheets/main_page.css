@@ -22,6 +22,7 @@
   padding: 5px 0;
   overflow-x: hidden;
   box-shadow: 0 5px 5px #999;
+  position: relative;
 }
 
 #showcase .pusher {
@@ -153,7 +154,7 @@ ul.photographers_list li{
   border-radius: 5px;
   display: block;
   width: auto;
-  margin-right: 30%;
+  margin-right: 45%;
   overflow: visible;
   margin-top: 20px;
 }
@@ -209,4 +210,49 @@ ul.photographers_list li:hover:before {
 #photographers_spotlight img {
   border: 1px solid #ccc;
   height: 160px;
+}
+
+#contest {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 38%;
+  height: 220px;
+  padding: 0 5% 0 0;
+  margin-left: 40px;
+  color: #eee;
+}
+
+#contest p {
+  font-size: 12px;
+}
+
+#contest h2 {
+  font-size: 24px;
+  font-weight: normal;
+  color: #fff;
+  padding: 0;
+}
+
+#contest a.button {
+  margin-top: 10px;
+  background: #3a75c4;
+  color: #f1eee5;
+  border: 0 none;
+  box-shadow: 0 0 5px #222;
+  font-size: 16px;
+  padding: 10px 60px;
+}
+
+#contest a.contestants_link,
+#contest a.contestants_link:hover {
+  color: #f1eee5;
+  margin: 0 20px;
+  font-weight: bold;
+  border-bottom: 1px solid;
+  text-decoration: none;
+}
+
+#contest a.contestants_link:hover {
+  color: #ccc;
 }

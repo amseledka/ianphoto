@@ -2,6 +2,15 @@
   = stylesheet_link_tag "photographer_profile"
   
 .photographer_profile
-  %h2= @contestant
+  %h2
+    = @contestant
+    %small= @contestant.city
+  -if current_user
+    %p
+      E-mail:
+      = link_to @contestant.email, "mailto:#{@contestant.email}"
+      &nbsp;
+      =link_to "Удалить этого участника", @contestant, :method => :delete, :class => :button, :confirm => "Вы уверены?"  
+  = link_to "&larr; Все участники конкурса".html_safe, contestants_path, :class => :button
   %ul.galleries
     = render @contestant.categories

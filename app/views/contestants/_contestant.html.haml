@@ -1,0 +1,17 @@
+%li
+  = link_to contestant do
+    .caption
+      %h3
+        = contestant
+        %small= contestant.city
+    %ul.category_preview
+      - if (preview_photos = contestant.photos.take(8)).present?
+        - preview_photos.each do |photo|
+          %li= image_tag photo.picture.url(:thumb), :height => 120
+  -if current_user
+    %p
+      &nbsp;
+      E-mail:
+      = link_to contestant.email, "mailto:#{contestant.email}"
+      &nbsp;
+      =link_to "Удалить этого участника", contestant, :method => :delete, :class => :button, :confirm => "Вы уверены?"

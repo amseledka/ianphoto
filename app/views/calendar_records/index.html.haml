@@ -8,5 +8,5 @@
 .calendar_page
   %ul.calendar_months
     = month_calendar(@month) do |date|
-      - free_users = @all_users - Array.wrap(@calendar_records[date.midnight.to_i].presence).map(&:user)
-      - [render("calendar_records/date", :date => date, :free_users => free_users), {:class => free_users.present? ? "free" : "busy"}]
+      - busy_users = Array.wrap(@calendar_records[date.midnight.to_i].presence).map(&:user)
+      - [render("calendar_records/date", :date => date, :users => busy_users), {:class => busy_users.blank? ? "free" : "busy"}]

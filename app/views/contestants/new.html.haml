@@ -1,0 +1,33 @@
+- content_for :css do
+  = stylesheet_link_tag "user_edit"
+
+- content_for :js do
+  = javascript_include_tag "contest_form"
+
+.edit_profile
+  %h1 Регистрация в конкурсе
+  = @contestant.errors
+  = form_for @contestant, :html => {:multipart => true} do |f|
+    %p.error_msg Пожалуйста, заполните указанные поля
+    .field
+      = f.label :first_name, "Имя"
+      = f.text_field :first_name
+    .field
+      = f.label :last_name, "Фамилия"
+      = f.text_field :last_name
+    .field.wide    
+      = f.label :email, "Электронная почта"
+      = f.text_field :email
+      %small Не будет опубликована
+    .field.wide
+      = f.label :city, "Город"
+      = f.text_field :city
+    .field.wide
+      %h3 Загрузите свои работы в одну, несколько или все перечисленные категории:
+    = f.fields_for :categories do |c|
+      = c.hidden_field :name
+      .field.wide
+        %h3= c.object.name
+        = c.fields_for :photos do |p|
+          = p.file_field :picture
+    .action= f.submit "Подать заявку"

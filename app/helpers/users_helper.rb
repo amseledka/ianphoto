@@ -14,13 +14,13 @@ module UsersHelper
   def next_month_anchor_link(date = nil)
     date ||= Time.now
     desired_time = date + 1.month
-    link_to(image_tag("arrow_next.png").html_safe, month_anchor(desired_time), :class => "switch_month_link next")
+    link_to(image_tag("arrow_next.png").html_safe, edit_calendar_user_path(current_user, :month => desired_time), :class => "switch_month_link next")
   end
 
   def previous_month_anchor_link(date = nil)
     date ||= Time.now
     desired_time = date - 1.month
-    link_to(image_tag("arrow_back.png").html_safe, month_anchor(desired_time), :class => "switch_month_link prev")
+    link_to(image_tag("arrow_back.png").html_safe, edit_calendar_user_path(current_user, :month => desired_time), :class => "switch_month_link prev")
   end
   
   def calendar_month_path(date)
@@ -46,6 +46,10 @@ module UsersHelper
       }.html_safe
     end
     calendars.join.html_safe
+  end
+
+  def edit_month_calendar(month, &block)
+    render("users/month_calendar", :desired_date => month, :custom_day_content => block_given? ? block : nil).html_safe
   end
   
   def month_calendar(month, &block)

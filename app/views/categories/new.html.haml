@@ -1,0 +1,8 @@
+= @category.errors
+- form_for @category, :html => {:multipart => true} do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  = f.fields_for :photos do |photo|
+    %p= photo.file_field :picture
+  = f.submit

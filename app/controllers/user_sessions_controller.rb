@@ -23,4 +23,3 @@ class UserSessionsController < ApplicationController
     redirect_to(:root, :notice => 'Logout successfull.')
   end
 end
-

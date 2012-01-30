@@ -8,17 +8,13 @@ class Admin::CategoriesController < ApplicationController
     @category = current_user.categories.find(params[:id])
     @photos = @category.photos
   end
-
-  def new
-    @category = current_user.categories.new
-  end
-
+  
   def create
     @category = current_user.categories.new(params[:category])
     if @category.save
       redirect_to admin_categories_path
     else
-      render :new
+      render :index
     end
   end
 

@@ -1,14 +1,15 @@
 .container
   .day
     =date.mday
-    -if free_users.present?
-      %small cвободны:
+    -if users.present?
+      %small Заняты:
     -else
-      %small День полностью занят
+      %small День свободен!
 
   %ul.free_users
-    - free_users.each do |user|
+    - users.each do |user|
       %li
         = link_to user do
           = image_tag(user.avatar.url(:icon), :size => "16x16")
           %span= user
+.cl

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @invite_code = params.delete(:invite_code)
-    @invite = Invite.find_by_invite_code(@invite_code)
+    @invite = Invite.find_by_invite_code!(@invite_code)
     @user.email = @invite.email
     session[:invite_code] = @invite_code #invite code is passed here, not in create
   end
@@ -38,6 +38,7 @@ class UsersController < ApplicationController
   end
   
   def edit_calendar
+    @month = params[:month] ? Time.zone.parse(params[:month]).to_date : Date.today.beginning_of_month
     @user = current_user
   end
 

@@ -42,10 +42,12 @@ img.fullBg {
 
 img {
   background: #000;
+  box-shadow: 0 0 5px #555;
 }
 
 img.current, img.title {
   z-index: 6;
+  cursor: pointer;
 }
 
 img.next {

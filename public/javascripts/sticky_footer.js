@@ -1,9 +1,9 @@
 function stickFooter() {
-  if($("footer").offset().top+$("footer").height() < $(window).height()) {
-    $("footer").addClass("sticky");
+  if($("#footer").offset().top+$("#footer").height() < $(window).height()) {
+    $("#footer").addClass("sticky");
   } 
-  if($("body").height()+$("footer").height() > $(window).height()) {
-    $("footer").removeClass("sticky");      
+  if($("body").height()+$("#footer").height() > $(window).height()) {
+    $("#footer").removeClass("sticky");      
   }
 }
 

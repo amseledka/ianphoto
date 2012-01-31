@@ -423,7 +423,7 @@ ul.photographers_list h3 {
 	margin-top: 10px;
 }
 
-footer {
+#footer {
   background: #ccc;
   text-align: center;
   margin-top: 20px;
@@ -433,7 +433,7 @@ footer {
   min-width: 980px;
 }
 
-footer.sticky {
+#footer.sticky {
   position: absolute;
   bottom: 0;
   width: 100%;

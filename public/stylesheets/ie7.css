@@ -1,0 +1,11 @@
+.ie img {
+  border: 0 !important;
+}
+
+.ie .top_bar ul.main_menu li a small {
+  display: none;
+}
+
+.ie .top_bar ul.main_menu li a:hover small {
+	display: block;
+}

@@ -1,9 +1,10 @@
 !!!
-%html.no-js
+- conditional_html do
   %title= @page_title or "Ассоциация Свадебных Фотографов Украины"
   %head
     =stylesheet_link_tag "style"
     =stylesheet_link_tag "jquery.jgrowl"
+    =stylesheet_link_tag "ie7"
     = javascript_include_tag :defaults
     = csrf_meta_tag
     =javascript_include_tag "jquery_ui"

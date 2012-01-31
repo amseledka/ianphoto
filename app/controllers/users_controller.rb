@@ -36,6 +36,12 @@ class UsersController < ApplicationController
   def edit_account
     @user = current_user
   end
+
+  def calendar
+    @month = params[:month] ? Time.zone.parse(params[:month]).to_date : Date.today.beginning_of_month
+    @user = User.find(params[:id])
+    render :layout => false
+  end
   
   def edit_calendar
     @month = params[:month] ? Time.zone.parse(params[:month]).to_date : Date.today.beginning_of_month
@@ -51,7 +57,4 @@ class UsersController < ApplicationController
     end
   end
   
-  def calendar
-  end
-
 end

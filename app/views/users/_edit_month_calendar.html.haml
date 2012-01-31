@@ -1,0 +1,8 @@
+- calendar(:year => desired_date.year, :month => desired_date.month, :first_day_of_week => 1, :month_header => true, :next_month_text => next_month_edit_link(desired_date), :previous_month_text => previous_month_edit_link(desired_date), :calendar_title => month_header(desired_date)) do |date|
+  - if custom_day_content
+    - custom_day_content.call(date)
+  - else
+    - if @user.calendar_records.exists?(:date => date.midnight)
+      - [date.mday, {:class => "busy"}]
+    - else
+      - [date.mday, {:class => "free"}]

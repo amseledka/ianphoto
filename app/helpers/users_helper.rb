@@ -11,13 +11,13 @@ module UsersHelper
     link_to(image_tag("arrow_back.png").html_safe, calendar_month_path(desired_time), :class => "switch_month_link prev")
   end
   
-  def next_month_anchor_link(date = nil)
+  def next_month_edit_link(date = nil)
     date ||= Time.now
     desired_time = date + 1.month
     link_to(image_tag("arrow_next.png").html_safe, edit_calendar_user_path(current_user, :month => desired_time), :class => "switch_month_link next")
   end
 
-  def previous_month_anchor_link(date = nil)
+  def previous_month_edit_link(date = nil)
     date ||= Time.now
     desired_time = date - 1.month
     link_to(image_tag("arrow_back.png").html_safe, edit_calendar_user_path(current_user, :month => desired_time), :class => "switch_month_link prev")
@@ -25,6 +25,18 @@ module UsersHelper
   
   def calendar_month_path(date)
     calendar_records_path(:month => date.to_date.beginning_of_month.to_s)
+  end
+
+  def user_next_month_link(date = nil)
+    date ||= Time.now
+    desired_time = date + 1.month
+    link_to(image_tag("arrow_next.png").html_safe, calendar_user_path(current_user, :month => desired_time), :class => "switch_month_link next")
+  end
+
+  def user_previous_month_link(date = nil)
+    date ||= Time.now
+    desired_time = date - 1.month
+    link_to(image_tag("arrow_back.png").html_safe, calendar_user_path(current_user, :month => desired_time), :class => "switch_month_link prev")
   end
 
   def month_anchor(date, options = nil)
@@ -39,7 +51,7 @@ module UsersHelper
   end
 
   def full_year_calendar(&block)
-    calendars = (-1..4).map do |month_number|
+    calendars = (-1..1).map do |month_number|
       desired_date = month_number.months.since
       content_tag(:li, :id => month_anchor(desired_date, :include_anchor => false)) {
         render("users/month_calendar", :desired_date => desired_date, :custom_day_content => block_given? ? block : nil).html_safe
@@ -48,11 +60,15 @@ module UsersHelper
     calendars.join.html_safe
   end
 
-  def edit_month_calendar(month, &block)
+  def user_month_calendar(month = Date.today.beginning_of_month, &block)
     render("users/month_calendar", :desired_date => month, :custom_day_content => block_given? ? block : nil).html_safe
   end
+
+  def edit_month_calendar(month, &block)
+    render("users/edit_month_calendar", :desired_date => month, :custom_day_content => block_given? ? block : nil).html_safe
+  end
   
-  def month_calendar(month, &block)
+  def month_calendar(month = Date.today.beginning_of_month, &block)
     render("calendar_records/month_calendar", :desired_date => month, :custom_day_content => block_given? ? block : nil).html_safe
   end
 end

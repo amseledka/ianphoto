@@ -5,6 +5,7 @@ Ianphoto::Application.routes.draw do
   resources :categories
   resources :users do
     member do
+      get 'calendar'
       get 'edit_account'
       get 'edit_calendar'
     end

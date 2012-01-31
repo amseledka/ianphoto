@@ -1,0 +1,4 @@
+- @month ||= Date.today.beginning_of_month
+= user_month_calendar(@month) do |desired_date|
+  - calendar_record ||= @user.calendar_records.by_date(desired_date)
+  - [render("admin/calendar_records/calendar_record", :calendar_record => calendar_record), {:class => calendar_record.new_record? ? "free" : "busy"}]

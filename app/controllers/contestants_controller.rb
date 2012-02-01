@@ -35,7 +35,7 @@ class ContestantsController < ApplicationController
 
   private
     def require_active_contest
-      unless current_user && Contest.current.present?
+      if !current_user && Contest.current.blank?
         redirect_to :root
       end  
     end

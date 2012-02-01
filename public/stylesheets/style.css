@@ -472,8 +472,8 @@ form.errors .error_msg {
 .field { 
   margin-bottom: 10px;
   width: 400px;
-  float: left;
   padding: 20px;
+  display: inline-block;
 }
 
 .field.error input {

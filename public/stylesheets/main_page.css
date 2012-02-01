@@ -160,6 +160,10 @@ ul.photographers_list li{
   margin-top: 20px;
 }
 
+ul.photographers_list.without_contest li{
+  margin-right: 25%;
+}
+
 ul.photographers_list li h3{
   font-size: 24px;
 }

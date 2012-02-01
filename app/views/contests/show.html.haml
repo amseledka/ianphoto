@@ -1,0 +1,9 @@
+- content_for :css do
+  = stylesheet_link_tag "photographer_profile"
+  
+.photographer_profile
+  %h2 
+    Участники конкурса
+    = @contest.name
+  %ul.galleries
+    = render @contestants

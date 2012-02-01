@@ -8,6 +8,9 @@ class Contestant < ActiveRecord::Base
 
   has_many :photos, :through => :categories
 
+  belongs_to :contest
+  before_save :set_contest
+
   def to_s
     [first_name, last_name].compact.join(" ")
   end
@@ -18,4 +21,9 @@ class Contestant < ActiveRecord::Base
       2.times {c.photos.build}
     end
   end
+
+  private
+    def set_contest
+      self.contest = Contest.current
+    end
 end

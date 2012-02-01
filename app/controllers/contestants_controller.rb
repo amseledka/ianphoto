@@ -1,6 +1,8 @@
 class ContestantsController < ApplicationController
+  before_filter :require_active_contest
+
   def index
-    @contestants = Contestant.all
+    @contestants = Contest.current.contestants
   end
 
   def new 
@@ -30,4 +32,11 @@ class ContestantsController < ApplicationController
     @contestant.destroy
     redirect_to contestants_path
   end
+
+  private
+    def require_active_contest
+      unless current_user && Contest.current.present?
+        redirect_to :root
+      end  
+    end
 end

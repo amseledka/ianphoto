@@ -1,0 +1,27 @@
+- content_for :css do
+  = stylesheet_link_tag "static_pages"
+
+- @page_title = "Управление конкурсами"
+
+.static_pages_page
+  %h2 Конкурсы
+  .new_static_page
+    = link_to "Добавить конкурс", new_contest_path, :class => :button
+  -if @contests.blank?
+    %h3 На данный момент нет конкурсов
+  -else
+    %h3 Только один конкурс может быть активен
+    %ul.static_pages
+      - @contests.each do |contest|
+        %li.static_page
+          %h3= link_to contest.name, contest
+          - form_for contest do |f|
+            %small= link_to "Редактировать", edit_contest_path(contest)
+            -if contest.active?
+              %strong Активный
+              = f.hidden_field :active, :value => false
+              = f.submit "Выключить"
+            -else
+              Неактивный
+              = f.hidden_field :active, :value => true
+              = f.submit "Включить"

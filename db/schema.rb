@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127150851) do
+ActiveRecord::Schema.define(:version => 20120201114633) do
 
   create_table "calendar_records", :force => true do |t|
     t.datetime "date"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20120127150851) do
     t.string   "last_name"
     t.string   "email"
     t.string   "city"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "contest_id"
+  end
+
+  create_table "contests", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "rules"
+    t.boolean  "active",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

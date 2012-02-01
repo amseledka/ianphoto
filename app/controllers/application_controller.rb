@@ -6,13 +6,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   layout "application"
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
 
 #  before_filter :load_static_pages, :require_authentication_for_admin
   before_filter :set_locale
   helper_method :current_user_session, :current_user
-  before_filter :mailer_set_url_options
+  before_filter :mailer_set_url_options, :require_user_for_admin
   after_filter :collect_errors
  
   private
@@ -27,6 +25,14 @@ class ApplicationController < ActionController::Base
   end
   
   protected
+    def require_user
+      redirect_to :root if current_user.blank?
+    end
+
+    def require_user_for_admin
+      require_user if self.class.name.split("::").first.eql?("Admin")
+    end
+
     def load_static_pages
       @static_pages = StaticPage.all
     end

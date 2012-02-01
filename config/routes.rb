@@ -23,6 +23,7 @@ Ianphoto::Application.routes.draw do
   match '/:slug.html' => 'static_pages#show', :as => :static_page
   match '/calendar' => 'calendar_records#index', :as => :calendar
   
+  resources :contests
   resources :contestants
 
   resources :users do

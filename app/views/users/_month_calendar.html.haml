@@ -1,4 +1,4 @@
-- calendar(:year => desired_date.year, :month => desired_date.month, :first_day_of_week => 1, :month_header => true, :next_month_text => user_next_month_link(desired_date), :previous_month_text => user_previous_month_link(desired_date), :calendar_title => month_header(desird_date)) do |date|
+- calendar(:year => desired_date.year, :month => desired_date.month, :first_day_of_week => 1, :month_header => true, :next_month_text => user_next_month_link(desired_date), :previous_month_text => user_previous_month_link(desired_date), :calendar_title => month_header(desired_date)) do |date|
   - if custom_day_content
     - custom_day_content.call(date)
   - else

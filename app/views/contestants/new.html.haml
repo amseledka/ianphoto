@@ -34,6 +34,7 @@
       .field.wide
         %p 
           %strong Подавая заявку, вы подтверждаете свое согласие с условиями конкурса:
-        = contest.rules
+        .contest_rules
+          = contest.rules.html_safe
     .action= f.submit "Подать заявку"
       

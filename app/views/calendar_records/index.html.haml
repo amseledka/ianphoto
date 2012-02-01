@@ -2,9 +2,6 @@
   =stylesheet_link_tag "calendar"
   =stylesheet_link_tag "full_screen_calendar"
 
--content_for :js do
-  =javascript_include_tag "calendar"
-
 .calendar_page
   %ul.calendar_months
     = month_calendar(@month) do |date|

@@ -11,9 +11,7 @@
       %span Город: 
       = user.city
   %li
-    %span Ближайшая дата:
-    11.02
-    %small=link_to "календарь", "#", :id => "show_calendar_tab"
+    %small=link_to "Календарь", "#", :id => "show_calendar_tab"
   %li &nbsp;
   - unless user.phone.blank?
     %li 

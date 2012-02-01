@@ -1,5 +1,5 @@
 class ContestsController < ApplicationController
-  use_tinymce
+  use_tinymce :all
   before_filter :require_user
 
   def index

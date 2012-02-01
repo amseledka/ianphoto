@@ -1,2 +1,5 @@
-%h1 Редактирование конкурса
-=render "form"
+- content_for :css do
+  = stylesheet_link_tag "user_edit"
+.edit_profile
+  %h1 Редактирование конкурса
+  =render "form"

@@ -1,5 +1,5 @@
 class Contestant < ActiveRecord::Base
-  CATEGORY_NAMES = ["Свадебная фотография", "Портрет", "Пейзаж", "Натюрморт", "Фото диких животных"]
+  CATEGORY_NAMES = ["Постановочная (арт) свадебная фотография", "Репортажная свадебная фотография", "Портрет жениха", "Портрет невесты", "Эмоции"]
 
   has_many :categories
   accepts_nested_attributes_for :categories

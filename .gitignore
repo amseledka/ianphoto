@@ -7,3 +7,4 @@ config/database.yml
 config/email.yml
 *.rails2
 Gemfile.lock
+*.swp

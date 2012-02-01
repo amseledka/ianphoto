@@ -1,18 +1,15 @@
-- content_for :css do
-  = stylesheet_link_tag "user_edit"
-.edit_profile
-  =form_for @contest do |f|
-    .field.wide
-      =f.label :name, "Название конкурса"
-      =f.text_field :name
-    .field.wide
-      =f.label :description, "Описание конкурса"
-      =f.text_area :description
-    .field.wide
-      =f.label :rules, "Правила конкурса"
-      =f.text_area :rules
-    .action
-      = f.submit
-      %small= link_to "Назад", contests_path
-      -unless @contest.new_record?
-        %p= link_to "Удалить", @contest, :method => :delete, :confirm => "Конкурс будет удален со всеми участниками!"
+=form_for @contest do |f|
+  .field.wide
+    =f.label :name, "Название конкурса"
+    =f.text_field :name
+  .field.wide
+    =f.label :description, "Описание конкурса"
+    =f.text_area :description
+  .field.wide
+    =f.label :rules, "Правила конкурса"
+    =f.text_area :rules
+  .action
+    = f.submit
+    %small= link_to "Назад", contests_path
+    -unless @contest.new_record?
+      %p= link_to "Удалить", @contest, :method => :delete, :confirm => "Конкурс будет удален со всеми участниками!"

@@ -1,5 +1,5 @@
 class Contest < ActiveRecord::Base
-  validates_presence_of :name, :description, :rules
+  validates_presence_of :name, :description
   after_save :deactivate_other_contests, :if => :active?
 
   has_many :contestants, :dependent => :destroy

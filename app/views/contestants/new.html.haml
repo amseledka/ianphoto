@@ -26,8 +26,14 @@
       %h3 Загрузите свои работы в одну, несколько или все перечисленные категории:
     = f.fields_for :categories do |c|
       = c.hidden_field :name
-      .field.wide
+      .field
         %h3= c.object.name
         = c.fields_for :photos do |p|
           = p.file_field :picture
+    -if (contest = Contest.current) && contest.rules?
+      .field.wide
+        %p 
+          %strong Подавая заявку, вы подтверждаете свое согласие с условиями конкурса:
+        = contest.rules
     .action= f.submit "Подать заявку"
+      

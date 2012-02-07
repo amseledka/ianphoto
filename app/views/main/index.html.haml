@@ -15,6 +15,7 @@
     %p= contest.description.html_safe
     = link_to "Принять участие", new_contestant_path, :class => "contest button"
     - if contest.contestants.count > 0
+      &nbsp;&nbsp;
       = link_to "Участники конкурса", contestants_path, :class => :contestants_link
 
   -if @users.present?

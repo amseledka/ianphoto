@@ -81,15 +81,15 @@
   text-decoration: underline;
 }
 
-#showcase #small_photos a .caption {
+#showcase a .caption {
   display: none;
 }
 
-#showcase #small_photos a:hover .caption {
+#showcase a:hover .caption {
   display: block;
 }
 
-#showcase #small_photos a .caption h3 {
+#showcase a .caption h3 {
   font-size: 12px;
 }
 
@@ -146,55 +146,6 @@ ul#latest_publications .article h3 a:hover {
   text-decoration: underline;
 }
 
-ul.photographers_list {
-  margin: 0 5%;
-}
-
-ul.photographers_list li{
-  position: relative;
-  border-radius: 5px;
-  display: block;
-  width: auto;
-  margin-right: 45%;
-  overflow: visible;
-  margin-top: 20px;
-}
-
-ul.photographers_list.without_contest li{
-  margin-right: 25%;
-}
-
-ul.photographers_list li h3{
-  font-size: 24px;
-}
-
-ul.photographers_list li .meta .description {
-  color: #555;
-  font-size: 14px;
-  margin-right: 20px;
-}
-
-ul.photographers_list li:before {
-  content: "";
-  font-size: 1px;
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #eee;
-  left: 80px;
-  top: -20px;
-}
-
-ul.photographers_list li:hover {
-  box-shadow: none;
-}
-
-ul.photographers_list li:hover:before {
-  border-bottom: 20px solid #f1eee5;
-}
 
 .bottleneck {
   width: 80%;
@@ -239,16 +190,6 @@ ul.photographers_list li:hover:before {
   padding: 0;
 }
 
-#contest a.button {
-  margin-top: 10px;
-  background: #3a75c4;
-  color: #f1eee5;
-  border: 0 none;
-  box-shadow: 0 0 5px #222;
-  font-size: 16px;
-  padding: 10px 60px;
-}
-
 #contest a.contestants_link,
 #contest a.contestants_link:hover {
   color: #f1eee5;
@@ -261,3 +202,14 @@ ul.photographers_list li:hover:before {
 #contest a.contestants_link:hover {
   color: #ccc;
 }
+
+a.button.contest {
+  margin-top: 10px;
+  background: #3a75c4;
+  color: #f1eee5 !important;
+  border: 0 none;
+  box-shadow: 0 0 3px #777;
+  font-size: 16px;
+  padding: 10px 60px;
+}
+

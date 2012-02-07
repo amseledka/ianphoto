@@ -41,12 +41,11 @@ body {
 
 .top_bar .logo {
   position: absolute;
-  height: 64px;
-  left: 0;
-  top: 0;
-  color: #ddd;
-  margin: 8px 10px;
-  font-family: Georgia;
+  width: 400px;
+  height: 80px;
+  left: -55px;
+  top: -5px;
+  background: url(/images/logo.png);
 }
 
 .top_bar .logo em {

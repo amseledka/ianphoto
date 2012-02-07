@@ -3,6 +3,6 @@ class MainController < ApplicationController
     @photos = Photo.shuffled.take(20)
     @big_photo = @photos.shift
     @static_pages = StaticPage.latest.take(3)
-    @users = User.shuffled - (@big_photo.present? ? [@big_photo.user] : [])
+    @users = User.shuffled.take(2)
   end
 end

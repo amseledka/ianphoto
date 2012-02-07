@@ -23,7 +23,8 @@
       =link_to "Фотографы ассоциации", users_path
     %ul.photographers_list
       =render @users
-      =link_to "и другие &rarr;".html_safe, users_path, :class => :button
+    .cl
+    =link_to "и другие &rarr;".html_safe, users_path, :class => :button
 
   -if @static_pages.present?
     %h2 

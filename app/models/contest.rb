@@ -9,7 +9,7 @@ class Contest < ActiveRecord::Base
   end
 
   def categories
-    self.category_names.gsub("\r\n", "\n").gsub("\r", "\n").split("\n")
+    self.category_names.to_s.gsub("\r\n", "\n").gsub("\r", "\n").split("\n")
   end
 
   private

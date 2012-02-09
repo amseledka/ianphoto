@@ -7,13 +7,13 @@ class ContestantsController < ApplicationController
 
   def new 
     @contestant = Contestant.new
-    @contestant.build_categories
+    @contestant.build_categories(Contest.current.categories)
   end
 
   def create
     @contestant = Contestant.new(params[:contestant])
     @contestant.categories.reject! do |c|
-      !Contestant::CATEGORY_NAMES.include?(c.name) || c.photos.blank?
+      !(Contest.current.categories || Contestant::CATEGORY_NAMES).include?(c.name) || c.photos.blank?
     end
     if @contestant.save
       redirect_to @contestant

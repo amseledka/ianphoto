@@ -8,6 +8,10 @@ class Contest < ActiveRecord::Base
     Contest.where(:active => true).first
   end
 
+  def categories
+    self.category_names.gsub("\r\n", "\n").gsub("\r", "\n").split("\n")
+  end
+
   private
     def deactivate_other_contests
       Contest.where("id != ?", self.id).update_all(:active => false)

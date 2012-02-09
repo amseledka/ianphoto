@@ -1,4 +1,4 @@
-#content {
+content {
   padding: 0;
   background: rgb(224,224,224); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(224,224,224,1) 0%, rgba(255,255,255,1) 21%); /* FF3.6+ */
@@ -140,7 +140,6 @@ ul#latest_publications .article h3 {
   font-weight: normal;
   margin: 10px 0 0 0;
   padding: 0 0 5px 0;
-  text-transform: capitalize;
   border-bottom: 1px solid #ccc;
 }
 

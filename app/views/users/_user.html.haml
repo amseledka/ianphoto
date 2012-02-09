@@ -6,5 +6,5 @@
       %h3
         = user
       .description
-        = truncate user.about, :length => 320
+        = truncate strip_tags(user.about), :length => 250
     .cl

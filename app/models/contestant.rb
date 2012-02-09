@@ -15,8 +15,9 @@ class Contestant < ActiveRecord::Base
     [first_name, last_name].compact.join(" ")
   end
 
-  def build_categories
-    CATEGORY_NAMES.each do |category_name|
+  def build_categories(category_names)
+    category_names ||= CATEGORY_NAMES
+    category_names.each do |category_name|
       c = categories.build(:name => category_name)
       2.times {c.photos.build}
     end

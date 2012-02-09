@@ -8,6 +8,9 @@
   .field.wide
     =f.label :rules, "Правила конкурса"
     =f.text_area :rules, :class => "mceEditor"
+  .field.wide
+    =f.label :category_names, "Категории в конкурсе (одна на строку). Изменение не затронет уже поданные заявки"
+    =f.text_area :category_names
   .action
     = f.submit
     %small= link_to "Назад", contests_path

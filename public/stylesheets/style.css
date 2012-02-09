@@ -484,6 +484,10 @@ form.errors .error_msg {
   height: 120px;
 }
 
+.field textarea.mceEditor {
+  height: 400px;
+}
+
 .field.wide {
   width: 860px;
   height: auto;

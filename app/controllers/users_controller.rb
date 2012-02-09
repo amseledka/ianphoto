@@ -1,5 +1,6 @@
 # encoding: utf-8
 class UsersController < ApplicationController
+  uses_tiny_mce
 
   def show
     @user = User.find(params[:id])

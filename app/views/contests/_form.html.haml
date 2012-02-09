@@ -4,10 +4,10 @@
     =f.text_field :name
   .field.wide
     =f.label :description, "Описание конкурса"
-    =f.text_area :description
+    =f.text_area :description, :class => "mceEditor"
   .field.wide
     =f.label :rules, "Правила конкурса"
-    =f.text_area :rules
+    =f.text_area :rules, :class => "mceEditor"
   .action
     = f.submit
     %small= link_to "Назад", contests_path

@@ -24,6 +24,6 @@
     = f.text_field :skype
   .field.wide
     = f.label "О себе"
-    = f.text_area :about
+    = f.text_area :about, :class => "mceEditor"
   = hidden_field_tag(:on, :edit)
   .action= f.submit "Сохранить"

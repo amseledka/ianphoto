@@ -123,10 +123,20 @@ ul#latest_publications li {
   display: inline-block;
   width: 30%;
   margin: 10px 3% 0 0;
+  text-align: justify;
+  vertical-align: top;
+}
+
+ul#latest_publications.cols1 li {
+  width: 90%;
+}
+
+ul#latest_publications.cols2 li {
+  width: 45%;
 }
 
 ul#latest_publications .article h3 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: normal;
   margin: 10px 0 0 0;
   padding: 0 0 5px 0;

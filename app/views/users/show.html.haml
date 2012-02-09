@@ -11,9 +11,9 @@
 
 .photographer_profile
   %ul.menu
-    %li#photos.current= link_to "Фотографии", "#"
-    %li#info= link_to "Контактная информация", "#"
-    %li#calendar= link_to "Календарь", "#"
+    %li#photos.current= link_to "Фотографії", "#"
+    %li#info= link_to "Контактна информація", "#"
+    %li#calendar= link_to "Календар", "#"
   %h2
     = "#{@user.first_name}&nbsp;#{@user.last_name}".html_safe
 
@@ -26,22 +26,22 @@
       = render "users/contact_info"
       .description
         -unless @user.about.blank?
-          %h3 О себе
-          = @user.about
+          %h3 Про себе
+          = @user.about.html_safe
     .userpic= image_tag @user.avatar.url(:small)
 
   .tab_content#calendar_tab.hidden
     %ul.legend
       %li
         .busy_day 12
-        &mdash; день занят
+        &mdash; день зайнятий
       %li
         .free_day 16
-        &mdash; день свободен
+        &mdash; день вільний
       %li
-        %small Уточнить информацию и сделать заказ можно по телефону
+        %small Уточнити информацію та зробіті замовлення ви можете по телефону
         = @user.phone
         %br/
-        %small= link_to "Контактная информация", "#", :id => "show_info_tab"
+        %small= link_to "Контактна информація", "#", :id => "show_info_tab"
 
     %ul.calendar_months= render "users/calendar"

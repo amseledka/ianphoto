@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201114633) do
+ActiveRecord::Schema.define(:version => 20120209120820) do
 
   create_table "calendar_records", :force => true do |t|
     t.datetime "date"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20120201114633) do
     t.string   "skype"
     t.string   "invite_id"
     t.boolean  "hidden",              :default => false
+    t.string   "contact_email"
   end
 
 end

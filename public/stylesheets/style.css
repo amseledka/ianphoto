@@ -129,7 +129,7 @@ body {
 
 #content h2 {
   margin-top: 0;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: normal;
   color: #555;
 }
@@ -216,7 +216,7 @@ ul.photographers_list {
 
 ul.photographers_list li {
   font-size: 12px;
-  text-align: left;
+  text-align: justify;
   width: 45%;
   height: 200px;
   overflow: hidden;

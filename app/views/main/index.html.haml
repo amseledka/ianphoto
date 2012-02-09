@@ -13,27 +13,27 @@
   -if contest
     %h2= contest.name
     %p= contest.description.html_safe
-    = link_to "Принять участие", new_contestant_path, :class => "contest button"
+    = link_to "Взяти участь", new_contestant_path, :class => "contest button"
     - if contest.contestants.count > 0
       &nbsp;&nbsp;
-      = link_to "Участники конкурса", contestants_path, :class => :contestants_link
+      = link_to "Учасники конкурсу", contestants_path, :class => :contestants_link
 
   -if @users.present?
     %h2 
-      =link_to "Фотографы ассоциации", users_path
+      =link_to "Фотографи ассоциації", users_path
     %ul.photographers_list
       =render @users
     .cl
-    =link_to "и другие &rarr;".html_safe, users_path, :class => :button
+    =link_to "та інші &rarr;".html_safe, users_path, :class => :button
 
   -if @static_pages.present?
     %h2 
-      =link_to "Последние публикации", static_pages_path
-    %ul#latest_publications
+      =link_to "Останні публікації", static_pages_path
+    %ul#latest_publications{:class => "cols#{@static_pages.count}"}
       - @static_pages.each do |static_page|
         %li
           .article
             %h3= link_to static_page.name, static_page
-            %p= strip_tags static_page.teaser
+            %p= sanitize static_page.teaser
             %p
-              %small= link_to "Читать дальше", static_page
+              %small= link_to "Читати далi", static_page

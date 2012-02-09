@@ -2,9 +2,9 @@
   .day
     =date.mday
     -if users.present?
-      %small Заняты:
+      %small Зайняті:
     -else
-      %small День свободен!
+      %small День вільний!
 
   %ul.free_users
     - users.each do |user|

@@ -1,6 +1,6 @@
 !!!
 - conditional_html do
-  %title= @page_title or "Ассоциация Свадебных Фотографов Украины"
+  %title= @page_title or "Українська Асоціація Весільніх Фотографiв"
   %head
     =stylesheet_link_tag "style"
     =stylesheet_link_tag "jquery.jgrowl"
@@ -25,36 +25,32 @@
         %li
           = link_to users_path do
             .button 
-              Фотографы
+              Фотографи
               %br/
               %small 
-                Выберите понравившегося 
-                %br/
-                и закажите съемку
+                Виберіть фотографа 
         %li
           =link_to :calendar do
             .button 
-              Календарь
+              Календар
               %br/
               %small 
-                Найдите фотографа
+                Знайдіть фотографа
                 %br/
-                на нужную вам дату
+                на потрібну Вам дату
         %li
           =link_to :publications do
             .button
-              Публикации
+              Публикації
               %br/
               %small
-                Узнайте о работе ассоциации 
-                %br/
-                и свадебной фотографии
+                Останні новини асоцації та події у весільній фотографії
     #content
       =yield
     #footer
       &copy;
       =Date.today.year
-      Украинская Ассоциация Свадебных Фотографов
+      Українська Асоціація Весільніх Фотографiв
       #user_nav
         - if current_user
           Добро пожаловать,

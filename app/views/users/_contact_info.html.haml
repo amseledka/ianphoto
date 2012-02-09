@@ -2,13 +2,13 @@
 %ul
   -unless user.price.blank?
     %li 
-      %span Цена: 
+      %span Ціна: 
       от 
       = user.price
-      $ за день съемки
+      $ за день зйомки
   - unless user.city.blank?
     %li 
-      %span Город: 
+      %span Місто: 
       = user.city
   %li
     %small=link_to "Календарь", "#", :id => "show_calendar_tab"
@@ -17,8 +17,11 @@
     %li 
       %span Телефон: 
       = user.phone
+  - unless user.contact_email.blank?
+    %li
+      %span E-mail:
+      = link_to user.contact_email, "mailto:#{user.contact_email}"
   - unless user.skype.blank?
     %li
       %span Skype:
-      = image_tag "http://mystatus.skype.com/smallicon/#{user.skype}", :style => "border: none;", :width => "16"
       = user.skype

@@ -34,6 +34,6 @@
         %li
           .article
             %h3= link_to static_page.name, static_page
-            %p= truncate(strip_tags(static_page.body), :length => 300)
+            %p= truncate(strip_tags(static_page.body), :length => 300).html_safe
             %p
               %small= link_to "Читати далi", static_page

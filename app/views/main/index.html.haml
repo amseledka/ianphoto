@@ -34,6 +34,6 @@
         %li
           .article
             %h3= link_to static_page.name, static_page
-            %p= sanitize static_page.teaser
+            %p= truncate(sanitize(static_page.body), :length => 300)
             %p
               %small= link_to "Читати далi", static_page

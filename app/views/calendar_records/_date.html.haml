@@ -7,7 +7,7 @@
       %small День вільний!
 
   %ul.free_users
-    - users.each do |user|
+    - users.compact.each do |user|
       %li
         = link_to user do
           = image_tag(user.avatar.url(:icon), :size => "16x16")
